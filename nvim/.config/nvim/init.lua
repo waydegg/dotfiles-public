@@ -6,6 +6,7 @@ for k, v in pairs(package.loaded) do
 end
 
 require "waydegg.autocommands"
+require "waydegg.colorscheme"
 require "waydegg.options"
 require "waydegg.keymaps"
 require "waydegg.plugins"

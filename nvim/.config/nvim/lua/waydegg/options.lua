@@ -10,7 +10,6 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.splitbelow = true
-vim.opt.termguicolors = true
 vim.opt.swapfile = false		-- should swap files be disabled?
 vim.opt.undofile = true
 vim.opt.updatetime = 300
@@ -21,3 +20,8 @@ vim.opt.tabstop = 2
 vim.opt.cursorline = false  -- set this later
 vim.opt.signcolumn = "yes"  -- change the color of this mf
 vim.opt.guifont = ""        -- set this later
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.pumblend = 5
+vim.opt.background = "dark"
+
