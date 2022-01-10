@@ -10,4 +10,5 @@ require "waydegg.colorscheme"
 require "waydegg.options"
 require "waydegg.keymaps"
 require "waydegg.plugins"
+require "waydegg.cmp"
 
