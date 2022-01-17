@@ -20,6 +20,7 @@ alias la "ls -A"
 alias ll "exa -l -g --icons"
 alias lla "ll -a"
 alias tree "tree -l -C -a"
+alias g git
 
 # NVM
 function __check_nvm --on-variable PWD --description 'Use nvm node version'
