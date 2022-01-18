@@ -17,7 +17,7 @@ stow -t $HOME nvim  # Just create nvim symlinks
 
 ## Brew
 
-Formulae and Casks listed in `brew/Brewfile` can be installed with Brew's [bundle](https://docs.brew.sh/Manpage#bundle-subcommand) subcommand
+Formulae and Casks listed in `brew/Brewfile` can be installed with Homebrew's [bundle](https://docs.brew.sh/Manpage#bundle-subcommand) subcommand
 
 ## Reference
 
