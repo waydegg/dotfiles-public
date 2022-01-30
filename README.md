@@ -26,4 +26,4 @@ Here are some dotfiles I've taken inspiration from:
 - [craftzdog/dotfiles-public](https://github.com/craftzdog/dotfiles-public)
 - [nickjj/dotfiles](https://github.com/nickjj/dotfiles)
 - [ChristianChiarulli/Machfiles](https://github.com/ChristianChiarulli/Machfiles)
-
+- [ThePrimeagen/.dotfiles](https://github.com/ThePrimeagen/.dotfiles)
