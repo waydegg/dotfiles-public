@@ -60,6 +60,7 @@ cmp.setup({
     format = format_handler
   },
   sources = {
+    { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" }
@@ -75,4 +76,8 @@ cmp.setup({
     ghost_text = true
   }
 })
+
+
+
+
 

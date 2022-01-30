@@ -38,8 +38,8 @@ function ReloadPluginScripts()
     if ext == "vim"
       execute "source" f
     elseif ext == "lua"
-      let b:f_module_name = split(f[:-5], "/")[-1]
-      let b:f_module_path = join(["./plugin", b:f_module_name], "/")
+      let f_module_name = split(f[:-5], "/")[-1]
+      let b:f_module_path = join(["./plugin", f_module_name], "/")
       lua require("plenary.reload").reload_module(vim.b.f_module_path)
       lua require(vim.b.f_module_path)
     endif
@@ -122,12 +122,14 @@ Plug 'gruvbox-community/gruvbox'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-" Plug 'williamboman/nvim-lsp-installer'
 
 " Completions
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-nvim-lua'
+
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
