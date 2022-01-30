@@ -62,6 +62,7 @@ cmp.setup({
   sources = {
     { name = "luasnip" },
     { name = "buffer" },
+    { name = "path" }
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -74,8 +75,4 @@ cmp.setup({
     ghost_text = true
   }
 })
-
-
-
-
 

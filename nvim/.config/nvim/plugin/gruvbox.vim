@@ -7,3 +7,4 @@ colorscheme gruvbox
 " let neosolarized_termtrans = 1
 
 " colorscheme NeoSolarized
+

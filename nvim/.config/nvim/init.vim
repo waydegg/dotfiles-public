@@ -127,7 +127,7 @@ Plug 'neovim/nvim-lspconfig'
 " Completions
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
-Plug 'onsails/lspkind-nvim'
+Plug 'hrsh7th/cmp-path'
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
