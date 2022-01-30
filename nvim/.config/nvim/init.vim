@@ -27,8 +27,9 @@ let mapleader=" "
 let maploacalleader=" "
 
 " Escape normal mode
-inoremap jk <esc> 
+inoremap jk <esc>
 inoremap <esc> <nop>
+
 
 " Source init.vim and all plugin scripts
 function ReloadPluginScripts()
@@ -120,13 +121,16 @@ Plug 'overcache/NeoSolarized'
 Plug 'gruvbox-community/gruvbox'
 
 " LSP
-Plug 'neovim/nvim-lspconfig', { 'commit': 'e7df7ecae0b0d2f997ea65e951ddbe98ca3e154b' }
-" Plug 'williamboman/nvim-lsp-installer', { 'commit': 'a9deff59a167cd01098fc8bd00ca7abfc5470290' }
+Plug 'neovim/nvim-lspconfig'
+" Plug 'williamboman/nvim-lsp-installer'
 
 " Completions
 Plug 'hrsh7th/nvim-cmp'
-Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-buffer'
 Plug 'onsails/lspkind-nvim'
+
+" Snippets
+Plug 'L3MON4D3/LuaSnip'
 
 " Bufferline
 Plug 'kyazdani42/nvim-web-devicons'
