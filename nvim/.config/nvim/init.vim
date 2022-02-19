@@ -20,33 +20,35 @@ set signcolumn=yes
 set termguicolors
 set formatoptions-=cro
 
-
 " --- Mappings ----------------------------------------------------------------
 
 let mapleader=" "
 let maploacalleader=" "
 
+" Disable normal space
+nnoremap <space> <nop>
+
 " Escape normal mode
 inoremap jk <esc>
 inoremap <esc> <nop>
 
-
 " Source init.vim and all plugin scripts
-function ReloadPluginScripts()
-  for f in split(glob('~/.config/nvim/plugin/*'), '\n')
-    let ext = f[-3:]
-    if ext == "vim"
-      execute "source" f
-    elseif ext == "lua"
-      let f_module_name = split(f[:-5], "/")[-1]
-      let b:f_module_path = join(["./plugin", f_module_name], "/")
-      lua require("plenary.reload").reload_module(vim.b.f_module_path)
-      lua require(vim.b.f_module_path)
-    endif
+function ReloadConfigFiles()
+  for current_dir in ['./plugin', './after/plugin']
+    for current_file in split(glob('~/.config/nvim' . current_dir[1:] . '/*'), '\n')
+      let ext = current_file[-3:]
+      if ext == 'vim'
+        execute 'source' current_file
+      elseif ext == 'lua'
+        let b:current_module = current_dir . '/' . split(current_file[:-5], '/')[-1]
+        lua require('plenary.reload').reload_module(vim.b.current_module)
+        lua require(vim.b.current_module)
+      endif
+    endfor
   endfor
 endfunction
-command ReloadPluginScripts call ReloadPluginScripts()
-nnoremap <silent> <leader>sv :source $MYVIMRC <cr> <bar> :ReloadPluginScripts<cr>
+command ReloadConfigFiles call ReloadConfigFiles()
+nnoremap <silent> <leader>sv :source $MYVIMRC<cr><bar>:ReloadConfigFiles<cr>
 
 " Open file explorer
 nnoremap <silent> <leader>e :Lexplore 30<cr>
@@ -103,14 +105,6 @@ augroup END
 
 " --- Plugins -----------------------------------------------------------------
 
-" Install vim-plug if not installed already
-let autoload_plug_path = stdpath('config') . '/autoload/plug.vim'
-if !filereadable(autoload_plug_path)
-  echo 'No vim-plug installation found. Installing from source...'
-  silent execute '!curl -fL --create-dirs -o ' . autoload_plug_path . ' https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-  execute 'source ' . fnameescape(autoload_plug_path)
-endif
-
 call plug#begin()
 
 Plug 'nvim-lua/popup.nvim'
@@ -128,8 +122,6 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-nvim-lua'
-
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
@@ -137,8 +129,6 @@ Plug 'L3MON4D3/LuaSnip'
 " Bufferline
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
-
-Plug 'tpope/vim-commentary'
 
 call plug#end()
 
