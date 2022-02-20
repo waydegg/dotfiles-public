@@ -21,6 +21,8 @@ alias ll "exa -l -g --icons"
 alias lla "ll -a"
 alias tree "tree -l -C -a"
 alias g git
+alias t tmux
+alias cat bat
 
 # NVM
 function __check_nvm --on-variable PWD --description 'Use nvm node version'
