@@ -1,12 +1,4 @@
 local cmp = require("cmp")
-local luasnip = require("luasnip")
-
--- Maybe remove this?
-require("luasnip/loaders/from_vscode").lazy_load()
-
-function expand_handler(args)
-  luasnip.lsp_expand(args.body)
-end
 
 function format_handler(entry, vim_item)
   local kind_icons = {
@@ -39,7 +31,6 @@ function format_handler(entry, vim_item)
   vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
   vim_item.menu = ({
     nvim_lsp = "[LSP]",
-    luasnip = "[Snippet]",
     buffer = "[Buffer]",
     path = "[Path]"
   })[entry.source.name]
@@ -47,9 +38,6 @@ function format_handler(entry, vim_item)
 end
 
 cmp.setup({
-  snippet = {
-    expand = expand_handler
-  },
   mapping = {
     ["<c-k>"] = cmp.mapping.select_prev_item(),
     ["<c-j>"] = cmp.mapping.select_next_item(),
@@ -61,7 +49,6 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "luasnip" },
     { name = "buffer" },
     { name = "path" }
   },

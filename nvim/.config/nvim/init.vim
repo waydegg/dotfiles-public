@@ -50,9 +50,6 @@ endfunction
 command ReloadConfigFiles call ReloadConfigFiles()
 nnoremap <silent> <leader>sv :source $MYVIMRC<cr><bar>:ReloadConfigFiles<cr>
 
-" Open file explorer
-nnoremap <silent> <leader>e :Lexplore 30<cr>
-
 " Select all
 nnoremap <c-a> ggVG
 
@@ -119,16 +116,16 @@ Plug 'neovim/nvim-lspconfig'
 
 " Completions
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-nvim-lsp'
-
-" Snippets
-Plug 'L3MON4D3/LuaSnip'
 
 " Bufferline
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
+
+" NVIM Tree
+Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
 

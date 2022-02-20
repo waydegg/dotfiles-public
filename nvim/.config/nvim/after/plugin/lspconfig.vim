@@ -1,6 +1,3 @@
-if !exists('g:lspconfig') | finish | endif
-
-
 function MapCmpToBuffer()
   nnoremap <buffer> <silent> gD <cmd>lua vim.lsp.buf.declaration()<cr>
   echom "woof"
@@ -12,5 +9,9 @@ lua << EOF
   
   lspconfig.pyright.setup {
     filetypes = { "python" },
+  }
+
+  lspconfig.tsserver.setup {
+    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   }
 EOF

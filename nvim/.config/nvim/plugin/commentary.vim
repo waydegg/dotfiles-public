@@ -105,6 +105,7 @@ onoremap <silent> <Plug>Commentary        :<C-U>call <SID>textobject(get(v:, 'op
 nnoremap <silent> <Plug>ChangeCommentary c:<C-U>call <SID>textobject(1)<CR>
 nmap <silent> <Plug>CommentaryUndo :echoerr "Change your <Plug>CommentaryUndo map to <Plug>Commentary<Plug>Commentary"<CR>
 
+" NOTE: leave commented to disable default keymaps
 " if !hasmapto('<Plug>Commentary') || maparg('gc','n') ==# ''
 "   xmap gc  <Plug>Commentary
 "   nmap gc  <Plug>Commentary
