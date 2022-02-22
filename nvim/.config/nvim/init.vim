@@ -19,6 +19,11 @@ set cursorline
 set signcolumn=yes
 set termguicolors
 set formatoptions-=cro
+set foldmethod=syntax
+set foldlevelstart=99
+
+let javaScript_fold=1
+
 
 " --- Mappings ----------------------------------------------------------------
 
@@ -86,8 +91,8 @@ command ToggleMaximizedWindow call ToggleMaximizedWindow()
 nnoremap <silent> <leader>m :ToggleMaximizedWindow<cr>
 
 " Navigate buffers
-nnoremap <s-h> :bprevious<cr>
-nnoremap <s-l> :bnext<cr>
+nnoremap <silent> <s-h> :bprevious<cr>
+nnoremap <silent> <s-l> :bnext<cr>
 
 " Close the current buffer
 nnoremap <leader>cb :bd<cr>
@@ -99,6 +104,7 @@ augroup highlight_yank
     autocmd!
     au textyankpost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=200}
 augroup END
+
 
 " --- Plugins -----------------------------------------------------------------
 
@@ -126,6 +132,18 @@ Plug 'akinsho/bufferline.nvim'
 
 " NVIM Tree
 Plug 'kyazdani42/nvim-tree.lua'
+
+" Dadbod
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
+
+" Trouble
+Plug 'folke/trouble.nvim'
+Plug 'folke/lsp-colors.nvim'
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
