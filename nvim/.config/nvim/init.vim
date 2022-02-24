@@ -19,10 +19,7 @@ set cursorline
 set signcolumn=yes
 set termguicolors
 set formatoptions-=cro
-set foldmethod=syntax
-set foldlevelstart=99
-
-let javaScript_fold=1
+set foldmethod=expr
 
 
 " --- Mappings ----------------------------------------------------------------
@@ -44,6 +41,7 @@ function ReloadConfigFiles()
       let ext = current_file[-3:]
       if ext == 'vim'
         execute 'source' current_file
+      " this isn't working atm
       elseif ext == 'lua'
         let b:current_module = current_dir . '/' . split(current_file[:-5], '/')[-1]
         lua require('plenary.reload').reload_module(vim.b.current_module)
@@ -113,7 +111,7 @@ call plug#begin()
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
-" Colorscheme
+" Colorschemes
 Plug 'overcache/NeoSolarized'
 Plug 'gruvbox-community/gruvbox'
 
@@ -145,6 +143,8 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'tpope/vim-fugitive'
 
 Plug 'lewis6991/gitsigns.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
