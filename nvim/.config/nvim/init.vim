@@ -125,6 +125,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
+Plug 'kristijanhusak/vim-dadbod-completion'
 
 " Bufferline
 Plug 'kyazdani42/nvim-web-devicons'
