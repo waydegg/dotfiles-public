@@ -146,5 +146,7 @@ Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'NTBBloodbath/rest.nvim'
+
 call plug#end()
 

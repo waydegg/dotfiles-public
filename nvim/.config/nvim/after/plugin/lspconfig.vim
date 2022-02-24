@@ -15,6 +15,10 @@ lua << EOF
   lspconfig.tsserver.setup {
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   }
+  
+  lspconfig.vimls.setup {
+    filetypes = { "vim" }
+  }
 
   vim.diagnostic.config({
     virtual_text = false,
