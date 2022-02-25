@@ -19,6 +19,7 @@ set cursorline
 set signcolumn=yes
 set termguicolors
 set formatoptions-=cro
+set foldlevelstart=99
 set foldmethod=expr
 
 
