@@ -35,7 +35,7 @@ alias tk "tmux kill-session -t"
 
 alias cat bat
 alias d docker
-alias nvm fnm
+# alias nvm fnm
 
 alias vim nvim
 
@@ -43,11 +43,20 @@ alias vim nvim
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
 
-# fnm
-set -gx PATH "/Users/waydegg/Library/Caches/fnm_multishells/45067_1645855111857/bin" $PATH;
-set -gx FNM_MULTISHELL_PATH "/Users/waydegg/Library/Caches/fnm_multishells/45067_1645855111857";
-set -gx FNM_VERSION_FILE_STRATEGY "local";
-set -gx FNM_DIR "/Users/waydegg/Library/Application Support/fnm";
-set -gx FNM_LOGLEVEL "info";
-set -gx FNM_NODE_DIST_MIRROR "https://nodejs.org/dist";
-set -gx FNM_ARCH "arm64";
+# # fnm
+# set -gx PATH "/Users/waydegg/Library/Caches/fnm_multishells/45067_1645855111857/bin" $PATH;
+# set -gx FNM_MULTISHELL_PATH "/Users/waydegg/Library/Caches/fnm_multishells/45067_1645855111857";
+# set -gx FNM_VERSION_FILE_STRATEGY "local";
+# set -gx FNM_DIR "/Users/waydegg/Library/Application Support/fnm";
+# set -gx FNM_LOGLEVEL "info";
+# set -gx FNM_NODE_DIST_MIRROR "https://nodejs.org/dist";
+# set -gx FNM_ARCH "arm64";
+
+# if type -q fnm && status is-interactive
+#   fnm env --use-on-cd | source
+# end
+# if type fnm -q && status is-interactive 
+#   fnm env --shell fish --use-on-cd | source
+#   fnm completions --shell fish | source
+# end
+
