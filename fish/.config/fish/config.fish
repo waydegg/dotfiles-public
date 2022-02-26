@@ -20,8 +20,17 @@ alias la "ls -A"
 alias ll "exa -l -g --icons"
 alias lla "ll -a"
 alias tree "tree -l -C -a"
+
 alias g git
+alias gs "git status"
+alias ga "git add"
+alias gd "git diff"
+
 alias t tmux
+alias ts "tmux ls"
+alias ta "tmux attach -t"
+alias tk "tmux kill-session -t"
+
 alias cat bat
 alias d docker
 
