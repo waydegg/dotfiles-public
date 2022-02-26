@@ -25,6 +25,7 @@ alias g git
 alias gs "git status"
 alias ga "git add"
 alias gd "git diff"
+alias gc "git commit -m"
 
 alias t tmux
 alias ts "tmux ls"
@@ -33,6 +34,8 @@ alias tk "tmux kill-session -t"
 
 alias cat bat
 alias d docker
+
+alias vim nvim
 
 # NVM
 function __check_nvm --on-variable PWD --description 'Use nvm node version'
