@@ -115,6 +115,8 @@ Plug 'nvim-lua/plenary.nvim'
 " Colorschemes
 Plug 'overcache/NeoSolarized'
 Plug 'gruvbox-community/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'lunarvim/darkplus.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -148,6 +150,9 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'NTBBloodbath/rest.nvim'
+
+" Fish syntax highlighting
+Plug 'dag/vim-fish'
 
 call plug#end()
 
