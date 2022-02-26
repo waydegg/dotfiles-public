@@ -7,8 +7,8 @@
 - `stow`
 
 **Steps**
-1. Close this repository
-2. `cd` into the top level directory
+1. Clone this repository
+2. `cd` into the top level directory of the repository
 3. Use `stow` to create symlinks
 ```
 stow -t $HOME */    # Symlink everything
