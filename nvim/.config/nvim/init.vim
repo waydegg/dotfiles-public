@@ -128,6 +128,10 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'kristijanhusak/vim-dadbod-completion'
 
+" Syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'dag/vim-fish'
+
 " Bufferline
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
@@ -147,12 +151,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'lewis6991/gitsigns.nvim'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 Plug 'NTBBloodbath/rest.nvim'
-
-" Fish syntax highlighting
-Plug 'dag/vim-fish'
 
 call plug#end()
 
