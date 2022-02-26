@@ -23,6 +23,7 @@ alias tree "tree -l -C -a"
 alias g git
 alias t tmux
 alias cat bat
+alias d docker
 
 # NVM
 function __check_nvm --on-variable PWD --description 'Use nvm node version'
