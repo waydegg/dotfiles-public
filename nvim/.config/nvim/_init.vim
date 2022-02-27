@@ -147,6 +147,10 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 
+" Telescope
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
 Plug 'tpope/vim-fugitive'
 
 Plug 'lewis6991/gitsigns.nvim'
