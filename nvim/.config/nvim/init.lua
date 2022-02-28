@@ -8,6 +8,7 @@ require "config.telescope"
 require "config.nvim-tree"
 require "config.lspconfig"
 require "config.gitsigns"
+require "config.rest"
 
 -- Neovim & plugin config
 require "config.options"
