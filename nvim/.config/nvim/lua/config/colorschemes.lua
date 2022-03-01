@@ -2,10 +2,12 @@
 -- " let neosolarized_contrast = 'high'
 -- " let neosolarized_termtrans = 1
 
+vim.g.vscode_style = "dark"
+
 -- colorscheme gruvbox
 -- colorscheme NeoSolarized
 -- colorscheme onedark
-vim.cmd("colorscheme darkplus")
+vim.cmd("colorscheme vscode")
 
 vim.cmd([[
   " gray

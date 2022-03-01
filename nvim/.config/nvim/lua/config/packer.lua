@@ -27,6 +27,7 @@ require("packer").startup(function (use)
   use "gruvbox-community/gruvbox"
   use "joshdick/onedark.vim"
   use "lunarvim/darkplus.nvim"
+  use "Mofiqul/vscode.nvim"
 
   -- LSP
   use "neovim/nvim-lspconfig"

@@ -80,3 +80,10 @@ remap("n", "gl", ":lua vim.diagnostic.open_float({ border = 'rounded' })<cr>")
 remap("n", "gn", ":lua vim.diagnostic.goto_next({ border = 'rounded' })<cr>")
 remap("n", "gp", ":lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>")
 
+-- Telescope
+remap("n", "<leader>ff", ":Telescope find_files<cr>")
+remap("n", "<leader>fg", ":Telescope live_grep<cr>")
+remap("n", "<leader>fb", ":Telescope find_buffers<cr>")
+
+
+
