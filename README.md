@@ -14,19 +14,6 @@
 stow -t $HOME */    # Symlink everything
 stow -t $HOME nvim  # Just create nvim symlinks
 ```
-
-## Tmux
-
-[TPM](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager) is required to display a prefix highlight in the status bar.
-
-To install, clone the repository:
-
-```
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm/tpm
-```
-
-Then once inside Tmux, press `prefix` + `I` to install all of the plugins.
-
 ## Brew
 
 Formulae and Casks listed in `brew/Brewfile` can be installed with Homebrew's [bundle](https://docs.brew.sh/Manpage#bundle-subcommand) subcommand
