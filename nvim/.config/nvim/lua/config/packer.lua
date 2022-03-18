@@ -14,8 +14,18 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+local packer = require("packer")
+
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end
+  }
+}
+
 -- Setup Packer
-require("packer").startup(function (use)
+packer.startup(function (use)
   use "wbthomason/packer.nvim"
 
   -- Core
@@ -61,6 +71,11 @@ require("packer").startup(function (use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+
+  -- DAP 
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
+  use "Pocco81/DAPInstall.nvim"
 
   use "tpope/vim-fugitive"
 

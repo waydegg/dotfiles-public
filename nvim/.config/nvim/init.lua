@@ -9,6 +9,7 @@ require "config.nvim-tree"
 require "config.lspconfig"
 require "config.gitsigns"
 require "config.rest"
+require "config.dap"
 
 -- Neovim & plugin config
 require "config.options"
