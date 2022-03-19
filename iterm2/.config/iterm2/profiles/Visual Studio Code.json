@@ -1,4 +1,5 @@
 {
+  "Thin Strokes" : 3,
   "Working Directory" : "\/Users\/waydegg",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -390,14 +391,6 @@
   "Name" : "Visual Studio Code",
   "Blinking Cursor" : false,
   "Guid" : "11F949DA-D03D-4233-899D-B19C5B0DBCAA",
-  "Idle Code" : 0,
-  "Ansi 10 Color" : {
-    "Red Component" : 0.10367120057344437,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.61430174112319946,
-    "Alpha Component" : 1,
-    "Green Component" : 0.84017795324325562
-  },
   "Ansi 8 Color" : {
     "Red Component" : 0.47563493251800537,
     "Color Space" : "sRGB",
@@ -405,6 +398,14 @@
     "Alpha Component" : 1,
     "Green Component" : 0.4756467342376709
   },
+  "Ansi 10 Color" : {
+    "Red Component" : 0.10367120057344437,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.61430174112319946,
+    "Alpha Component" : 1,
+    "Green Component" : 0.84017795324325562
+  },
+  "Idle Code" : 0,
   "Badge Color" : {
     "Red Component" : 1,
     "Color Space" : "sRGB",
@@ -424,7 +425,7 @@
     "Green Component" : 0
   },
   "Blur" : false,
-  "Normal Font" : "HackNerdFontAAEOPSPLMDIWEA-Regular 12",
+  "Normal Font" : "MenloNerdFontAAEOPSPLMDIWEA-Regular 14",
   "Vertical Spacing" : 1,
   "Ansi 7 Color" : {
     "Red Component" : 0.91824531555175781,
@@ -444,6 +445,7 @@
     "Green Component" : 0.15693187713623047
   },
   "Option Key Sends" : 0,
+  "Blink Allowed" : true,
   "Minimum Contrast" : 0,
   "Ansi 15 Color" : {
     "Red Component" : 0.91824531555175781,
