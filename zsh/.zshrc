@@ -1,9 +1,15 @@
+# ===== Powerlevel10k ========================================================
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # ===== General ===============================================================
 
 # Disable bell sound
 unsetopt BEEP
 
-# Initialize completions
+# Initialize completions (NOTE: Docker completions not working)
 fpath=(~/.zfunc $fpath)
 autoload -Uz compinit && compinit -i
 
@@ -23,13 +29,21 @@ function zsh_source_plugin() {
 }
 
 function zsh_add_plugin() {
-    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-    if [ -d "$ZSH_PLUGIN_PATH/$PLUGIN_NAME" ]; then 
-        zsh_source_plugin "$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
-        zsh_source_plugin "$PLUGIN_NAME/$PLUGIN_NAME.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZSH_PLUGIN_PATH/$PLUGIN_NAME" 
-    fi
+  PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+  if [ -d "$ZSH_PLUGIN_PATH/$PLUGIN_NAME" ]; then 
+    zsh_source_plugin "$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
+    zsh_source_plugin "$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+  else
+    git clone "https://github.com/$1.git" "$ZSH_PLUGIN_PATH/$PLUGIN_NAME" 
+  fi
+}
+
+function ide() {
+  tmux split-window -v -p 30
+  tmux split-window -h -p 66
+  tmux split-window -h -p 50
+  tmux select-pane -U 
+  nvim
 }
 
 # ===== Plugins ===============================================================
@@ -84,3 +98,10 @@ eval "$(fnm env --use-on-cd)"
 # Setup Zoxide
 eval "$(zoxide init zsh)"
 
+# Powerlevel10k
+if [ ! -d "$ZSH_PLUGIN_PATH/powerlevel10k" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    $ZSH_PLUGIN_PATH/powerlevel10k
+fi
+source $ZSH_PLUGIN_PATH/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
