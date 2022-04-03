@@ -1,5 +1,6 @@
 # ===== Powerlevel10k ========================================================
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -84,6 +85,9 @@ alias t=tmux
 alias ts="tmux ls"
 alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
+
+alias python=python3
+alias pip="python -m pip"
 
 alias cat=bat
 alias d=docker
