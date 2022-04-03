@@ -37,6 +37,10 @@ packer.startup(function (use)
   use "vim-scripts/mayansmoke"
   use "NLKNguyen/papercolor-theme"
   use "mrjones2014/lighthaus.nvim"
+  use "archseer/colibri.vim"
+  use "drewtempelmeyer/palenight.vim"
+  use "challenger-deep-theme/vim"
+  use "sainnhe/sonokai"
 
   -- LSP
   use "neovim/nvim-lspconfig"
@@ -70,6 +74,7 @@ packer.startup(function (use)
   use "lewis6991/gitsigns.nvim"
   use "akinsho/bufferline.nvim"
   use "tpope/vim-surround"
+  use "goolord/alpha-nvim"
 
   -- use "lukas-reineke/indent-blankline.nvim"
   use "folke/trouble.nvim"
