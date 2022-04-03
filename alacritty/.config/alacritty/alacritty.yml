@@ -12,21 +12,29 @@ font:
 
 colors:
   primary:
-    background: "#ffffff"
-    foreground: "#383a42"
-  cursor:
-    text:       CellBackground
-    cursor:     '#526eff' # syntax-cursor-color
-  selection:
-    text:       CellForeground
-    background: '#e5e5e6' # syntax-selection-color
-  normal:
-    black:      '#696c77' # mono-2
-    red:        '#e45649' # red 1
-    green:      '#50a14f'
-    yellow:     '#c18401' # orange 2
-    blue:       '#4078f2'
-    magenta:    '#a626a4'
-    cyan:       '#0184bc'
-    white:      '#a0a1a7' # mono-3
+    background: '0xeeeeee'
+    foreground: '0x878787'
 
+  cursor:
+    text: '0xeeeeee'
+    cursor: '0x878787'
+
+  normal:
+    black:   '0xeeeeee'
+    red:     '0xaf0000'
+    green:   '0x008700'
+    yellow:  '0x5f8700'
+    blue:    '0x0087af'
+    magenta: '0x878787'
+    cyan:    '0x005f87'
+    white:   '0x444444'
+
+  bright:
+    black:   '0xbcbcbc'
+    red:     '0xd70000'
+    green:   '0xd70087'
+    yellow:  '0x8700af'
+    blue:    '0xd75f00'
+    magenta: '0xd75f00'
+    cyan:    '0x005faf'
+    white:   '0x005f87'
