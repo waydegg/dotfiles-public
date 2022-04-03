@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["alpha-nvim"] = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -109,20 +114,10 @@ _G.packer_plugins = {
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
-  ["lighthaus.nvim"] = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/lighthaus.nvim",
-    url = "https://github.com/mrjones2014/lighthaus.nvim"
-  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
-  },
-  mayansmoke = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/mayansmoke",
-    url = "https://github.com/vim-scripts/mayansmoke"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -188,11 +183,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion",
     url = "https://github.com/kristijanhusak/vim-dadbod-completion"
-  },
-  ["vim-one"] = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-one",
-    url = "https://github.com/rakr/vim-one"
   },
   ["vim-surround"] = {
     loaded = true,

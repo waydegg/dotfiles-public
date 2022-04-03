@@ -33,14 +33,7 @@ packer.startup(function (use)
   use "nvim-lua/popup.nvim"
 
   -- Colorschemes
-  use "rakr/vim-one"
-  use "vim-scripts/mayansmoke"
   use "NLKNguyen/papercolor-theme"
-  use "mrjones2014/lighthaus.nvim"
-  use "archseer/colibri.vim"
-  use "drewtempelmeyer/palenight.vim"
-  use "challenger-deep-theme/vim"
-  use "sainnhe/sonokai"
 
   -- LSP
   use "neovim/nvim-lspconfig"
