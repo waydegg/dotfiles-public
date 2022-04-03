@@ -109,3 +109,6 @@ if [ ! -d "$ZSH_PLUGIN_PATH/powerlevel10k" ]; then
 fi
 source $ZSH_PLUGIN_PATH/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/ghq/github.com/waydegg/dotfiles/zsh/.p10k.zsh.
+[[ ! -f ~/ghq/github.com/waydegg/dotfiles/zsh/.p10k.zsh ]] || source ~/ghq/github.com/waydegg/dotfiles/zsh/.p10k.zsh
