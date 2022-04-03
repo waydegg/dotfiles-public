@@ -33,11 +33,10 @@ packer.startup(function (use)
   use "nvim-lua/popup.nvim"
 
   -- Colorschemes
-  use "overcache/NeoSolarized"
-  use "gruvbox-community/gruvbox"
-  use "joshdick/onedark.vim"
-  use "lunarvim/darkplus.nvim"
-  use "Mofiqul/vscode.nvim"
+  use "rakr/vim-one"
+  use "vim-scripts/mayansmoke"
+  use "NLKNguyen/papercolor-theme"
+  use "mrjones2014/lighthaus.nvim"
 
   -- LSP
   use "neovim/nvim-lspconfig"
@@ -48,25 +47,13 @@ packer.startup(function (use)
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "kristijanhusak/vim-dadbod-completion"
+  use "ms-jpq/coq_nvim"
 
   -- Syntax highlighting
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  use "dag/vim-fish"
 
-  -- Bufferline
-  use "kyazdani42/nvim-web-devicons"
-  use "akinsho/bufferline.nvim"
-
-  -- NVIM Tree
-  use "kyazdani42/nvim-tree.lua"
-
-  -- Dadbod
-  use "tpope/vim-dadbod"
-  use "kristijanhusak/vim-dadbod-ui"
-
-  -- Trouble
-  use "folke/trouble.nvim"
-  use "folke/lsp-colors.nvim"
+  -- CHAD Tree
+  use { "ms-jpq/chadtree", branch = "chad", run = "python3 -m chadtree deps" }
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -75,12 +62,18 @@ packer.startup(function (use)
   -- DAP 
   use "mfussenegger/nvim-dap"
   use "rcarriga/nvim-dap-ui"
-  use "Pocco81/DAPInstall.nvim"
 
-  use "tpope/vim-fugitive"
+  -- Hop
+  use { 'phaazon/hop.nvim', branch = 'v1' }
 
+  -- Misc
   use "lewis6991/gitsigns.nvim"
+  use "akinsho/bufferline.nvim"
+  use "tpope/vim-surround"
 
-  use "NTBBloodbath/rest.nvim"
+  -- use "lukas-reineke/indent-blankline.nvim"
+  use "folke/trouble.nvim"
+  use "folke/lsp-colors.nvim"
+
 end)
 

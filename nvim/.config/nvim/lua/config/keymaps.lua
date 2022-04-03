@@ -59,21 +59,18 @@ remap("n", "<s-l>", ":bnext<cr>")
 -- Close the current buffer
 remap("n", "<leader>cb", ":bp<bar>sp<bar>bn<bar>bd<cr>") 
 
--- (Commentary) Comment and uncomment code
+-- Commentary
 remap("n", "gc", ":Commentary<cr>")
 remap("v", "gc", ":Commentary<cr>")
 
--- (Gitsigns) Git stuff
+-- Gitsigns
 remap("n", "<leader>gh", ":Gitsigns preview_hunk<cr>")
 remap("n", "<leader>gb", ":Gitsigns blame_line<cr>")
 
--- (Dadbod UI) Database
-remap("n", "<leader>db", ":DBUIToggle<cr>")
-
--- (Nvim Tree) File Explorer
+-- Nvim Tree
 remap("n", "<leader>e", ":NvimTreeToggle<cr>")
 
--- (Lspconfig) Language Server
+-- LSP
 remap("n", "gd", ":lua vim.lsp.buf.definition()<cr>")
 remap("n", "gh", ":lua vim.lsp.buf.hover()<cr>")
 remap("n", "gl", ":lua vim.diagnostic.open_float({ border = 'rounded' })<cr>")
@@ -83,7 +80,17 @@ remap("n", "gp", ":lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>")
 -- Telescope
 remap("n", "<leader>ff", ":Telescope find_files<cr>")
 remap("n", "<leader>fg", ":Telescope live_grep<cr>")
-remap("n", "<leader>fb", ":Telescope find_buffers<cr>")
 
+-- Hop
+remap("n", "f", ":HopWord<cr>")
 
+-- DAP
+remap("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<cr>")
+remap("n", "<leader>da", ":lua require('debugHelper').attach()<cr>")
+remap("n", "<leader>dc", ":lua require('dap').continue()<cr>")
+remap("n", "<leader>do", ":lua require('dap').step_over()<cr>")
+remap("n", "<leader>dx", ":lua require('dap').terminate()<cr>")
+
+-- File Explorer
+remap("n", "<leader>e", "<cmd>CHADopen<cr>")
 

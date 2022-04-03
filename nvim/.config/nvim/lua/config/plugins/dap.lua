@@ -1,7 +1,4 @@
-local dap = require("dap")
-local dap_ui = require("dapui")
-
-dap_ui.setup()
+local dap = require('dap')
 
 vim.fn.sign_define('DapBreakpoint', {text='⬤', texthl='RedSign', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='➔', texthl='PurpleSign', linehl='', numhl=''})
@@ -9,8 +6,7 @@ vim.fn.sign_define('DapStopped', {text='➔', texthl='PurpleSign', linehl='', nu
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
-  args = '/Users/waydegg/ghq/github.com/microsoft/vscode-node-debug2/nodeDebug.js'
-  -- args = {os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js'},
+  args = {'/Users/waydegg/ghq/github.com/microsoft/vscode-node-debug2/out/src/nodeDebug.js'},
 }
 
 dap.configurations.javascript = {
@@ -31,4 +27,22 @@ dap.configurations.javascript = {
     request = 'attach',
     processId = require'dap.utils'.pick_process,
   },
+  {
+    type = 'node2',
+    request = 'attach',
+    name = 'biggly',
+    port = 9229
+  }
 }
+
+local function attach()
+  print("attaching")
+  dap.run({
+      type = 'node2',
+      request = 'attach',
+      cwd = vim.fn.getcwd(),
+      sourceMaps = true,
+      protocol = 'inspector',
+      skipFiles = {'<node_internals>/**/*.js'},
+      })
+end

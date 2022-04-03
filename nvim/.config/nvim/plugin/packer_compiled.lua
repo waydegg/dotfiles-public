@@ -69,15 +69,15 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  NeoSolarized = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/NeoSolarized",
-    url = "https://github.com/overcache/NeoSolarized"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  chadtree = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/chadtree",
+    url = "https://github.com/ms-jpq/chadtree"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -94,60 +94,70 @@ _G.packer_plugins = {
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["darkplus.nvim"] = {
+  coq_nvim = {
     loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
-    url = "https://github.com/lunarvim/darkplus.nvim"
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/coq_nvim",
+    url = "https://github.com/ms-jpq/coq_nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  gruvbox = {
+  ["hop.nvim"] = {
     loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/gruvbox-community/gruvbox"
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
+  ["lighthaus.nvim"] = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/lighthaus.nvim",
+    url = "https://github.com/mrjones2014/lighthaus.nvim"
   },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
   },
+  mayansmoke = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/mayansmoke",
+    url = "https://github.com/vim-scripts/mayansmoke"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/onedark.vim",
-    url = "https://github.com/joshdick/onedark.vim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["papercolor-theme"] = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/papercolor-theme",
+    url = "https://github.com/NLKNguyen/papercolor-theme"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -158,11 +168,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
-  },
-  ["rest.nvim"] = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/rest.nvim",
-    url = "https://github.com/NTBBloodbath/rest.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -179,30 +184,20 @@ _G.packer_plugins = {
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
-  ["vim-dadbod"] = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-dadbod",
-    url = "https://github.com/tpope/vim-dadbod"
-  },
   ["vim-dadbod-completion"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion",
     url = "https://github.com/kristijanhusak/vim-dadbod-completion"
   },
-  ["vim-dadbod-ui"] = {
+  ["vim-one"] = {
     loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
-    url = "https://github.com/kristijanhusak/vim-dadbod-ui"
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-one",
+    url = "https://github.com/rakr/vim-one"
   },
-  ["vim-fish"] = {
+  ["vim-surround"] = {
     loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-fish",
-    url = "https://github.com/dag/vim-fish"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 
