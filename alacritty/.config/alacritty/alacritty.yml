@@ -1,0 +1,32 @@
+font:
+  size: 13.0
+  use_thin_strokes: true 
+  normal: 
+    family: Menlo Nerd Font
+  bold:
+    family: Menlo Nerd Font
+    style: Bold
+  italic:
+    family: Menlo Nerd Font
+    style: Italic
+
+colors:
+  primary:
+    background: "#ffffff"
+    foreground: "#383a42"
+  cursor:
+    text:       CellBackground
+    cursor:     '#526eff' # syntax-cursor-color
+  selection:
+    text:       CellForeground
+    background: '#e5e5e6' # syntax-selection-color
+  normal:
+    black:      '#696c77' # mono-2
+    red:        '#e45649' # red 1
+    green:      '#50a14f'
+    yellow:     '#c18401' # orange 2
+    blue:       '#4078f2'
+    magenta:    '#a626a4'
+    cyan:       '#0184bc'
+    white:      '#a0a1a7' # mono-3
+
