@@ -47,11 +47,17 @@ function ide() {
   nvim
 }
 
+function zvm_config() {
+  ZVM_ESCAPE_KEYTIMEOUT=0.01
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+}
+
 # ===== Plugins ===============================================================
 
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "jeffreytse/zsh-vi-mode"
 
 # ===== Keybinds ==============================================================
 
