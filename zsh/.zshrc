@@ -16,6 +16,8 @@ autoload -Uz compinit && compinit -i
 
 # Setup history file
 HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
 setopt appendhistory
 
 # ===== Environment Variables =================================================
@@ -58,6 +60,7 @@ zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "jeffreytse/zsh-vi-mode"
+zsh_add_plugin "zsh-users/zsh-completions"
 
 # ===== Keybinds ==============================================================
 
