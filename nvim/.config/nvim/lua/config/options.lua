@@ -3,6 +3,7 @@ local g = vim.g
 
 o.clipboard = "unnamedplus"
 o.number = true
+o.numberwidth = 6
 o.scrolloff = 8
 o.sidescrolloff = 8
 o.mouse = "a"

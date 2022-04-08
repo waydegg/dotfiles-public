@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  gruvbox = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/gruvbox-community/gruvbox"
+  },
   ["hop.nvim"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/hop.nvim",
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
+  },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -184,10 +194,20 @@ _G.packer_plugins = {
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion",
     url = "https://github.com/kristijanhusak/vim-dadbod-completion"
   },
+  ["vim-one"] = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-one",
+    url = "https://github.com/rakr/vim-one"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["zenbones.nvim"] = {
+    loaded = true,
+    path = "/Users/waydegg/.local/share/nvim/site/pack/packer/start/zenbones.nvim",
+    url = "https://github.com/mcchrish/zenbones.nvim"
   }
 }
 

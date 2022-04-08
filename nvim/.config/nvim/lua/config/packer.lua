@@ -34,6 +34,12 @@ packer.startup(function (use)
 
   -- Colorschemes
   use "NLKNguyen/papercolor-theme"
+  use "rakr/vim-one"
+  use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
+  use "gruvbox-community/gruvbox"
+  use "zefei/cake16"
+  use "YorickPeterse/vim-paper"
+  use "yasukotelin/shirotelin"
 
   -- LSP
   use "neovim/nvim-lspconfig"
@@ -68,6 +74,7 @@ packer.startup(function (use)
   use "akinsho/bufferline.nvim"
   use "tpope/vim-surround"
   use "goolord/alpha-nvim"
+  use "ThePrimeagen/git-worktree.nvim"
 
   -- use "lukas-reineke/indent-blankline.nvim"
   use "folke/trouble.nvim"
