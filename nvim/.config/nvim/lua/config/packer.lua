@@ -75,6 +75,7 @@ packer.startup(function (use)
   use "tpope/vim-surround"
   use "goolord/alpha-nvim"
   use "ThePrimeagen/git-worktree.nvim"
+  use "nvim-lualine/lualine.nvim"
 
   -- use "lukas-reineke/indent-blankline.nvim"
   use "folke/trouble.nvim"

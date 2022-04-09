@@ -1,7 +1,7 @@
--- Plugin manager
+-- Packer
 require "config.packer"
 
--- Neovim & plugin config
+-- Neovim 
 require "config.options"
 require "config.keymaps"
 require "config.autocommands"
@@ -17,3 +17,4 @@ require "config.plugins.dap"
 require "config.plugins.lspconfig"
 require "config.plugins.alpha"
 require "config.plugins.treesitter"
+require "config.plugins.lualine"
