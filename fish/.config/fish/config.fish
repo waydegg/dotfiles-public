@@ -1,3 +1,4 @@
+# ===== Environment Variables =================================================
 # Disable Fish greeting
 set fish_greeting ""
 
@@ -7,14 +8,16 @@ set -gx PATH /opt/homebrew/bin $PATH
 # Set default editor to Neovim
 set -gx EDITOR nvim
 
-# Theme
-set -g theme_color_scheme terminal-dark
-set -g fish_prompt_pwd_dir_length 1
-set -g theme_display_user yes
-set -g theme_hide_hostname no
-set -g theme_hostname always
+# Tide prompt
+set -g tide_git_color_branch 008700
+set -g tide_git_color_stash 008700
+set -g tide_git_color_untracked 008700
+set -g tide_character_color 008700
+set -g tide_character_vi_icon_default ❯
+set -g tide_character_vi_icon_replace ❯
+set -g tide_character_vi_icon_visual ❯
 
-# Aliases
+# ===== Aliases ================================================================
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "exa -l -g --icons"
@@ -34,15 +37,39 @@ alias tk "tmux kill-session -t"
 
 alias cat bat
 alias d docker
-
 alias vim nvim
+alias nvm fnm
 
-# Keybinds
+# ===== Keybinds ==============================================================
+# Search through command history
 bind -M insert \cp history-search-backward
 bind -M insert \cn history-search-forward
 
+# Exit insert mode 
+bind -M insert -m default jk force-repaint
+
+# ===== Status ================================================================
 # Pyenv
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
+
+# ===== Prompt ================================================================
+# Change cursor shape depending on mode
+function fish_mode_prompt
+  switch $fish_bind_mode
+    case default
+      echo -en "\e[2 q"
+    case insert
+      echo -en "\e[6 q"
+    case replace_one
+      echo -en "\e[4 q"
+    case visual
+      echo -en "\e[2 q"
+    case '*'
+      echo -en "\e[2 q"
+  end
+  set_color normal
+end
+
 
 
