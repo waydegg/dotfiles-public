@@ -16,6 +16,7 @@ set -g tide_character_color 008700
 set -g tide_character_vi_icon_default ❯
 set -g tide_character_vi_icon_replace ❯
 set -g tide_character_vi_icon_visual ❯
+set -g tide_right_prompt_items status cmd_duration context jobs virtual_env rustc java php chruby go kubectl toolbox terraform
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
@@ -47,11 +48,6 @@ bind -M insert \cn history-search-forward
 
 # Exit insert mode 
 bind -M insert -m default jk force-repaint
-
-# ===== Status ================================================================
-# Pyenv
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source
 
 # ===== Functions =============================================================
 # Change cursor shape depending on mode
@@ -88,3 +84,11 @@ function ide
     nvim
   end
 end
+
+# ===== Misc ==================================================================
+# FNM
+fnm env --use-on-cd | source
+
+# Pyenv
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
