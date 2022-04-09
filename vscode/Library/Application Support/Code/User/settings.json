@@ -1,0 +1,105 @@
+{
+  // ----- Workbench ----------------------------------------------------------
+  "workbench.startupEditor": "none",
+  "workbench.activityBar.visible": false,
+  
+  // ----- Editor -------------------------------------------------------------
+  "editor.minimap.enabled": false,
+  "editor.cursorSurroundingLines": 8,
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": true,
+
+  // ----- Explorer -----------------------------------------------------------
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
+  // ----- Terminal -----------------------------------------------------------
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.focusActiveEditorGroup"
+  ],
+
+  // ----- Search -------------------------------------------------------------
+  "search.exclude": {
+    "**/venv": true
+  },
+
+  // ----- Debugger -----------------------------------------------------------
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+
+  // ----- Security -----------------------------------------------------------
+  "security.workspace.trust.untrustedFiles": "open",
+
+  // ----- Extensions ---------------------------------------------------------
+  "extensions.ignoreRecommendations": true,
+
+  // ----- Theme --------------------------------------------------------------
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.theme": "classic",
+
+  // ----- Language Settings --------------------------------------------------
+  // Javascript
+  "javascript.format.semicolons": "remove",
+  // Typescript
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  // Python
+  "python.analysis.autoImportCompletions": false,
+  "python.linting.ignorePatterns": ["**/site-packages/**/*.py", "**/venv/**"],
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.formatting.provider": "black",
+
+  // ----- Prettier -----------------------------------------------------------
+  "prettier.semi": false,
+  "prettier.printWidth": 88,
+
+  // ----- VIM ----------------------------------------------------------------
+  "vim.foldfix": true,
+  "vim.easymotion": true,
+  "vim.highlightedyank.enable": true,
+  "vim.handleKeys": {
+    "<C-r>": true
+  },
+  "vim.useSystemClipboard": true,
+  // Keybinds
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Toggle line comment
+    {
+      "before": ["g", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j", "k"],
+      "after": ["<esc>", "l"]
+    }
+  ],
+
+  "todohighlight.keywords": [
+    { "text": "TODO:", "backgroundColor": "green" },
+    { "text": "NOTE:", "backgroundColor": "yellow" }
+  ],
+
+  // ----- File Watcher -------------------------------------------------------
+  "files.watcherExclude": {
+    "**/__pycache__/**": true,
+    "**/.git/**": true,
+    "**/.git/objects/**": false,
+    "**/.git/subtree-cache/**": false,
+    "**/.hg/store/**": false,
+    "**/.mypy_cache/**": true,
+    "**/venv/**": true
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.git": false,
+    "**/.hg": false,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/.svn": false,
+    "**/CVS": false,
+    "**/Thumbs.db": false
+  },
+}
