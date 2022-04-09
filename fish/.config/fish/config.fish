@@ -53,7 +53,7 @@ bind -M insert -m default jk force-repaint
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
 
-# ===== Prompt ================================================================
+# ===== Functions =============================================================
 # Change cursor shape depending on mode
 function fish_mode_prompt
   switch $fish_bind_mode
@@ -71,5 +71,20 @@ function fish_mode_prompt
   set_color normal
 end
 
-
-
+# IDE-like window splits
+function ide
+  if set -q $TMUX
+    set tmux_session_id (tmux new-session -d -P nvim)
+    tmux split-window -t $tmux_session_id -v -p 30
+    tmux split-window -t $tmux_session_id -h -p 66
+    tmux split-window -t $tmux_session_id -h -p 50
+    tmux select-pane -U -t $tmux_session_id
+    tmux attach -t $tmux_session_id
+  else
+    tmux split-window -v -p 30
+    tmux split-window -h -p 66
+    tmux split-window -h -p 50
+    tmux select-pane -U 
+    nvim
+  end
+end
