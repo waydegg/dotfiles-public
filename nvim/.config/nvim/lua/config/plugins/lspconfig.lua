@@ -6,6 +6,10 @@ lspconfig.pyright.setup {
 
 lspconfig.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
 }
 
 lspconfig.vimls.setup {
