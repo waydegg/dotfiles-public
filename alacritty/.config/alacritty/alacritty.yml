@@ -1,3 +1,6 @@
+env:
+  TERM: xterm-256color
+
 font:
   size: 13.0
   use_thin_strokes: true 
@@ -10,16 +13,13 @@ font:
     family: Menlo Nerd Font
     style: Italic
 
-# Paper Light 
 colors:
   primary:
     background: '0xeeeeee'
     foreground: '0x878787'
-
   cursor:
     text: '0xeeeeee'
     cursor: '0x878787'
-
   normal:
     black:   '0xeeeeee'
     red:     '0xaf0000'
@@ -29,7 +29,6 @@ colors:
     magenta: '0x878787'
     cyan:    '0x005f87'
     white:   '0x444444'
-
   bright:
     black:   '0xbcbcbc'
     red:     '0xd70000'
