@@ -34,23 +34,17 @@ packer.startup(function (use)
 
   -- Colorschemes
   use "NLKNguyen/papercolor-theme"
-  use "rakr/vim-one"
-  use { "mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim" }
-  use "gruvbox-community/gruvbox"
-  use "zefei/cake16"
-  use "YorickPeterse/vim-paper"
-  use "yasukotelin/shirotelin"
 
   -- LSP
   use "neovim/nvim-lspconfig"
 
   -- Completions
   use "hrsh7th/nvim-cmp"
+  use "L3MON4D3/LuaSnip"
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
-  use "kristijanhusak/vim-dadbod-completion"
-  use "ms-jpq/coq_nvim"
+  use "saadparwaiz1/cmp_luasnip"
 
   -- Syntax highlighting
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }

@@ -6,8 +6,15 @@ vim.cmd([[
 ]])
 
 vim.cmd([[
-  augroup set_commentstring
+  augroup set_fish_commentstring
     autocmd!
     autocmd FileType fish setlocal commentstring=#\ %s
+  augroup END
+]])
+
+vim.cmd([[
+  augroup treesitter_folding_fix
+    autocmd!
+    autocmd BufRead * autocmd BufWinEnter * ++once normal! zx zM zR
   augroup END
 ]])
