@@ -30,6 +30,7 @@ alias gs "git status"
 alias ga "git add"
 alias gd "git diff --name-only --diff-filter=d | xargs bat --diff"
 alias gc "git commit -m"
+alias gw "git worktree"
 
 alias t tmux
 alias ts "tmux ls"
@@ -39,6 +40,7 @@ alias tk "tmux kill-session -t"
 alias cat bat
 alias d docker
 alias vim nvim
+alias vi nvim
 alias nvm fnm
 
 # ===== Keybinds ==============================================================
