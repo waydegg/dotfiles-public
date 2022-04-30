@@ -18,6 +18,7 @@ set -g tide_character_vi_icon_replace ❯
 set -g tide_character_vi_icon_visual ❯
 set -g tide_right_prompt_items status cmd_duration context jobs virtual_env rustc java php chruby go kubectl toolbox terraform
 
+
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
 alias la "ls -A"
@@ -80,7 +81,9 @@ end
 
 # ===== Misc ==================================================================
 # FNM
-fnm env --use-on-cd | source
+if type fnm -q && status is-interactive 
+  fnm env --shell fish --use-on-cd | source
+end
 
 # Pyenv
 status is-login; and pyenv init --path | source
