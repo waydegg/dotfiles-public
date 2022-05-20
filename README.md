@@ -1,28 +1,24 @@
 # Dotfiles
 
-## Install
+My personal dotfiles.
 
-**Requirements**
-- `git`
-- `stow`
+## On a new machine
 
-**Steps**
-1. Clone this repository
-2. `cd` into the top level directory of the repository
-3. Use `stow` to create symlinks
 ```
-stow -t $HOME */    # Symlink everything
-stow -t $HOME nvim  # Just create nvim symlinks
+# Install all Brew dependencies
+brew bundle 
+
+# Create symlinks for all dotfiles with Stow
+stow -t $HOME */
+
+# Make Fish the default shell
+chsh -s /opt/homebrew/bin/fish
+
+# Install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Open Neovim and install all plugins
+:PlugInstall
 ```
-## Brew
 
-Formulae and Casks listed in `brew/Brewfile` can be installed with Homebrew's [bundle](https://docs.brew.sh/Manpage#bundle-subcommand) subcommand
-
-## Reference
-
-Here are some dotfiles I've taken inspiration from:
-
-- [craftzdog/dotfiles-public](https://github.com/craftzdog/dotfiles-public)
-- [nickjj/dotfiles](https://github.com/nickjj/dotfiles)
-- [ChristianChiarulli/Machfiles](https://github.com/ChristianChiarulli/Machfiles)
-- [ThePrimeagen/.dotfiles](https://github.com/ThePrimeagen/.dotfiles)
