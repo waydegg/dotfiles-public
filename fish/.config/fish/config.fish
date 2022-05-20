@@ -40,9 +40,9 @@ alias tk "tmux kill-session -t"
 
 alias cat bat
 alias d docker
+alias nvm fnm
 alias vim nvim
 alias vi nvim
-alias nvm fnm
 
 # ===== Keybinds ==============================================================
 # Search through command history
