@@ -1,7 +1,6 @@
 " --- Plugins -----------------------------------------------------------------
 call plug#begin()
 
-Plug 'gruvbox-community/gruvbox'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
@@ -23,6 +22,9 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" Colors
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
@@ -112,11 +114,6 @@ augroup set_fish_commentstring
   autocmd!
   autocmd FileType fish setlocal commentstring=#\ %s
 augroup END
-
-" augroup treesitter_folding_fix
-"   autocmd!
-"   autocmd BufRead * autocmd BufWinEnter * ++once normal! zx zM zR
-" augroup END
 
 " =============================================================================
 " ======================== Plugin Settings ====================================
