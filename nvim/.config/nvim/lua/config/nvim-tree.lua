@@ -12,7 +12,8 @@ nvim_tree.setup({
         { key = "c", action = "cd" },
         { key = "C", action = "dir_up" },
         { key = "v", action = "vsplit" },
-        { key = "b", action = "split" }
+        { key = "b", action = "split" },
+        { key = "a", action = "create" }
       }
     }
   }

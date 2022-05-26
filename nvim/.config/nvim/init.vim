@@ -4,7 +4,6 @@ call plug#begin()
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
 
 " Nvim Tree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -24,13 +23,18 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " Colors
-Plug 'gruvbox-community/gruvbox'
+Plug 'overcache/NeoSolarized'
+
+" Syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
 " --- Colorscheme -------------------------------------------------------------
-let g:gruvbox_contrast_dark = "hard"
-colorscheme gruvbox
+
+set background=light
+
+colorscheme NeoSolarized
 
 " Hide '~' characters at the end of buffers
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
@@ -102,6 +106,7 @@ set termguicolors
 set formatoptions=jtcroql
 set textwidth=80
 set guioptions-=m
+set gdefault
 
 
 " --- Autocommands ------------------------------------------------------------
@@ -137,7 +142,6 @@ if empty($TMUX) && g:zoom_tmux_z == v:true
   nmap <C-W>z <Plug>(zoom-toggle)
 endif
 
-
 " --- Nvim Tree ---------------------------------------------------------------
 lua require("config.nvim-tree")
 
@@ -147,6 +151,8 @@ nnoremap <leader>e <cmd>NvimTreeToggle<cr>
 
 " --- Gitsigns ----------------------------------------------------------------
 lua require("gitsigns").setup({})
+
+nnoremap <leader>gh <cmd>Gitsigns preview_hunk<cr>
 
 " --- CMP ---------------------------------------------------------------------
 lua require("config.cmp")
