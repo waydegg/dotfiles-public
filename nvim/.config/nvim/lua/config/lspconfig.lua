@@ -1,10 +1,20 @@
+local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
+
+local servers = { "pyright", "tsserver", "vimls", "sumneko_lua" }
+lsp_installer.setup({
+	ensure_installed = servers
+})
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 lspconfig.pyright.setup {
   filetypes = { "python" },
 }
 
 lspconfig.tsserver.setup {
+  capabilities = capabilities,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
@@ -13,13 +23,27 @@ lspconfig.tsserver.setup {
 }
 
 lspconfig.vimls.setup {
+  capabilities = capabilities,
   filetypes = { "vim" }
 }
 
-vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = false,
-})
+lspconfig.sumneko_lua.setup {
+  capabilities = capabilities,
+  filetypes = { "lua" },
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT"
+      },
+      diagnostics = {
+        globals = { "vim" }
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true)
+      },
+      telemetry = {
+        enable = false
+      }
+    }
+  }
+}

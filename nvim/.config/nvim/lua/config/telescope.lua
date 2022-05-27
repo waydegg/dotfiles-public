@@ -1,7 +1,10 @@
 local telescope = require("telescope")
 
+
 telescope.setup({
   defaults = {
+    prompt_prefix = " ",
+    selection_caret = " ",
     file_sorter = require("telescope.sorters").get_fzy_sorter,
     file_ignore_patterns = { ".git" }
   },

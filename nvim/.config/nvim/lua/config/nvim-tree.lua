@@ -13,7 +13,8 @@ nvim_tree.setup({
         { key = "C", action = "dir_up" },
         { key = "v", action = "vsplit" },
         { key = "b", action = "split" },
-        { key = "a", action = "create" }
+        { key = "a", action = "create" },
+        { key = "<c-r>", action = "refresh" }
       }
     }
   }

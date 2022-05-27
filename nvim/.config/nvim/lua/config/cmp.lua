@@ -1,8 +1,7 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local from_vscode = require("luasnip/loaders/from_vscode").lazy_load()
 
-local vscode_icons = {
+local cmp_kinds = {
   Text = '  ',
   Method = '  ',
   Function = '  ',
@@ -30,31 +29,23 @@ local vscode_icons = {
   TypeParameter = '  ',
 }
 
-function format_handler(entry, vim_item)
-  vim_item.kind = string.format("%s", vscode_icons[vim_item.kind])
-  vim_item.menu = ({
-    nvim_lsp = "[LSP]",
-    luasnip = "[Snippet]",
-    buffer = "[Buffer]",
-    path = "[Path]"
-  })[entry.source.name]
-  return vim_item
-end
-
 cmp.setup({
   snippet = {
-    expand = function(args) 
+    expand = function(args)
       luasnip.lsp_expand(args.body)
     end
   },
   mapping = {
-    ["<c-k>"] = cmp.mapping.select_prev_item(),
-    ["<c-j>"] = cmp.mapping.select_next_item(),
+    ["<c-n>"] = cmp.mapping.select_next_item(),
+    ["<c-p>"] = cmp.mapping.select_prev_item(),
     ["<cr>"] = cmp.mapping.confirm { select = true },
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = format_handler
+    fields = { "kind", "abbr" },
+    format = function(_, vim_item)
+      vim_item.kind = (cmp_kinds[vim_item.kind] or "")
+      return vim_item
+    end
   },
   sources = {
     { name = "nvim_lsp" },
@@ -67,7 +58,8 @@ cmp.setup({
     select = false
   },
   window = {
-    documentation = cmp.config.window.bordered()
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   experimental = {
     ghost_text = true

@@ -1,9 +1,10 @@
 " --- Plugins -----------------------------------------------------------------
 call plug#begin()
-
+  
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Nvim Tree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -13,6 +14,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lsp'
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
@@ -28,16 +30,12 @@ Plug 'overcache/NeoSolarized'
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter'
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
 call plug#end()
 
-" --- Colorscheme -------------------------------------------------------------
-
-set background=light
-
-colorscheme NeoSolarized
-
-" Hide '~' characters at the end of buffers
-hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 " --- Keybinds ----------------------------------------------------------------
 let mapleader = ' '
@@ -87,7 +85,7 @@ nnoremap <leader>cb <cmd>bp<bar>sp<bar>bn<bar>bd<cr>
 " --- Options -----------------------------------------------------------------
 set clipboard=unnamedplus
 set number
-set numberwidth=6
+set numberwidth=4
 set scrolloff=10
 set sidescrolloff=10
 set mouse=a
@@ -107,12 +105,13 @@ set formatoptions=jtcroql
 set textwidth=80
 set guioptions-=m
 set gdefault
+set pumheight=10
 
 
 " --- Autocommands ------------------------------------------------------------
 augroup highlight_yank
     autocmd!
-    au textyankpost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
+    autocmd textyankpost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
 augroup END
 
 augroup set_fish_commentstring
@@ -120,9 +119,32 @@ augroup set_fish_commentstring
   autocmd FileType fish setlocal commentstring=#\ %s
 augroup END
 
+augroup vsplit_help
+  autocmd!
+  autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
+augroup END
+
+" --- Colorscheme -------------------------------------------------------------
+
+set background=light
+
+colorscheme NeoSolarized
+
+" Hide '~' characters at the end of buffers
+highlight! EndOfBuffer guibg=bg guifg=bg
+
+" Make number background transparent
+highlight! clear LineNr
+
+
 " =============================================================================
 " ======================== Plugin Settings ====================================
 " =============================================================================
+
+" -- Vim Plug -----------------------------------------------------------------
+nnoremap <leader>pi <cmd>PlugInstall<cr>
+nnoremap <leader>ps <cmd>PlugStatus<cr>
+nnoremap <leader>pc <cmd>PlugClean<cr>
 
 " --- Zoom --------------------------------------------------------------------
 if exists('g:loaded_zoom')
@@ -157,6 +179,19 @@ nnoremap <leader>gh <cmd>Gitsigns preview_hunk<cr>
 " --- CMP ---------------------------------------------------------------------
 lua require("config.cmp")
 
+highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+
+highlight! CmpItemKindVariable guibg=NONE guifg=#76B6D8
+highlight! CmpItemKindInterface guibg=NONE guifg=#76B6D8
+highlight! CmpItemKindText guibg=NONE guifg=#76B6D8
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+
 " --- Hop ---------------------------------------------------------------------
 lua require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 
@@ -173,10 +208,12 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 " --- Treesitter --------------------------------------------------------------
 lua require("config.treesitter")
 
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 " --- Lualine -----------------------------------------------------------------
 lua require("config.lualine") 
 
-
-
-
+" -- LSP Config ---------------------------------------------------------------
+lua require("config.lspconfig")
 
