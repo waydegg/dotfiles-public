@@ -1,12 +1,17 @@
 local telescope = require("telescope")
 
-
 telescope.setup({
   defaults = {
     prompt_prefix = " ",
     selection_caret = " ",
     file_sorter = require("telescope.sorters").get_fzy_sorter,
-    file_ignore_patterns = { ".git" }
+    file_ignore_patterns = { ".git" },
+    path_display = function (opts, path)
+      local filename = require("telescope.utils").path_tail(path)
+      return string.format("%s %s", filename, path)
+    end,
+    dynamic_preview_title = true,
+    results_title = false,
   },
   pickers = {
     find_files = {
@@ -22,3 +27,4 @@ telescope.setup({
 })
 
 telescope.load_extension("fzy_native")
+
