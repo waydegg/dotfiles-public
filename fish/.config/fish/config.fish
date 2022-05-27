@@ -43,6 +43,7 @@ alias d docker
 alias nvm fnm
 alias vim nvim
 alias vi nvim
+alias c clear
 
 # ===== Keybinds ==============================================================
 # Search through command history
