@@ -24,7 +24,7 @@ alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "exa -l -g --icons"
 alias lla "ll -a"
-alias tree "tree -l -C -a"
+alias tree "tree -l -C -a -I '.git'"
 
 alias g git
 alias gs "git status"
