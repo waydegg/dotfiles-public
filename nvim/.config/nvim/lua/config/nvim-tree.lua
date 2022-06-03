@@ -7,7 +7,7 @@ nvim_tree.setup({
       custom_only = true,
       list = {
         { key = "<cr>", action = "edit" },
-        { key = "r", action = "rename" }, 
+        { key = "r", action = "rename" },
         { key = "d", action = "remove" },
         { key = "c", action = "cd" },
         { key = "C", action = "dir_up" },

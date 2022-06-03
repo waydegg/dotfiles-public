@@ -4,6 +4,10 @@ call plug#begin()
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'windwp/nvim-autopairs'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-dadbod'
+Plug 'dag/vim-fish'
 
 " Nvim Tree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -11,6 +15,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " Completions
 Plug 'hrsh7th/nvim-cmp'
+" Plug '~/ghq/github.com/hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -32,6 +37,12 @@ Plug 'nvim-treesitter/nvim-treesitter'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+
+" DAP
+Plug 'mfussenegger/nvim-dap'
+Plug 'jbyuki/one-small-step-for-vimkind'
+Plug 'mfussenegger/nvim-dap-python'
+
 
 call plug#end()
 
@@ -114,16 +125,6 @@ set foldlevel=99
 augroup highlight_yank
     autocmd!
     autocmd textyankpost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
-augroup END
-
-augroup set_fish_commentstring
-  autocmd!
-  autocmd FileType fish setlocal commentstring=#\ %s
-augroup END
-
-augroup vsplit_help
-  autocmd!
-  autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
 augroup END
 
 function! GetPotionFold(lnum)
@@ -279,12 +280,24 @@ lua require("config.treesitter")
 " --- Lualine -----------------------------------------------------------------
 lua require("config.lualine") 
 
-" -- LSP Config ---------------------------------------------------------------
+" --- LSP Config --------------------------------------------------------------
 lua require("config.lspconfig")
 
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
 nnoremap gh <cmd>lua vim.lsp.buf.hover()<cr>
-nnoremap r <cmd>lua vim.lsp.buf.rename()<cr>
+
+" --- DAP ---------------------------------------------------------------------
+lua require("config.dap")
+
+nnoremap <leader>db <cmd>lua require("dap").toggle_breakpoint()<cr>
+nnoremap <leader>dc <cmd>lua require("dap").continue()<cr>
+nnoremap <leader>ds <cmd>lua require("dap").step_over()<cr>
+nnoremap <leader>dr <cmd>lua require("dap").repl.toggle()<cr>
+nnoremap <leader>dl <cmd>lua require("dap").list_breakpoints()<cr>
+
+" --- Autopairs ---------------------------------------------------------------
+lua require("config.autopairs")
+
 
 
 

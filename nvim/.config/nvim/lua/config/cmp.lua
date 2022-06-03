@@ -29,6 +29,19 @@ local cmp_kinds = {
   TypeParameter = '  ',
 }
 
+local function format_item(_, vim_item)
+  vim_item.kind = cmp_kinds[vim_item.kind] or ""
+
+  -- local entries = entry.entries
+  -- if entries ~= nil and entries["get_completion_item:0"] ~= nil then
+  --   local source = entries["get_completion_item:0"].detail
+  --   vim_item.word = vim_item.word .. source
+  -- end
+
+  return vim_item
+end
+
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -42,10 +55,7 @@ cmp.setup({
   },
   formatting = {
     fields = { "kind", "abbr" },
-    format = function(_, vim_item)
-      vim_item.kind = (cmp_kinds[vim_item.kind] or "")
-      return vim_item
-    end
+    format = format_item
   },
   sources = {
     { name = "nvim_lsp" },
