@@ -1,6 +1,10 @@
 local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
 
+vim.diagnostic.config({
+    severity_sort = true,
+})
+
 local servers = { "pyright", "tsserver", "vimls", "sumneko_lua", "rust_analyzer" }
 lsp_installer.setup({
 	ensure_installed = servers

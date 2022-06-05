@@ -2,7 +2,7 @@ local lualine = require("lualine")
 
 lualine.setup({
   options = {
-    disabled_filetypes = { "NvimTree", "", "help" },
+    disabled_filetypes = { "NvimTree", "", "help", "dap-repl" },
   },
   inactive_sections = {
     lualine_a = {},

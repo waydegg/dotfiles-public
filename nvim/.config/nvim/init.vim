@@ -8,6 +8,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-dadbod'
 Plug 'dag/vim-fish'
+Plug 'jpalardy/vim-slime'
 
 " Nvim Tree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -126,6 +127,11 @@ augroup highlight_yank
     autocmd!
     autocmd textyankpost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
 augroup END
+
+augroup black_on_save
+  autocmd!
+  autocmd BufWritePre *.py Black
+augroup end
 
 function! GetPotionFold(lnum)
   if getline(a:lnum) =~? '\v^\s*$'
@@ -298,6 +304,10 @@ nnoremap <leader>dl <cmd>lua require("dap").list_breakpoints()<cr>
 " --- Autopairs ---------------------------------------------------------------
 lua require("config.autopairs")
 
+" --- Slime -------------------------------------------------------------------
+let g:slime_target = 'tmux'
+" let g:slime_no_mappings = 'true'
+let g:slime_dont_ask_default = 'true'
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 
-
-
+" nmap <leader>s <plug>SlimeSendCell
