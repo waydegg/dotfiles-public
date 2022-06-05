@@ -18,13 +18,16 @@ set -g tide_character_vi_icon_replace ❯
 set -g tide_character_vi_icon_visual ❯
 set -g tide_right_prompt_items status cmd_duration context jobs virtual_env rustc java php chruby go kubectl toolbox terraform
 
+# Set IPython directory
+set -gx IPYTHONDIR ~/.config/ipython
+
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "exa -l -g --icons"
 alias lla "ll -a"
-alias tree "tree -l -C -a -I '.git'"
+alias tree "tree -l -C -a -I '.git' -I 'venv' -I '__pycache__' -I '*.egg-info' -I '*.ipynb_checkpoints'"
 
 alias g git
 alias gs "git status"
@@ -44,6 +47,7 @@ alias nvm fnm
 alias vim nvim
 alias vi nvim
 alias c clear
+alias mp multipass
 
 # ===== Keybinds ==============================================================
 # Search through command history
@@ -78,6 +82,15 @@ function ide
   tmux split-window -h -p 50
   tmux select-pane -U 
   nvim
+end
+
+# Source venv (if exists) on directory change
+function __check_venv --on-variable PWD --description 'Source venv (if exists) on directory change'
+  status --is-command-substitution; and return
+  if test -d venv
+    source ./venv/bin/activate.fish
+  else
+  end
 end
 
 # ===== Misc ==================================================================
