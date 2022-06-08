@@ -5,26 +5,7 @@ if not ok then
 end
 
 local formatting = null_ls.builtins.formatting
-
-local prettier = formatting.prettier
-prettier.filetypes = {
-	"javascript",
-	"javascriptreact",
-	"typescript",
-	"typescriptreact",
-	"vue",
-	"css",
-	"scss",
-	"less",
-	"html",
-	"json",
-	"jsonc",
-	"yaml",
-	"yml",
-	"markdown",
-	"graphql",
-	"handlebars",
-}
+table.insert(formatting.prettier.filetypes, "yml")
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
