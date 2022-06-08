@@ -24,6 +24,8 @@ set -gx IPYTHONDIR ~/.config/ipython
 # Specify Docker host to Multipass VM
 set -gx DOCKER_HOST 192.168.64.3
 
+# Lazygit config directory
+set -gx CONFIG_DIR ~/.config/lazygit
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
