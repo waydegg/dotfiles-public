@@ -21,6 +21,9 @@ set -g tide_right_prompt_items status cmd_duration context jobs virtual_env rust
 # Set IPython directory
 set -gx IPYTHONDIR ~/.config/ipython
 
+# Specify Docker host to Multipass VM
+set -gx DOCKER_HOST 192.168.64.3
+
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
