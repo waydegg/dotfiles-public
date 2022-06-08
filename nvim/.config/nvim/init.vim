@@ -9,6 +9,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-dadbod'
 Plug 'dag/vim-fish'
 Plug 'jpalardy/vim-slime'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Nvim Tree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -127,11 +128,6 @@ augroup highlight_yank
     autocmd!
     autocmd textyankpost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
 augroup END
-
-augroup black_on_save
-  autocmd!
-  autocmd BufWritePre *.py Black
-augroup end
 
 function! GetPotionFold(lnum)
   if getline(a:lnum) =~? '\v^\s*$'
@@ -307,7 +303,12 @@ lua require("config.autopairs")
 " --- Slime -------------------------------------------------------------------
 let g:slime_target = 'tmux'
 " let g:slime_no_mappings = 'true'
-let g:slime_dont_ask_default = 'true'
+let g:slime_dont_ask_default = 1
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+let g:slime_paste_file = tempname()
+let g:slime_cell_delimiter = '# @@'
 
-" nmap <leader>s <plug>SlimeSendCell
+nnoremap <leader>s <plug>SlimeSendCell
+
+" --- Null-ls ------------------------------------------------------------------
+lua require("config.null-ls")
