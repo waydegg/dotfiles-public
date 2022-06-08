@@ -7,7 +7,7 @@ end
 local formatting = null_ls.builtins.formatting
 
 local prettier = formatting.prettier
-prettier.sources = {
+prettier.filetypes = {
 	"javascript",
 	"javascriptreact",
 	"typescript",
@@ -20,6 +20,7 @@ prettier.sources = {
 	"json",
 	"jsonc",
 	"yaml",
+	"yml",
 	"markdown",
 	"graphql",
 	"handlebars",
