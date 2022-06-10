@@ -48,6 +48,7 @@ alias tk "tmux kill-session -t"
 
 alias cat bat
 alias d docker
+alias dc docker-compose
 alias nvm fnm
 alias vim nvim
 alias vi nvim
