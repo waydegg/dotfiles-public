@@ -5,7 +5,7 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
-local servers = { "pyright", "tsserver", "vimls", "sumneko_lua", "rust_analyzer" }
+local servers = { "pyright", "tsserver", "vimls", "sumneko_lua", "rust_analyzer", "sqls" }
 lsp_installer.setup({
 	ensure_installed = servers,
 })
@@ -58,4 +58,27 @@ lspconfig.sumneko_lua.setup({
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 	filetypes = { "rust" },
+})
+
+lspconfig.sqls.setup({
+	settings = {
+		sqls = {
+			connections = {
+				{
+					driver = "postgresql",
+					dataSourceName = "postgres://postgres:postgres@192.168.64.3:5432/postgres",
+					-- user = "postgres",
+					-- password = "postgres",
+					-- host = "192.168.64.3",
+					-- port = "5432",
+					-- dbName = "postgres",
+				},
+			},
+		},
+	},
+	on_attach = function(client, bufnr)
+		client.resolved_capabilities.document_formatting = false
+
+		require("sqls").on_attach(client, bufnr)
+	end,
 })

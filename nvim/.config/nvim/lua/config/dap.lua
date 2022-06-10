@@ -1,5 +1,6 @@
 local dap = require("dap")
 
+-- Lua
 dap.configurations.lua = {
 	{
 		type = "nlua",
@@ -24,5 +25,37 @@ dap.adapters.nlua = function(callback, config)
 	callback({ type = "server", host = config.host, port = config.port })
 end
 
+-- Typescript/javascript
+dap.configurations.javascript = {
+	{
+		name = "Launch",
+		type = "node2",
+		request = "launch",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		console = "integratedTerminal",
+	},
+}
+
+dap.adapters.node2 = {
+	type = "executable",
+	command = "node",
+	args = { "/Users/waydegg/ghq/github.com/microsoft/vscode-node-debug2/out/src/nodeDebug.js" },
+}
+
+local function attach()
+	print("attaching")
+	dap.run({
+		type = "node2",
+		request = "attach",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		skipFiles = { "<node_internals>/**/*.js" },
+	})
+end
+
 -- setup func looks for path to debugpy installation
-require("dap-python").setup("/Users/waydegg/ghq/github.com/waydegg/rudder-backend/venv/bin/python")
+require("dap-python").setup("/Users/waydegg/ghq/github.com/waydegg/rudder-backend/venv/bin/python", nil)
