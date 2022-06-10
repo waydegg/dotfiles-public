@@ -60,6 +60,11 @@ lspconfig.rust_analyzer.setup({
 	filetypes = { "rust" },
 })
 
+lspconfig.sqlls.setup({
+	capabilities = capabilities,
+	filetypes = { "sql" },
+})
+
 lspconfig.sqls.setup({
 	settings = {
 		sqls = {
