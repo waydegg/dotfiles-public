@@ -16,7 +16,7 @@ set -g tide_character_color 008700
 set -g tide_character_vi_icon_default ❯
 set -g tide_character_vi_icon_replace ❯
 set -g tide_character_vi_icon_visual ❯
-set -g tide_right_prompt_items status cmd_duration context jobs virtual_env rustc java php chruby go kubectl toolbox terraform
+set -g tide_right_prompt_items status cmd_duration context jobs virtual_env
 
 # Set IPython directory
 set -gx IPYTHONDIR ~/.config/ipython
@@ -63,47 +63,14 @@ bind -M insert \cn history-search-forward
 # Exit insert mode 
 bind -M insert -m default jk force-repaint
 
-# ===== Functions =============================================================
-# Change cursor shape depending on mode
-function fish_mode_prompt
-  switch $fish_bind_mode
-    case default
-      echo -en "\e[2 q"
-    case insert
-      echo -en "\e[6 q"
-    case replace_one
-      echo -en "\e[4 q"
-    case visual
-      echo -en "\e[2 q"
-    case '*'
-      echo -en "\e[2 q"
-  end
-  set_color normal
-end
-
-# IDE-like window splits
-function ide
-  tmux split-window -v -p 30
-  tmux split-window -h -p 66
-  tmux split-window -h -p 50
-  tmux select-pane -U 
-  nvim
-end
-
-# Source venv (if exists) on directory change
-function __check_venv --on-variable PWD --description 'Source venv (if exists) on directory change'
-  status --is-command-substitution; and return
-  if test -d venv
-    source ./venv/bin/activate.fish
-  else
-  end
-end
-
-# ===== Misc ==================================================================
+# ===== Tool setup ============================================================
 # FNM
 if type fnm -q && status is-interactive 
   fnm env --shell fish --use-on-cd | source
 end
+
+# Venv
+source $HOME/.config/fish/functions/__check_venv.fish
 
 # Pyenv
 status is-login; and pyenv init --path | source
