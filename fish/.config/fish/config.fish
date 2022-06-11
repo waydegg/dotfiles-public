@@ -43,7 +43,6 @@ alias gw "git worktree"
 
 alias t tmux
 alias ts "tmux ls"
-alias ta "tmux attach -t"
 alias tk "tmux kill-session -t"
 
 alias cat bat
@@ -63,14 +62,20 @@ bind -M insert \cn history-search-forward
 # Exit insert mode 
 bind -M insert -m default jk force-repaint
 
+# ===== Auto-running Functions ================================================
+function __check_venv --on-variable PWD --description 'Source venv (if exists) on directory change'
+  status --is-command-substitution; and return
+  if test -d venv
+    source ./venv/bin/activate.fish
+  else
+  end
+end
+
 # ===== Tool setup ============================================================
 # FNM
 if type fnm -q && status is-interactive 
   fnm env --shell fish --use-on-cd | source
 end
-
-# Venv
-source $HOME/.config/fish/functions/__check_venv.fish
 
 # Pyenv
 status is-login; and pyenv init --path | source
