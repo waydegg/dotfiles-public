@@ -45,6 +45,10 @@ alias t tmux
 alias ts "tmux ls"
 alias tk "tmux kill-session -t"
 
+alias p python
+alias pip "python -m pip"
+alias venv "python -v venv"
+
 alias cat bat
 alias d docker
 alias dc docker-compose
