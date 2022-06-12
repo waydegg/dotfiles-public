@@ -56,6 +56,3 @@ local function attach()
 		skipFiles = { "<node_internals>/**/*.js" },
 	})
 end
-
--- setup func looks for path to debugpy installation
-require("dap-python").setup("/Users/waydegg/ghq/github.com/waydegg/rudder-backend/venv/bin/python", nil)
