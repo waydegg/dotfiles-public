@@ -1,8 +1,31 @@
 local ok, null_ls = pcall(require, "null-ls")
 if not ok then
-	print("null-ls not installed correctly")
+	print("null-ls is not installed correctly")
 	return
 end
+
+-- Custom sources
+local autoflake = {
+	name = "autoflake",
+	method = null_ls.methods.FORMATTING,
+	filetypes = { "python" },
+	generator = {
+		fn = function(params)
+			-- print(vim.inspect(params))
+			-- return { {
+			-- 	text = "meow",
+			-- } }
+		end,
+	},
+	-- generator_opts = {
+	-- 	command = "autoflake",
+	-- 	args = {
+	-- 		"--remove-all-unused-imports",
+	-- 		"--in-place",
+	-- 		"$FILENAME",
+	-- 	},
+	-- },
+}
 
 local formatting = null_ls.builtins.formatting
 table.insert(formatting.prettier.filetypes, "yml")
@@ -17,6 +40,8 @@ null_ls.setup({
 		formatting.sqlfluff.with({
 			extra_args = { "--dialect", "postgres" },
 		}),
+		formatting.isort,
+		autoflake,
 	},
 	on_attach = function(client, bufnr)
 		-- Format on save

@@ -6,11 +6,11 @@ Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-dadbod'
 Plug 'dag/vim-fish'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nanotee/sqls.nvim'
+Plug 'folke/trouble.nvim'
 
 " Nvim Tree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -115,7 +115,7 @@ set cursorline
 set signcolumn=yes
 set termguicolors
 set formatoptions=jtcroql
-set textwidth=80
+set textwidth=0
 set guioptions-=m
 set gdefault
 set pumheight=10
@@ -244,7 +244,7 @@ let g:nvim_tree_group_empty = 1
 nnoremap <leader>e <cmd>NvimTreeToggle<cr>
 
 " --- Gitsigns ----------------------------------------------------------------
-lua require("gitsigns").setup({})
+lua require("config.gitsigns")
 
 nnoremap <leader>gh <cmd>Gitsigns preview_hunk<cr>
 
@@ -312,3 +312,12 @@ nnoremap <leader>s <plug>SlimeSendCell
 
 " --- Null-ls ------------------------------------------------------------------
 lua require("config.null-ls")
+
+" --- Trouble  ------------------------------------------------------------------
+lua require("config.trouble")
+
+nnoremap <leader>tt <cmd>TroubleToggle<cr>
+nnoremap <leader>tb <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>tr <cmd>TroubleReload<cr>
+
+
