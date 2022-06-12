@@ -3,28 +3,21 @@ if not ok then
 	print("null-ls is not installed correctly")
 	return
 end
+local helpers = require("null-ls.helpers")
 
 -- Custom sources
 local autoflake = {
 	name = "autoflake",
 	method = null_ls.methods.FORMATTING,
 	filetypes = { "python" },
-	generator = {
-		fn = function(params)
-			-- print(vim.inspect(params))
-			-- return { {
-			-- 	text = "meow",
-			-- } }
-		end,
-	},
-	-- generator_opts = {
-	-- 	command = "autoflake",
-	-- 	args = {
-	-- 		"--remove-all-unused-imports",
-	-- 		"--in-place",
-	-- 		"$FILENAME",
-	-- 	},
-	-- },
+	generator = helpers.formatter_factory({
+		command = "autoflake",
+		args = {
+			"--remove-all-unused-imports",
+			"--stdout",
+			"$FILENAME",
+		},
+	}),
 }
 
 local formatting = null_ls.builtins.formatting
