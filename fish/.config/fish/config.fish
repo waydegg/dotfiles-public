@@ -3,10 +3,10 @@
 set fish_greeting ""
 
 # Add Homebrew to PATH
-set -gx PATH /opt/homebrew/bin $PATH
+set -x PATH /opt/homebrew/bin $PATH
 
 # Set default editor to Neovim
-set -gx EDITOR nvim
+set -x EDITOR nvim
 
 # Tide prompt
 set -g tide_git_color_branch 008700
@@ -19,20 +19,28 @@ set -g tide_character_vi_icon_visual ❯
 set -g tide_right_prompt_items status cmd_duration context jobs virtual_env
 
 # Set IPython directory
-set -gx IPYTHONDIR ~/.config/ipython
+set -x IPYTHONDIR ~/.config/ipython
 
 # Specify Docker host to Multipass VM
-set -gx DOCKER_HOST 192.168.64.3
+set -x DOCKER_HOST 192.168.64.3
 
 # Lazygit config directory
-set -gx CONFIG_DIR ~/.config/lazygit
+set -x CONFIG_DIR ~/.config/lazygit
+
+# Rust
+set -x RUSTUP_HOME ~/.config/rustup
+set -x CARGO_HOME ~/.config/cargo
+set -x PATH ~/.config/cargo/bin $PATH
+
+# Direnv
+set -x DIRENV_LOG_FORMAT ""
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "exa -l -g --icons"
 alias lla "ll -a"
-alias tree "tree -l -C -a -I '.git' -I 'venv' -I '__pycache__' -I '*.egg-info' -I '*.ipynb_checkpoints'"
+alias tree "tree -l -C -a -I '.git' -I 'venv' -I '__pycache__' -I '*.egg-info' -I '*.ipynb_checkpoints' -I 'node_modules'"
 
 alias g git
 alias gs "git status"
@@ -71,7 +79,6 @@ function __check_venv --on-variable PWD --description 'Source venv (if exists) o
   status --is-command-substitution; and return
   if test -d venv
     source ./venv/bin/activate.fish
-  else
   end
 end
 
@@ -84,3 +91,6 @@ end
 # Pyenv
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
+
+# Direnv
+direnv hook fish | source
