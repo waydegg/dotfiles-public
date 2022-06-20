@@ -19,21 +19,27 @@ set -g tide_character_vi_icon_visual ❯
 set -g tide_right_prompt_items status cmd_duration context jobs virtual_env
 
 # Set IPython directory
-set -x IPYTHONDIR ~/.config/ipython
+set -x IPYTHONDIR $HOME/.config/ipython
 
 # Specify Docker host to Multipass VM
 set -x DOCKER_HOST 192.168.64.3
 
 # Lazygit config directory
-set -x CONFIG_DIR ~/.config/lazygit
+set -x CONFIG_DIR $HOME/.config/lazygit
 
-# Rust
-set -x RUSTUP_HOME ~/.config/rustup
-set -x CARGO_HOME ~/.config/cargo
-set -x PATH ~/.config/cargo/bin $PATH
+# Rustup and Cargo config directories, add Cargo to PATH
+set -x RUSTUP_HOME $HOME/.config/rustup
+set -x CARGO_HOME $HOME/.config/cargo
+set -x PATH $HOME/.config/cargo/bin $PATH
 
 # Direnv
 set -x DIRENV_LOG_FORMAT ""
+
+# Add $HOME/.local/bin to path (pipx puts executables here)
+set -x PATH $HOME/.local/bin $PATH
+
+# Pyenv config directory
+set -x PYENV_ROOT $HOME/.config/pyenv
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
@@ -54,6 +60,7 @@ alias ts "tmux ls"
 alias tk "tmux kill-session -t"
 
 alias p python
+alias python python3
 alias pip "python -m pip"
 alias venv "python -m venv"
 
