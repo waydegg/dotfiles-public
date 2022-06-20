@@ -26,16 +26,28 @@ dap.adapters.nlua = function(callback, config)
 end
 
 -- Typescript/javascript
-dap.configurations.javascript = {
+dap.configurations.typescript = {
 	{
-		name = "Launch",
 		type = "node2",
-		request = "launch",
-		program = "${file}",
+		request = "attach",
+		host = function()
+			local value = vim.fn.input("Host [127.0.0.1]: ")
+			if value ~= "" then
+				return value
+			end
+			return "127.0.0.1"
+		end,
+		port = function()
+			local value = tonumber(vim.fn.input("Port [9229]: "))
+			if value ~= "" then
+				return value
+			end
+			return "9229"
+		end,
 		cwd = vim.fn.getcwd(),
 		sourceMaps = true,
 		protocol = "inspector",
-		console = "integratedTerminal",
+		skipFiles = { "<node_internals>/**/*.js" },
 	},
 }
 
@@ -44,15 +56,3 @@ dap.adapters.node2 = {
 	command = "node",
 	args = { "/Users/waydegg/ghq/github.com/microsoft/vscode-node-debug2/out/src/nodeDebug.js" },
 }
-
-local function attach()
-	print("attaching")
-	dap.run({
-		type = "node2",
-		request = "attach",
-		cwd = vim.fn.getcwd(),
-		sourceMaps = true,
-		protocol = "inspector",
-		skipFiles = { "<node_internals>/**/*.js" },
-	})
-end

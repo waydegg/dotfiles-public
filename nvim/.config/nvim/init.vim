@@ -1,51 +1,37 @@
 " --- Plugins -----------------------------------------------------------------
 call plug#begin()
-  
+
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'dag/vim-fish'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'nanotee/sqls.nvim'
 Plug 'folke/trouble.nvim'
-
-" Nvim Tree
+Plug 'aserowy/tmux.nvim'
+Plug 'numToStr/Comment.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
-
-" Completions
 Plug 'hrsh7th/nvim-cmp'
-" Plug '~/ghq/github.com/hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
-
-" Snippets
 Plug 'L3MON4D3/LuaSnip'
-
-" Telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-
-" Colors
 Plug 'overcache/NeoSolarized'
-
-" Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter'
-
-" LSP
+Plug 'dag/vim-fish'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-
-" DAP
+Plug 'nanotee/sqls.nvim'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'jose-elias-alvarez/typescript.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'jbyuki/one-small-step-for-vimkind'
 Plug 'mfussenegger/nvim-dap-python'
-
+Plug 'rmagatti/auto-session'
 
 call plug#end()
 
@@ -132,12 +118,16 @@ augroup END
 
 augroup custom_folding
   autocmd!
-  autocmd FileType typescript,javascript setlocal fillchars=fold:\
-  autocmd FileType typescript,javascript setlocal foldtext=CustomFoldText()
-  autocmd FileType typescript,javascript setlocal foldmethod=expr 
-  autocmd FileType typescript,javascript setlocal foldexpr=GetPotionFold(v:lnum)
+  autocmd FileType typescript,javascript,typescriptreact setlocal fillchars=fold:\
+  autocmd FileType typescript,javascript,typescriptreact setlocal foldtext=CustomFoldText()
+  autocmd FileType typescript,javascript,typescriptreact setlocal foldmethod=expr 
+  autocmd FileType typescript,javascript,typescriptreact setlocal foldexpr=GetPotionFold(v:lnum)
 augroup END
 
+augroup telescope_fold_fix
+  autocmd!
+  autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
+augroup end
 
 " --- Colorscheme -------------------------------------------------------------
 
@@ -212,6 +202,8 @@ lua require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 
 nnoremap f <cmd>HopWord<cr>
 nnoremap F <cmd>HopLine<cr>
+vnoremap f <cmd>HopWord<cr>
+vnoremap F <cmd>HopLine<cr>
 
 " --- Telescope ---------------------------------------------------------------
 lua require("config.telescope")
@@ -263,4 +255,11 @@ nnoremap <leader>tt <cmd>TroubleToggle<cr>
 nnoremap <leader>tb <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>tr <cmd>TroubleReload<cr>
 
+lua require("config.lspsaga")
+lua require("config.typescript")
+lua require("config.tmux")
 
+lua require("config.comment")
+
+nnoremap gc <plug>(comment_toggle_current_linewise)
+vnoremap gc <plug>(comment_toggle_linewise_visual)

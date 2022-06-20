@@ -4,4 +4,4 @@ if not ok then
 	return
 end
 
-trouble.setup({})
+trouble.setup({ auto_close = true })

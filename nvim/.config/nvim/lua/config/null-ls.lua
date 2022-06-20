@@ -27,14 +27,20 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
 	sources = {
+		-- Python
 		autoflake,
 		formatting.black,
 		formatting.isort,
+		-- JS/TS
 		formatting.prettier,
+		-- Lua
 		formatting.stylua,
+		-- SQL
 		formatting.sqlfluff.with({
 			extra_args = { "--dialect", "postgres" },
 		}),
+		-- TOML
+		formatting.taplo,
 	},
 	on_attach = function(client, bufnr)
 		-- Format on save
