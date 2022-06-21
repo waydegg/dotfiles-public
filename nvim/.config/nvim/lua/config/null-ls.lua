@@ -28,7 +28,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	sources = {
 		-- Python
-		autoflake,
+		-- autoflake,
 		formatting.black,
 		formatting.isort,
 		-- JS/TS
