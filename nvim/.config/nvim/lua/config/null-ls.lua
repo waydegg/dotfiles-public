@@ -35,10 +35,14 @@ null_ls.setup({
 		formatting.prettier,
 		-- Lua
 		formatting.stylua,
-		-- SQL
-		formatting.sqlfluff.with({
-			extra_args = { "--dialect", "postgres" },
-		}),
+		-- TODO: add trailing semicolon to queries, show some kind of error
+		-- message for failed queries this is a pgcli thing maybe),
+		-- disable column name formatting from
+		-- camel to snake case (mabe when wrapped w/ quotation marks)
+		-- -- SQL
+		-- formatting.sqlfluff.with({
+		-- 	extra_args = { "--dialect", "postgres" },
+		-- }),
 		-- TOML
 		formatting.taplo,
 	},

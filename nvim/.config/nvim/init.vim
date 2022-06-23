@@ -32,6 +32,8 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'jbyuki/one-small-step-for-vimkind'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'rmagatti/auto-session'
+Plug 'kevinhwang91/nvim-ufo'
+Plug 'kevinhwang91/promise-async'
 
 call plug#end()
 
@@ -105,23 +107,14 @@ set textwidth=0
 set guioptions-=m
 set gdefault
 set pumheight=10
- 
-set foldmethod=indent
-set nofoldenable
+set foldcolumn=0
 set foldlevel=99
+set foldenable
 
 " --- Autocommands ------------------------------------------------------------
 augroup highlight_yank
     autocmd!
     autocmd textyankpost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
-augroup END
-
-augroup custom_folding
-  autocmd!
-  autocmd FileType typescript,javascript,typescriptreact setlocal fillchars=fold:\
-  autocmd FileType typescript,javascript,typescriptreact setlocal foldtext=CustomFoldText()
-  autocmd FileType typescript,javascript,typescriptreact setlocal foldmethod=expr 
-  autocmd FileType typescript,javascript,typescriptreact setlocal foldexpr=GetPotionFold(v:lnum)
 augroup END
 
 augroup telescope_fold_fix
@@ -256,7 +249,6 @@ nnoremap <leader>tb <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>tr <cmd>TroubleReload<cr>
 
 lua require("config.lspsaga")
-lua require("config.typescript")
 lua require("config.tmux")
 
 lua require("config.comment")
