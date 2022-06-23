@@ -11,3 +11,4 @@ vi = True
 row_limit = 500
 less_chatty = True
 prompt = '\u@\H:\p> '
+destructive_warning = False
