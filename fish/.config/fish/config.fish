@@ -8,6 +8,8 @@ set -x PATH /opt/homebrew/bin $PATH
 # Set default editor to Neovim
 set -x EDITOR nvim
 
+# set -x TERM alacritty
+
 # Tide prompt
 set -g tide_git_color_branch 008700
 set -g tide_git_color_stash 008700
@@ -58,6 +60,7 @@ alias gw "git worktree"
 alias t tmux
 alias ts "tmux ls"
 alias tk "tmux kill-session -t"
+alias tks "tmux kill-server"
 
 alias p python
 alias python python3
