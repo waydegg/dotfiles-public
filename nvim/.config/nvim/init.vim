@@ -20,7 +20,6 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'overcache/NeoSolarized'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'dag/vim-fish'
 Plug 'neovim/nvim-lspconfig'
@@ -34,6 +33,7 @@ Plug 'mfussenegger/nvim-dap-python'
 Plug 'rmagatti/auto-session'
 Plug 'kevinhwang91/nvim-ufo'
 Plug 'kevinhwang91/promise-async'
+Plug 'simrat39/symbols-outline.nvim'
 
 call plug#end()
 
@@ -110,6 +110,8 @@ set pumheight=10
 set foldcolumn=0
 set foldlevel=99
 set foldenable
+set nowrap
+set background=light
 
 " --- Autocommands ------------------------------------------------------------
 augroup highlight_yank
@@ -123,16 +125,7 @@ augroup telescope_fold_fix
 augroup end
 
 " --- Colorscheme -------------------------------------------------------------
-
-set background=light
-
-colorscheme NeoSolarized
-
-" Hide '~' characters at the end of buffers
-highlight! EndOfBuffer guibg=bg guifg=bg
-
-" Make number background transparent
-highlight! clear LineNr
+colorscheme solarized
 
 
 " =============================================================================
@@ -177,19 +170,6 @@ nnoremap <leader>gh <cmd>Gitsigns preview_hunk<cr>
 " --- CMP ---------------------------------------------------------------------
 lua require("config.cmp")
 
-highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-
-highlight! CmpItemKindVariable guibg=NONE guifg=#76B6D8
-highlight! CmpItemKindInterface guibg=NONE guifg=#76B6D8
-highlight! CmpItemKindText guibg=NONE guifg=#76B6D8
-highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
-
 " --- Hop ---------------------------------------------------------------------
 lua require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 
@@ -233,7 +213,7 @@ lua require("config.autopairs")
 let g:slime_target = 'tmux'
 " let g:slime_no_mappings = 'true'
 let g:slime_dont_ask_default = 1
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+let b:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_paste_file = tempname()
 
 nnoremap <leader>s <plug>SlimeSendCell

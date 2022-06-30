@@ -35,9 +35,21 @@ set_hl(0, "Error", { fg = colors.red, bold = true })
 set_hl(0, "Todo", { fg = colors.magenta, bold = true })
 set_hl(0, "SpecialKey", { fg = colors.base2, bold = true })
 set_hl(0, "NonText", { fg = colors.base2, bold = true })
-set_hl(0, "StatusLine", { fg = colors.base01, bg = colors.base2, reverse = true, bold = true })
-set_hl(0, "StatusLineNC", { fg = colors.base0, bg = colors.base2, reverse = true, bold = true })
-set_hl(0, "Visual", { fg = colors.base1, bg = colors.base3, reverse = true, bold = true })
+set_hl(
+	0,
+	"StatusLine",
+	{ fg = colors.base01, bg = colors.base2, reverse = true, bold = true }
+)
+set_hl(
+	0,
+	"StatusLineNC",
+	{ fg = colors.base0, bg = colors.base2, reverse = true, bold = true }
+)
+set_hl(
+	0,
+	"Visual",
+	{ fg = colors.base1, bg = colors.base3, reverse = true, bold = true }
+)
 set_hl(0, "Directory", { fg = colors.blue })
 set_hl(0, "ErrorMsg", { fg = colors.red, reverse = true })
 set_hl(0, "IncSearch", { fg = colors.orange, standout = true })
@@ -46,17 +58,45 @@ set_hl(0, "MoreMsg", { fg = colors.blue })
 set_hl(0, "ModeMsg", { fg = colors.blue })
 set_hl(0, "LineNr", { fg = colors.base1 })
 set_hl(0, "Question", { fg = colors.cyan, bold = true })
-set_hl(0, "WinSeparator", { fg = colors.base0, bg = colors.base0, reverse = true, bold = true })
+set_hl(
+	0,
+	"WinSeparator",
+	{ fg = colors.base0, bg = colors.base0, reverse = true, bold = true }
+)
 set_hl(0, "Title", { fg = colors.orange, bold = true })
-set_hl(0, "VisualNOS", { bg = colors.base2, standout = true, reverse = true, bold = true })
+set_hl(
+	0,
+	"VisualNOS",
+	{ bg = colors.base2, standout = true, reverse = true, bold = true }
+)
 set_hl(0, "Warningmsg", { fg = colors.red, bold = true })
-set_hl(0, "WildMenu", { fg = colors.base02, bg = colors.base2, reverse = true, bold = true })
-set_hl(0, "Folded", { fg = colors.base00, bg = colors.base2, underline = true, sp = colors.base3 })
+set_hl(
+	0,
+	"WildMenu",
+	{ fg = colors.base02, bg = colors.base2, reverse = true, bold = true }
+)
+set_hl(
+	0,
+	"Folded",
+	{ fg = colors.base00, bg = colors.base2, underline = true, sp = colors.base3 }
+)
 set_hl(0, "FoldedColumn", { fg = colors.base00, bg = colors.base2 })
-set_hl(0, "DiffAdd", { fg = colors.green, bg = colors.base2, bold = true, sp = colors.green })
-set_hl(0, "DiffChange", { fg = colors.yellow, bg = colors.base2, bold = true, sp = colors.yellow })
+set_hl(
+	0,
+	"DiffAdd",
+	{ fg = colors.green, bg = colors.base2, bold = true, sp = colors.green }
+)
+set_hl(
+	0,
+	"DiffChange",
+	{ fg = colors.yellow, bg = colors.base2, bold = true, sp = colors.yellow }
+)
 set_hl(0, "DiffDelete", { fg = colors.red, bg = colors.base2, bold = true })
-set_hl(0, "DiffText", { fg = colors.blue, bg = colors.base2, bold = true, sp = colors.blue })
+set_hl(
+	0,
+	"DiffText",
+	{ fg = colors.blue, bg = colors.base2, bold = true, sp = colors.blue }
+)
 set_hl(0, "SignColumn", { fg = colors.base00 })
 set_hl(0, "Conceal", { fg = colors.blue })
 set_hl(0, "SpellBad", { sp = colors.red, undercurl = true })
@@ -64,26 +104,39 @@ set_hl(0, "SpellCap", { sp = colors.violet, undercurl = true })
 set_hl(0, "SpellRare", { sp = colors.cyan, undercurl = true })
 set_hl(0, "SpellLocal", { sp = colors.yellow, undercurl = true })
 set_hl(0, "Pmenu", { fg = colors.base00, bg = colors.base2, reverse = true })
-set_hl(0, "PmenuSel", { fg = colors.base1, bg = colors.base02, reverse = true, bold = true })
-set_hl(0, "PmenuSbar", { fg = colors.base02, bg = colors.base00, reverse = true, bold = true })
-set_hl(0, "PmenuThumb", { fg = colors.base00, bg = colors.base3, reverse = true, bold = true })
-set_hl(0, "TabLine", { fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true })
-set_hl(0, "TabLineFill", { fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true })
 set_hl(
-  
-  
-  
-  
-  
-  
-  
-
-
-
 	0,
-	"TabLineSel",
-	{ fg = colors.base1, bg = colors.base02, sp = colors.base00, underline = true, reverse = true, bold = true }
+	"PmenuSel",
+	{ fg = colors.base1, bg = colors.base02, reverse = true, bold = true }
 )
+set_hl(
+	0,
+	"PmenuSbar",
+	{ fg = colors.base02, bg = colors.base00, reverse = true, bold = true }
+)
+set_hl(
+	0,
+	"PmenuThumb",
+	{ fg = colors.base00, bg = colors.base3, reverse = true, bold = true }
+)
+set_hl(
+	0,
+	"TabLine",
+	{ fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true }
+)
+set_hl(
+	0,
+	"TabLineFill",
+	{ fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true }
+)
+set_hl(0, "TabLineSel", {
+	fg = colors.base1,
+	bg = colors.base02,
+	sp = colors.base00,
+	underline = true,
+	reverse = true,
+	bold = true,
+})
 set_hl(0, "CursorColumn", { bg = colors.base2 })
 set_hl(0, "CursorLine", { bg = colors.base2, sp = colors.base01 })
 set_hl(0, "CursorColumn", { bg = colors.base2 })
