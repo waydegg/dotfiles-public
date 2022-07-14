@@ -19,22 +19,30 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
-local servers = { "pyright", "tsserver", "vimls", "sumneko_lua", "rust_analyzer", "sqls" }
+local servers = {
+	"pyright",
+	"tsserver",
+	"vimls",
+	"sumneko_lua",
+	"rust_analyzer",
+	"sqls",
+	"html",
+}
 lsp_installer.setup({
 	ensure_installed = servers,
 })
-
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
--- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 lspconfig.pyright.setup({
+	capabilities = capabilities,
 	filetypes = { "python" },
 })
 
@@ -44,7 +52,6 @@ typescript.setup({
 		filetypes = { "typescript", "typescriptreact" },
 		on_attach = function(client)
 			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
 		end,
 	},
 })
@@ -74,7 +81,7 @@ lspconfig.sumneko_lua.setup({
 		},
 	},
 	on_attach = function(client)
-		client.server_capabilities.documentFormattingProvider = false
+		client.resolved_capabilities.document_formatting = false
 	end,
 })
 
@@ -100,5 +107,20 @@ lspconfig.rust_analyzer.setup({
 -- 		client.resolved_capabilities.document_formatting = false
 -- 	end,
 -- })
+
+lspconfig.html.setup({
+	capabilities = capabilities,
+	filetypes = { "html" },
+	init_options = {
+		configurationSection = { "html", "css", "javascript" },
+		embeddedLanguages = {
+			css = true,
+			javascript = true,
+		},
+	},
+	on_attach = function(client)
+		client.resolved_capabilities.document_formatting = false
+	end,
+})
 
 require("ufo").setup()

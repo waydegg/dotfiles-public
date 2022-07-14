@@ -18,4 +18,15 @@ nvim_tree.setup({
 			},
 		},
 	},
+	renderer = {
+		root_folder_modifier = ":t",
+		icons = {
+			show = {
+				folder_arrow = false,
+			},
+		},
+	},
+	git = {
+		enable = false,
+	},
 })

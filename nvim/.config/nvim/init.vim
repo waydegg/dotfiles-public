@@ -34,6 +34,8 @@ Plug 'rmagatti/auto-session'
 Plug 'kevinhwang91/nvim-ufo'
 Plug 'kevinhwang91/promise-async'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 call plug#end()
 

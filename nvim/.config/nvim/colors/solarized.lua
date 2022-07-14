@@ -17,6 +17,10 @@ local colors = {
 	green = "#859900",
 }
 
+local colors_darker = {
+	base3_5 = "#fbeecc",
+}
+
 vim.api.nvim_command("hi clear")
 
 local set_hl = vim.api.nvim_set_hl
@@ -156,3 +160,21 @@ set_hl(0, "CmpItemKindMethod", { fg = "#C586C0" })
 set_hl(0, "CmpItemKindKeyword", { fg = "#D4D4D4" })
 set_hl(0, "CmpItemKindProperty", { fg = "#D4D4D4" })
 set_hl(0, "CmpItemKindUnit", { fg = "#D4D4D4" })
+
+-- Nvim Tree
+set_hl(0, "NvimTreeNormal", { fg = colors.base00, bg = colors_darker.base3_5 })
+set_hl(
+	0,
+	"NvimTreeEndOfBuffer",
+	{ fg = colors_darker.base3_5, bg = colors_darker.base3_5 }
+)
+set_hl(
+	0,
+	"NvimTreeWinSeparator",
+	{ fg = colors.base0, bg = colors.base0, reverse = true, bold = true }
+)
+
+-- GitSigns
+set_hl(0, "GitSignsAdd", { fg = "#859900", bg = colors.base3 })
+set_hl(0, "GitSignsChange", { fg = "#b58900", bg = colors.base3 })
+set_hl(0, "GitSignsDelete", { fg = "#dc322f", bg = colors.base3 })
