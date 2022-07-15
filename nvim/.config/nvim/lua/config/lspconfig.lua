@@ -51,7 +51,7 @@ typescript.setup({
 		capabilities = capabilities,
 		filetypes = { "typescript", "typescriptreact" },
 		on_attach = function(client)
-			client.resolved_capabilities.document_formatting = false
+			client.server_capabilities.document_formatting = false
 		end,
 	},
 })
@@ -81,7 +81,7 @@ lspconfig.sumneko_lua.setup({
 		},
 	},
 	on_attach = function(client)
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 	end,
 })
 
@@ -89,24 +89,6 @@ lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 	filetypes = { "rust" },
 })
-
--- lspconfig.sqls.setup({
--- 	settings = {
--- 		sqls = {
--- 			connections = {
--- 				{
--- 					driver = "postgresql",
--- 					dataSourceName = "postgres://postgres:postgres@192.168.64.3:5432/postgres",
--- 				},
--- 			},
--- 		},
--- 	},
--- 	capabilities = capabilities,
--- 	on_attach = function(client, bufnr)
--- 		require("sqls").on_attach(client, bufnr)
--- 		client.resolved_capabilities.document_formatting = false
--- 	end,
--- })
 
 lspconfig.html.setup({
 	capabilities = capabilities,
@@ -119,8 +101,9 @@ lspconfig.html.setup({
 		},
 	},
 	on_attach = function(client)
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 	end,
 })
 
-require("ufo").setup()
+local ufo = require("ufo")
+ufo.setup()

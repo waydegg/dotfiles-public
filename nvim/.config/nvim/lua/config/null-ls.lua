@@ -27,13 +27,10 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
 	sources = {
-		-- Python
 		-- autoflake,
 		formatting.black,
 		formatting.isort,
-		-- JS/TS
 		formatting.prettier,
-		-- Lua
 		formatting.stylua,
 		-- TODO: add trailing semicolon to queries, show some kind of error
 		-- message for failed queries this is a pgcli thing maybe),
@@ -54,7 +51,7 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-          vim.lsp.buf.formatting_sync()
+					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
 		end
