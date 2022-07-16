@@ -15,10 +15,13 @@ nvim_tree.setup({
 				{ key = "b", action = "split" },
 				{ key = "a", action = "create" },
 				{ key = "<c-r>", action = "refresh" },
+				{ key = "x", action = "cut" },
+				{ key = "p", action = "paste" },
 			},
 		},
 	},
 	renderer = {
+		group_empty = true,
 		root_folder_modifier = ":t",
 		icons = {
 			show = {

@@ -1,7 +1,4 @@
-local ok, comment = pcall(require, "Comment")
-if not ok then
-	print("comment.nvim is not installed correctly")
-end
+local comment = require("comment")
 
 comment.setup({
 	mappings = false,

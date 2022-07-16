@@ -54,5 +54,7 @@ dap.configurations.typescript = {
 dap.adapters.node2 = {
 	type = "executable",
 	command = "node",
-	args = { "/Users/waydegg/ghq/github.com/microsoft/vscode-node-debug2/out/src/nodeDebug.js" },
+	args = {
+		"/Users/waydegg/ghq/github.com/microsoft/vscode-node-debug2/out/src/nodeDebug.js",
+	},
 }

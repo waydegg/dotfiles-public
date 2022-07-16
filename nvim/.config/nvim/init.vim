@@ -31,59 +31,29 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'jbyuki/one-small-step-for-vimkind'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'rmagatti/auto-session'
-Plug 'kevinhwang91/nvim-ufo'
-Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-ufo', { 'commit': '1501a5c324bd6355de46de3200db4dc2ed120ffe'}
+Plug 'kevinhwang91/promise-async', {'commit': '3fac3a5a3e2c63d09a30ff7e983a1a5e867043c4'}
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 call plug#end()
 
-
-" --- Keybinds ----------------------------------------------------------------
-let mapleader = ' '
-let maplocalleader = ' '
-
-" Source init.vim
-nnoremap <silent> <leader>r <cmd>source $MYVIMRC<cr>
-
-" Disable <space> in normal mode
-nnoremap <space> <nop>
-
-" Exit insert mode
-inoremap jk <esc>l
-inoremap <esc> <nop>
-
-" Select all
-nnoremap <c-a> ggVG
-
-" Better window navigation
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <c-w>h <nop>
-nnoremap <c-w>j <nop>
-nnoremap <c-w>k <nop>
-nnoremap <c-w>l <nop>
-
-" Horizontal split
-nnoremap <c-w>b <c-w>s
-
-" Stay in visual mode when indenting
-vnoremap < <gv
-vnoremap > >gv
-
-" Disable paste from overriding register/keyboard
-vnoremap p _dP
-
-" Navigate buffers
-nnoremap <s-h> <cmd>bprevious<cr>
-nnoremap <s-l> <cmd>bnext<cr>
-
-" Close the current buffer
-nnoremap <leader>cb <cmd>bp<bar>sp<bar>bn<bar>bd<cr>
-
+lua require("config.plugins.nvim-tree")
+lua require("config.plugins.gitsigns")
+lua require("config.plugins.cmp")
+lua require("config.plugins.hop")
+lua require("config.plugins.telescope")
+lua require("config.plugins.treesitter")
+lua require("config.plugins.lualine") 
+lua require("config.plugins.lspconfig")
+lua require("config.plugins.dap")
+lua require("config.plugins.autopairs")
+lua require("config.plugins.null-ls")
+lua require("config.plugins.trouble")
+lua require("config.plugins.lspsaga")
+lua require("config.plugins.tmux")
+lua require("config.plugins.comment")
 
 " --- Options -----------------------------------------------------------------
 set clipboard=unnamedplus
@@ -129,111 +99,97 @@ augroup end
 " --- Colorscheme -------------------------------------------------------------
 colorscheme solarized
 
+" --- Keybinds ----------------------------------------------------------------
+let mapleader = ' '
+let maplocalleader = ' '
 
-" =============================================================================
-" ======================== Plugin Settings ====================================
-" =============================================================================
+" Source init.vim
+nnoremap <silent> <leader>r <cmd>source $MYVIMRC<cr>
 
-" -- Vim Plug -----------------------------------------------------------------
+" Disable <space> in normal mode
+nnoremap <space> <nop>
+
+" Exit insert mode
+inoremap jk <esc>l
+inoremap <esc> <nop>
+
+" Select all
+nnoremap <c-a> ggVG
+
+" Better window navigation
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+nnoremap <c-w>h <nop>
+nnoremap <c-w>j <nop>
+nnoremap <c-w>k <nop>
+nnoremap <c-w>l <nop>
+
+" Horizontal split
+nnoremap <c-w>b <c-w>s
+
+" Stay in visual mode when indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" Disable paste from overriding register/keyboard
+vnoremap p _dP
+
+" Navigate buffers
+nnoremap <s-h> <cmd>bprevious<cr>
+nnoremap <s-l> <cmd>bnext<cr>
+
+" Close the current buffer
+nnoremap <leader>cb <cmd>bp<bar>sp<bar>bn<bar>bd<cr>
+
+" Vim Plug
 nnoremap <leader>pi <cmd>PlugInstall<cr>
 nnoremap <leader>ps <cmd>PlugStatus<cr>
 nnoremap <leader>pc <cmd>PlugClean<cr>
 
-" --- Zoom --------------------------------------------------------------------
-if exists('g:loaded_zoom')
-  finish
-endif
-let g:loaded_zoom = 1
-if !exists('g:zoom_tmux_z')
-  let g:zoom_tmux_z = v:false
-endif
-
-nnoremap <silent> <plug>(zoom-toggle) :call zoom#toggle()<CR>
-
-if !hasmapto('<Plug>(zoom-toggle)')
-  nmap <leader>m <Plug>(zoom-toggle)
-endif
-if empty($TMUX) && g:zoom_tmux_z == v:true
-  nmap <C-W>z <Plug>(zoom-toggle)
-endif
-
-" --- Nvim Tree ---------------------------------------------------------------
-lua require("config.nvim-tree")
-
-let g:nvim_tree_group_empty = 1
-
+" Nvim Tree
 nnoremap <leader>e <cmd>NvimTreeToggle<cr>
 
-" --- Gitsigns ----------------------------------------------------------------
-lua require("config.gitsigns")
-
+" Gitsigns
 nnoremap <leader>gh <cmd>Gitsigns preview_hunk<cr>
 
-" --- CMP ---------------------------------------------------------------------
-lua require("config.cmp")
-
-" --- Hop ---------------------------------------------------------------------
-lua require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-
+" Hop
 nnoremap f <cmd>HopWord<cr>
 nnoremap F <cmd>HopLine<cr>
 vnoremap f <cmd>HopWord<cr>
 vnoremap F <cmd>HopLine<cr>
 
-" --- Telescope ---------------------------------------------------------------
-lua require("config.telescope")
-
+" Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
-" --- Treesitter --------------------------------------------------------------
-lua require("config.treesitter")
-
-" --- Lualine -----------------------------------------------------------------
-lua require("config.lualine") 
-
-" --- LSP Config --------------------------------------------------------------
-lua require("config.lspconfig")
-
+" Show LSP info
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
 nnoremap gh <cmd>lua vim.lsp.buf.hover()<cr>
 
-" --- DAP ---------------------------------------------------------------------
-lua require("config.dap")
-
+" Debugger
 nnoremap <leader>db <cmd>lua require("dap").toggle_breakpoint()<cr>
 nnoremap <leader>dc <cmd>lua require("dap").continue()<cr>
 nnoremap <leader>ds <cmd>lua require("dap").step_over()<cr>
 nnoremap <leader>dr <cmd>lua require("dap").repl.toggle()<cr>
 nnoremap <leader>dl <cmd>lua require("dap").list_breakpoints()<cr>
 
-" --- Autopairs ---------------------------------------------------------------
-lua require("config.autopairs")
+" Slime
+nnoremap <leader>s <plug>SlimeSendCell
 
-" --- Slime -------------------------------------------------------------------
 let g:slime_target = 'tmux'
 " let g:slime_no_mappings = 'true'
 let g:slime_dont_ask_default = 1
 let b:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_paste_file = tempname()
 
-nnoremap <leader>s <plug>SlimeSendCell
-
-" --- Null-ls ------------------------------------------------------------------
-lua require("config.null-ls")
-
-" --- Trouble  ------------------------------------------------------------------
-lua require("config.trouble")
-
+" Toggle diagnostics window
 nnoremap <leader>tt <cmd>TroubleToggle<cr>
 nnoremap <leader>tb <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>tr <cmd>TroubleReload<cr>
 
-lua require("config.lspsaga")
-lua require("config.tmux")
-
-lua require("config.comment")
-
+" Toggle comment
 nnoremap gc <plug>(comment_toggle_current_linewise)
 vnoremap gc <plug>(comment_toggle_linewise_visual)
