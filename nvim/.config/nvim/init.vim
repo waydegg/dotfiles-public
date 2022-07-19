@@ -8,7 +8,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'aserowy/tmux.nvim'
+Plug 'christoomey/vim-tmux-navigator', {'commit': '9ca5bfe5bd274051b5dd796cc150348afc993b80'}
 Plug 'numToStr/Comment.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -52,8 +52,8 @@ lua require("config.plugins.autopairs")
 lua require("config.plugins.null-ls")
 lua require("config.plugins.trouble")
 lua require("config.plugins.lspsaga")
-lua require("config.plugins.tmux")
 lua require("config.plugins.comment")
+lua require("config.plugins.auto-session")
 
 " --- Options -----------------------------------------------------------------
 set clipboard=unnamedplus
@@ -178,12 +178,6 @@ nnoremap <leader>dl <cmd>lua require("dap").list_breakpoints()<cr>
 
 " Slime
 nnoremap <leader>s <plug>SlimeSendCell
-
-let g:slime_target = 'tmux'
-" let g:slime_no_mappings = 'true'
-let g:slime_dont_ask_default = 1
-let b:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
-let g:slime_paste_file = tempname()
 
 " Toggle diagnostics window
 nnoremap <leader>tt <cmd>TroubleToggle<cr>
