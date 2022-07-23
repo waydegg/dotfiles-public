@@ -25,6 +25,8 @@ local colors_darker = {
 -- Used this website: https://pinetools.com/lighten-color
 local colors_lighter = {
 	base01_25 = "#7c949c",
+	base1_50 = "#d3d9d9",
+	red_25 = "#e46563",
 }
 
 vim.api.nvim_command("hi clear")
@@ -137,7 +139,7 @@ set_hl(0, "CursorColumn", { bg = colors.base2 })
 set_hl(0, "CursorLine", { bg = colors.base2, sp = colors.base01 })
 set_hl(0, "CursorColumn", { bg = colors.base2 })
 set_hl(0, "Cursor", { fg = colors.base3, bg = colors.base00, link = "lCursor" })
-set_hl(0, "MatchParen", { fg = colors.red, bg = colors.base1, bold = true })
+set_hl(0, "MatchParen", { bg = colors_lighter.base1_50, bold = true })
 set_hl(0, "EndOfBuffer", { fg = colors.base3, bg = colors.base3 })
 
 -- CMP
