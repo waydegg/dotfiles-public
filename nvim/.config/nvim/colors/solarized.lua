@@ -156,12 +156,14 @@ set_hl(0, "CmpItemKindProperty", { fg = "#D4D4D4" })
 set_hl(0, "CmpItemKindUnit", { fg = "#D4D4D4" })
 
 -- Nvim Tree
-set_hl(0, "NvimTreeNormal", { fg = colors.base00, bg = colors_darker.base3_5 })
-set_hl(
-	0,
-	"NvimTreeEndOfBuffer",
-	{ fg = colors_darker.base3_5, bg = colors_darker.base3_5 }
-)
+-- set_hl(0, "NvimTreeNormal", { fg = colors.base00, bg = colors_darker.base3_5 })
+set_hl(0, "NvimTreeNormal", { fg = colors.base00, bg = colors.base3 })
+-- set_hl(
+-- 	0,
+-- 	"NvimTreeEndOfBuffer",
+-- 	{ fg = colors_darker.base3_5, bg = colors_darker.base3_5 }
+-- )
+set_hl(0, "NvimTreeEndOfBuffer", { fg = colors.base3, bg = colors.base3 })
 set_hl(0, "NvimTreeWinSeparator", { fg = colors.base0, bg = colors.base0 })
 
 -- GitSigns
