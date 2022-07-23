@@ -188,3 +188,4 @@ set_hl(
 )
 
 -- Winbar
+set_hl(0, "WinBar", { fg = colors.base01, bg = colors.base2, bold = true })
