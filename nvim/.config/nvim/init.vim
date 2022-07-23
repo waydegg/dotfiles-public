@@ -1,7 +1,6 @@
-" --- Plugins -----------------------------------------------------------------
+" Plugins
 call plug#begin()
 
-Plug 'nvim-lualine/lualine.nvim'
 Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
@@ -36,6 +35,7 @@ Plug 'kevinhwang91/promise-async', {'commit': '3fac3a5a3e2c63d09a30ff7e983a1a5e8
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'j-hui/fidget.nvim'
 
 call plug#end()
 
@@ -45,7 +45,6 @@ lua require("config.plugins.cmp")
 lua require("config.plugins.hop")
 lua require("config.plugins.telescope")
 lua require("config.plugins.treesitter")
-lua require("config.plugins.lualine") 
 lua require("config.plugins.lspconfig")
 lua require("config.plugins.dap")
 lua require("config.plugins.autopairs")
@@ -54,8 +53,9 @@ lua require("config.plugins.trouble")
 lua require("config.plugins.lspsaga")
 lua require("config.plugins.comment")
 lua require("config.plugins.auto-session")
+lua require("config.plugins.fidget")
 
-" --- Options -----------------------------------------------------------------
+" Options
 set clipboard=unnamedplus
 set number
 set numberwidth=4
@@ -84,8 +84,9 @@ set foldlevel=99
 set foldenable
 set nowrap
 set background=light
+set laststatus=3
 
-" --- Autocommands ------------------------------------------------------------
+" Autocommands
 augroup highlight_yank
     autocmd!
     autocmd textyankpost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
@@ -96,8 +97,10 @@ augroup telescope_fold_fix
   autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
 augroup end
 
-" --- Colorscheme -------------------------------------------------------------
+" Colorscheme
 colorscheme solarized
+
+lua require("config.autocmd")
 
 " --- Keybinds ----------------------------------------------------------------
 let mapleader = ' '

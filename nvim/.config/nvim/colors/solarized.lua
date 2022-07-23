@@ -17,8 +17,14 @@ local colors = {
 	green = "#859900",
 }
 
+-- Used this website: https://pinetools.com/darken-color
 local colors_darker = {
 	base3_5 = "#fbeecc",
+}
+
+-- Used this website: https://pinetools.com/lighten-color
+local colors_lighter = {
+	base01_25 = "#7c949c",
 }
 
 vim.api.nvim_command("hi clear")
@@ -41,16 +47,6 @@ set_hl(0, "SpecialKey", { fg = colors.base2, bold = true })
 set_hl(0, "NonText", { fg = colors.base2, bold = true })
 set_hl(
 	0,
-	"StatusLine",
-	{ fg = colors.base01, bg = colors.base2, reverse = true, bold = true }
-)
-set_hl(
-	0,
-	"StatusLineNC",
-	{ fg = colors.base0, bg = colors.base2, reverse = true, bold = true }
-)
-set_hl(
-	0,
 	"Visual",
 	{ fg = colors.base1, bg = colors.base3, reverse = true, bold = true }
 )
@@ -62,11 +58,7 @@ set_hl(0, "MoreMsg", { fg = colors.blue })
 set_hl(0, "ModeMsg", { fg = colors.blue })
 set_hl(0, "LineNr", { fg = colors.base1 })
 set_hl(0, "Question", { fg = colors.cyan, bold = true })
-set_hl(
-	0,
-	"WinSeparator",
-	{ fg = colors.base0, bg = colors.base0, reverse = true, bold = true }
-)
+set_hl(0, "WinSeparator", { fg = colors.base0, bg = colors.base0 })
 set_hl(0, "Title", { fg = colors.orange, bold = true })
 set_hl(
 	0,
@@ -168,13 +160,31 @@ set_hl(
 	"NvimTreeEndOfBuffer",
 	{ fg = colors_darker.base3_5, bg = colors_darker.base3_5 }
 )
-set_hl(
-	0,
-	"NvimTreeWinSeparator",
-	{ fg = colors.base0, bg = colors.base0, reverse = true, bold = true }
-)
+set_hl(0, "NvimTreeWinSeparator", { fg = colors.base0, bg = colors.base0 })
 
 -- GitSigns
 set_hl(0, "GitSignsAdd", { fg = "#859900", bg = colors.base3 })
 set_hl(0, "GitSignsChange", { fg = "#b58900", bg = colors.base3 })
 set_hl(0, "GitSignsDelete", { fg = "#dc322f", bg = colors.base3 })
+
+-- Statusline
+set_hl(0, "StatusLine", { fg = colors.base01, bg = colors.base2, bold = true })
+set_hl(
+	0,
+	"StatuslineGitBranch",
+	{ fg = colors.base01, bg = colors.base2, reverse = true }
+)
+set_hl(0, "StatuslineDiagnosticError", { fg = "red", bg = colors.base2 })
+set_hl(0, "StatuslineDiagnosticWarn", { fg = "orange", bg = colors.base2 })
+set_hl(
+	0,
+	"StatuslineDiagnosticHint",
+	{ fg = colors_lighter.base01_25, bg = colors.base2 }
+)
+set_hl(
+	0,
+	"StatuslineDiagnosticInfo",
+	{ fg = colors_lighter.base01_25, bg = colors.base2 }
+)
+
+-- Winbar
