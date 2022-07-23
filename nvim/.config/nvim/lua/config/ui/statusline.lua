@@ -70,6 +70,14 @@ local function get_line_info()
 	return " Ln %l, Col %c "
 end
 
+local function get_zoomed_status()
+	if vim.t.zoomed == 1 then
+		return " %#StatuslineGitBranch# ZOOM %#Statusline#  "
+	end
+
+	return ""
+end
+
 Statusline = {}
 
 Statusline.setup = function()
@@ -82,6 +90,7 @@ Statusline.setup = function()
 		get_diagnostics(),
 		get_filename(),
 		align("right"),
+		get_zoomed_status(),
 		get_line_info(),
 		get_filetype(),
 	})
