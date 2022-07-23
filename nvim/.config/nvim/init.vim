@@ -86,17 +86,6 @@ set nowrap
 set background=light
 set laststatus=3
 
-" Autocommands
-augroup highlight_yank
-    autocmd!
-    autocmd textyankpost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
-augroup END
-
-augroup telescope_fold_fix
-  autocmd!
-  autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
-augroup end
-
 " Colorscheme
 colorscheme solarized
 

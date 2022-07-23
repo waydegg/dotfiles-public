@@ -15,3 +15,12 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 		require("config.ui.winbar").setup()
 	end,
 })
+
+-- Highlight yank
+vim.api.nvim_create_augroup("HighlightYank", { clear = true })
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+	group = "HighlightYank",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+	end,
+})
