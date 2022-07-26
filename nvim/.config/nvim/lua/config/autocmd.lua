@@ -24,3 +24,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
 	end,
 })
+
+-- Null-ls format on save
+-- vim.api.nvim_create_augroup("LspFormatting", { clear = true })

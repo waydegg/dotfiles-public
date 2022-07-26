@@ -24,8 +24,9 @@ local colors_darker = {
 
 -- Used this website: https://pinetools.com/lighten-color
 local colors_lighter = {
-	base01_25 = "#7c949c",
 	base1_50 = "#d3d9d9",
+	base00_50 = "#b0bdc2",
+	base01_25 = "#7c949c",
 	red_25 = "#e46563",
 }
 
@@ -154,15 +155,10 @@ set_hl(0, "CmpItemKindMethod", { fg = "#C586C0" })
 set_hl(0, "CmpItemKindKeyword", { fg = "#D4D4D4" })
 set_hl(0, "CmpItemKindProperty", { fg = "#D4D4D4" })
 set_hl(0, "CmpItemKindUnit", { fg = "#D4D4D4" })
+set_hl(0, "CmpGhostText", { fg = colors_lighter.base00_50 })
 
 -- Nvim Tree
--- set_hl(0, "NvimTreeNormal", { fg = colors.base00, bg = colors_darker.base3_5 })
 set_hl(0, "NvimTreeNormal", { fg = colors.base00, bg = colors.base3 })
--- set_hl(
--- 	0,
--- 	"NvimTreeEndOfBuffer",
--- 	{ fg = colors_darker.base3_5, bg = colors_darker.base3_5 }
--- )
 set_hl(0, "NvimTreeEndOfBuffer", { fg = colors.base3, bg = colors.base3 })
 set_hl(0, "NvimTreeWinSeparator", { fg = colors.base0, bg = colors.base0 })
 
@@ -178,8 +174,8 @@ set_hl(
 	"StatuslineGitBranch",
 	{ fg = colors.base01, bg = colors.base2, reverse = true }
 )
-set_hl(0, "StatuslineDiagnosticError", { fg = "red", bg = colors.base2 })
-set_hl(0, "StatuslineDiagnosticWarn", { fg = "orange", bg = colors.base2 })
+set_hl(0, "StatuslineDiagnosticError", { fg = colors.red, bg = colors.base2 })
+set_hl(0, "StatuslineDiagnosticWarn", { fg = colors.orange, bg = colors.base2 })
 set_hl(
 	0,
 	"StatuslineDiagnosticHint",
