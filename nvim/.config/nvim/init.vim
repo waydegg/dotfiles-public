@@ -50,7 +50,7 @@ lua require("config.plugins.dap")
 lua require("config.plugins.autopairs")
 lua require("config.plugins.null-ls")
 lua require("config.plugins.trouble")
-" lua require("config.plugins.lspsaga")
+lua require("config.plugins.lspsaga")
 lua require("config.plugins.comment")
 lua require("config.plugins.auto-session")
 lua require("config.plugins.fidget")
@@ -75,7 +75,6 @@ set cursorline
 set signcolumn=yes
 set termguicolors
 set formatoptions=jtcroql
-set textwidth=88
 set guioptions-=m
 set gdefault
 set pumheight=10
