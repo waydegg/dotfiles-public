@@ -5,15 +5,15 @@ font:
   size: 14.0
   use_thin_strokes: true
   normal:
-    family: MesloLGM Nerd Font Mono
+    family: Menlo Nerd Font
   bold:
-    family: MesloLGM Nerd Font Mono
+    family: Menlo Nerd Font
     style: Bold
   italic:
-    family: MesloLGM Nerd Font Mono
+    family: Menlo Nerd Font
     style: Italic
   bold_italic:
-    family: MesloLGM Nerd Font Mono
+    family: Menlo Nerd Font
     style: Bold Italic
 
 colors:
