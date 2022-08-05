@@ -26,4 +26,4 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- Null-ls format on save
--- vim.api.nvim_create_augroup("LspFormatting", { clear = true })
+vim.api.nvim_create_augroup("LspFormatting", { clear = true })

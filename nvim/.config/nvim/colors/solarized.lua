@@ -189,3 +189,7 @@ set_hl(
 
 -- Winbar
 set_hl(0, "WinBar", { fg = colors.base01, bg = colors.base2, bold = true })
+
+-- LSP
+-- set_hl(0, "LspFloatWinNormal", { bg = colors.base00 })
+-- set_hl(0, "LspFloatWinBorder", { fg = colors.red })

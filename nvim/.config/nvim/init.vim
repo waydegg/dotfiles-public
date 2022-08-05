@@ -23,7 +23,6 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'dag/vim-fish'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-Plug 'nanotee/sqls.nvim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'jose-elias-alvarez/typescript.nvim'
 Plug 'mfussenegger/nvim-dap'
@@ -32,7 +31,6 @@ Plug 'mfussenegger/nvim-dap-python'
 Plug 'rmagatti/auto-session'
 Plug 'kevinhwang91/nvim-ufo', { 'commit': '1501a5c324bd6355de46de3200db4dc2ed120ffe'}
 Plug 'kevinhwang91/promise-async', {'commit': '3fac3a5a3e2c63d09a30ff7e983a1a5e867043c4'}
-Plug 'simrat39/symbols-outline.nvim'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'j-hui/fidget.nvim'
@@ -54,6 +52,7 @@ lua require("config.plugins.lspsaga")
 lua require("config.plugins.comment")
 lua require("config.plugins.auto-session")
 lua require("config.plugins.fidget")
+lua require("config.plugins.nvim-web-devicons")
 
 " Options
 set clipboard=unnamedplus
@@ -159,6 +158,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 " Show LSP info
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
 nnoremap gh <cmd>lua vim.lsp.buf.hover()<cr>
+" nnoremap gh <cmd>Lspsaga hover_doc<cr>
 
 " Debugger
 nnoremap <leader>db <cmd>lua require("dap").toggle_breakpoint()<cr>
@@ -178,3 +178,6 @@ nnoremap <leader>tr <cmd>TroubleReload<cr>
 " Toggle comment
 nnoremap gc <plug>(comment_toggle_current_linewise)
 vnoremap gc <plug>(comment_toggle_linewise_visual)
+
+" Rename (LSP)
+nnoremap R <cmd>Lspsaga rename<cr>

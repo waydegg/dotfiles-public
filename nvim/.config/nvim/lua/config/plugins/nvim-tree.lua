@@ -32,4 +32,7 @@ nvim_tree.setup({
 	git = {
 		enable = false,
 	},
+	filters = {
+		custom = { "__pycache__", "venv" },
+	},
 })

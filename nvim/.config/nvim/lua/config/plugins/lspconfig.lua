@@ -2,6 +2,7 @@ local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
 local typescript = require("typescript")
 
+-- Diagnostic signs
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -17,8 +18,52 @@ vim.diagnostic.config({
 		active = signs,
 	},
 	severity_sort = true,
+	float = {
+		border = true,
+	},
 })
 
+-- UI
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+-- 	border = "rounded",
+-- 	width = 60,
+-- })
+--
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+-- 	vim.lsp.handlers.signature_help,
+-- 	{
+-- 		border = "rounded",
+-- 		width = 60,
+-- 	}
+-- )
+
+-- local border = {
+-- 	{ "🭽", "FloatBorder" },
+-- 	{ "▔", "FloatBorder" },
+-- 	{ "🭾", "FloatBorder" },
+-- 	{ "▕", "FloatBorder" },
+-- 	{ "🭿", "FloatBorder" },
+-- 	{ "▁", "FloatBorder" },
+-- 	{ "🭼", "FloatBorder" },
+-- 	{ "▏", "FloatBorder" },
+-- }
+local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+
+-- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+-- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+-- 	opts = opts or {}
+-- 	opts.border = opts.border or border
+-- 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+-- end
+
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+	["textDocument/signatureHelp"] = vim.lsp.with(
+		vim.lsp.handlers.signature_help,
+		{ border = border }
+	),
+}
+-- LSP server setup
 local servers = {
 	"pyright",
 	"tsserver",
@@ -27,6 +72,7 @@ local servers = {
 	"rust_analyzer",
 	"sqls",
 	"html",
+	"cssls",
 }
 lsp_installer.setup({
 	ensure_installed = servers,
@@ -44,12 +90,13 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 lspconfig.pyright.setup({
 	capabilities = capabilities,
 	filetypes = { "python" },
+	handlers = handlers,
 })
 
 typescript.setup({
 	server = {
 		capabilities = capabilities,
-		filetypes = { "typescript", "typescriptreact" },
+		filetypes = { "typescript", "typescriptreact", "javascript" },
 		on_attach = function(client)
 			client.server_capabilities.document_formatting = false
 		end,
@@ -105,5 +152,11 @@ lspconfig.html.setup({
 	end,
 })
 
+lspconfig.cssls.setup({
+	capabilities = capabilities,
+	filetypes = { "css", "scss", "less" },
+})
+
+-- Setup ufo (depends on lspconfig)
 local ufo = require("ufo")
 ufo.setup()
