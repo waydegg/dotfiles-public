@@ -2,7 +2,7 @@ local devicons = require("nvim-web-devicons")
 
 local M = {}
 
-M.winbar_filetype_exclude = { "", "NvimTree", "help", "Trouble" }
+M.winbar_filetype_exclude = { "NvimTree", "help", "Trouble" }
 
 local function get_filename()
 	local fileicon = devicons.get_icon_by_filetype(vim.o.ft) or ""
