@@ -1,4 +1,8 @@
-local nvim_tree = require("nvim-tree")
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if not ok then
+	print("'nvim-tree' not installed")
+	return
+end
 
 nvim_tree.setup({
 	view = {

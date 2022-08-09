@@ -1,4 +1,8 @@
-local comment = require("Comment")
+local ok, comment = pcall(require, "Comment")
+if not ok then
+	print("'Comment' not installed")
+	return
+end
 
 comment.setup({
 	mappings = false,

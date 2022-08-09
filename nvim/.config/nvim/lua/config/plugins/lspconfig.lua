@@ -1,6 +1,20 @@
-local lsp_installer = require("nvim-lsp-installer")
-local lspconfig = require("lspconfig")
-local typescript = require("typescript")
+local lsp_installed_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not lsp_installed_ok then
+	print("'nvim-lsp-installer' not installed")
+	return
+end
+
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then
+	print("'lspconfig' not installed")
+	return
+end
+
+local typescript_ok, typescript = pcall(require, "typescript")
+if not typescript_ok then
+	print("'typescript' not installed")
+	return
+end
 
 -- Diagnostic signs
 local signs = {
@@ -85,7 +99,12 @@ capabilities.textDocument.foldingRange = {
 }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local cmp_lsp_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_lsp_ok then
+	print("'cmp_nvim_lsp' not installed")
+	return
+end
+capabilities = cmp_lsp.update_capabilities(capabilities)
 
 lspconfig.pyright.setup({
 	capabilities = capabilities,
@@ -158,5 +177,10 @@ lspconfig.cssls.setup({
 })
 
 -- Setup ufo (depends on lspconfig)
-local ufo = require("ufo")
+local ufo_ok, ufo = pcall(require, "ufo")
+if not ufo_ok then
+	print("'ufo' not installed")
+	return
+end
+
 ufo.setup()

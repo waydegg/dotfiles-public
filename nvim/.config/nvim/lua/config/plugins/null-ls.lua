@@ -1,4 +1,9 @@
-local null_ls = require("null-ls")
+local ok, null_ls = pcall(require, "null-ls")
+if not ok then
+	print("'null-ls' not installed")
+	return
+end
+
 local helpers = require("null-ls.helpers")
 local formatting = null_ls.builtins.formatting
 local methods = null_ls.methods

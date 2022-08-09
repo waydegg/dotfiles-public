@@ -1,4 +1,8 @@
-local dap = require("dap")
+local ok, dap = pcall(require, "dap")
+if not ok then
+	print("'dap' not installed")
+	return
+end
 
 -- Lua
 dap.configurations.lua = {
