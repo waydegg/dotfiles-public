@@ -3,7 +3,12 @@
 set fish_greeting ""
 
 # Add Homebrew to PATH
-set -x PATH /opt/homebrew/bin $PATH
+switch (uname)
+  case Darwin
+    set -x PATH /opt/homebrew/bin $PATH
+  case Linux
+    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+end
 
 # Set default editor to Neovim
 set -x EDITOR nvim
