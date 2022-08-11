@@ -8,8 +8,6 @@ set -x PATH /opt/homebrew/bin $PATH
 # Set default editor to Neovim
 set -x EDITOR nvim
 
-# set -x TERM alacritty
-
 # Tide prompt
 set -g tide_git_color_branch 008700
 set -g tide_git_color_stash 008700
@@ -23,8 +21,10 @@ set -g tide_right_prompt_items status cmd_duration context jobs virtual_env
 # Set IPython directory
 set -x IPYTHONDIR $HOME/.config/ipython
 
-# Specify Docker host to Multipass VM
-set -x DOCKER_HOST 192.168.64.3
+# Specify Docker host to Multipass VM (if it exists)
+if type -q multipass
+  set -x DOCKER_HOST 192.168.64.3
+end
 
 # Lazygit config directory
 set -x CONFIG_DIR $HOME/.config/lazygit
@@ -38,7 +38,9 @@ set -x PATH $HOME/.config/cargo/bin $PATH
 set -x DIRENV_LOG_FORMAT ""
 
 # Add $HOME/.local/bin to path (pipx puts executables here)
-set -x PATH $HOME/.local/bin $PATH
+if type -q pipx
+  set -x PATH $HOME/.local/bin $PATH
+end
 
 # Pyenv config directory
 set -x PYENV_ROOT $HOME/.config/pyenv
