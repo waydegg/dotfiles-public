@@ -8,11 +8,12 @@ local M = {}
 M.winbar_filetype_exclude = { "NvimTree", "help", "Trouble" }
 
 local function get_filename()
+	local fileicon = ""
 	if devicons_ok then
-		local fileicon = devicons.get_icon_by_filetype(vim.o.ft) or ""
+		fileicon = devicons.get_icon_by_filetype(vim.o.ft) or ""
 	end
 
-	return " " .. fileicon or "" .. " %f%m %#Normal#"
+	return " " .. fileicon .. " %f%m %#Normal#"
 end
 
 M.setup = function()
