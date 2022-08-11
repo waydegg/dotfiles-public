@@ -1,13 +1,18 @@
-local devicons = require("nvim-web-devicons")
+local devicons_ok, devicons = pcall(require, "nvim-web-devicons")
+if not devicons_ok then
+	print("'nvim-web-devicons' not installed")
+end
 
 local M = {}
 
 M.winbar_filetype_exclude = { "NvimTree", "help", "Trouble" }
 
 local function get_filename()
-	local fileicon = devicons.get_icon_by_filetype(vim.o.ft) or ""
+	if devicons_ok then
+		local fileicon = devicons.get_icon_by_filetype(vim.o.ft) or ""
+	end
 
-	return " " .. fileicon .. " %f%m %#Normal#"
+	return " " .. fileicon or "" .. " %f%m %#Normal#"
 end
 
 M.setup = function()
