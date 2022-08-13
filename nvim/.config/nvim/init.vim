@@ -7,7 +7,10 @@ Plug 'windwp/nvim-autopairs'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'folke/trouble.nvim'
+
 Plug 'christoomey/vim-tmux-navigator'
+" Plug 'aserowy/tmux.nvim'
+
 Plug 'numToStr/Comment.nvim', { 'commit': 'fe9bbdbcd2f1b85cc8fccead68122873d94f8397' }
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -53,6 +56,8 @@ lua require("config.plugins.comment")
 lua require("config.plugins.auto-session")
 lua require("config.plugins.fidget")
 lua require("config.plugins.nvim-web-devicons")
+
+" lua require("config.plugins.tmux")
 
 " Options
 set clipboard=unnamedplus
