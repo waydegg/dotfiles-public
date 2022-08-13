@@ -29,8 +29,8 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 bash -c "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu/ \$(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null"
 
 # Install Docker Engine, Docker Compose, and other dependencies
-sudo apt update
-sudo apt install -y docker-ce docker-compose docker-ce-cli containerd.io
+sudo apt update && \
+  sudo apt install -y docker-ce docker-compose docker-ce-cli containerd.io
 
 # Configure Docker to start on boot
 sudo systemctl enable docker
@@ -47,18 +47,15 @@ sudo reboot
 # ----- Linuxbrew ------------------------------------------------------------
 
 # Install
+sudo apt update
 yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Add to PATH
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' \
-  >> ~/.config/fish/config.fish
-  
 # Install dependencies for Linuxbrew
-sudo apt-get install -y build-essential
+sudo apt install -y build-essential
 
 
 # ----- Download dotfiles and install Brewfile --------------------------------
@@ -84,8 +81,7 @@ rm ~/.config/fish/fish_plugins \
 fish -c "echo 1 1 1 1 1 1 1 1 1 y | tide configure >/dev/null"
 
 # Stow the rest of fish files
-rm $HOME/.config/fish/config.fish $HOME/.config/fish/functions/fish_mode_prompt.fish \
-  && stow -d $HOME/dotfiles-public -t $HOME fish
+stow -d $HOME/dotfiles-public -t $HOME fish
 
 # Enable vi mode
 fish -c "fish_vi_key_bindings"
@@ -108,15 +104,15 @@ stow -d $HOME/dotfiles-public -t $HOME nvim
 
 # ----- Setup CLI tools -------------------------------------------------------
 
-# Stow everything 
+# Stow everything else
 stow -d $HOME/dotfiles-public -t $HOME bat direnv git ipython pgcli pyenv stylua tmux
 
-# Install pip/pipx tools
-pip install --upgrade pip
+# Install pip/pipx packages
 pipx install black
 pipx install isort
 pipx install invoke
 pipx install git+https://github.com/waydegg/autoflake
+pipx install linode-cli --pip-args="pip install boto"
 
 # ----- Final steps -----------------------------------------------------------
 

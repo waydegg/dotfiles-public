@@ -7,7 +7,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'christoomey/vim-tmux-navigator', {'commit': '9ca5bfe5bd274051b5dd796cc150348afc993b80'}
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'numToStr/Comment.nvim', { 'commit': 'fe9bbdbcd2f1b85cc8fccead68122873d94f8397' }
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'

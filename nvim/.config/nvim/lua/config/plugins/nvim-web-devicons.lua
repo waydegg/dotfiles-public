@@ -11,3 +11,11 @@ nvim_web_devicons.set_icon({
 		name = "Markdown",
 	},
 })
+
+nvim_web_devicons.set_icon({
+	Env = {
+		icon = "",
+		color = "gray",
+		name = "Env",
+	},
+})
