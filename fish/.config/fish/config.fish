@@ -26,11 +26,6 @@ set -g tide_right_prompt_items status cmd_duration context jobs virtual_env
 # Set IPython directory
 set -x IPYTHONDIR $HOME/.config/ipython
 
-# Specify Docker host to Multipass VM (if it exists)
-if type -q multipass
-  set -x DOCKER_HOST 192.168.64.3
-end
-
 # Lazygit config directory
 set -x CONFIG_DIR $HOME/.config/lazygit
 
@@ -81,7 +76,7 @@ alias nvm fnm
 alias vim nvim
 alias vi nvim
 alias c clear
-alias mp multipass
+alias logout exit
 
 # ===== Keybinds ==============================================================
 # Search through command history
