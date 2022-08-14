@@ -8,7 +8,7 @@ Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'folke/trouble.nvim'
 
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 " Plug 'aserowy/tmux.nvim'
 
 Plug 'numToStr/Comment.nvim', { 'commit': 'fe9bbdbcd2f1b85cc8fccead68122873d94f8397' }
@@ -112,14 +112,14 @@ inoremap <esc> <nop>
 nnoremap <c-a> ggVG
 
 " Better window navigation
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <c-w>h <nop>
-nnoremap <c-w>j <nop>
-nnoremap <c-w>k <nop>
-nnoremap <c-w>l <nop>
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-l> <c-w>l
+" nnoremap <c-w>h <nop>
+" nnoremap <c-w>j <nop>
+" nnoremap <c-w>k <nop>
+" nnoremap <c-w>l <nop>
 
 " Horizontal split
 nnoremap <c-w>b <c-w>s
