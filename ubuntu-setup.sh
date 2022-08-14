@@ -114,6 +114,9 @@ pipx install invoke
 pipx install git+https://github.com/waydegg/autoflake
 pipx install linode-cli --pip-args="pip install boto"
 
+# Install global npm packages
+npm install -g @taplo/cli
+
 # ----- Final steps -----------------------------------------------------------
 
 # Make Fish the default shell
