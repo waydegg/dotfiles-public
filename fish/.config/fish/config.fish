@@ -69,9 +69,18 @@ alias python python3
 alias pip "python -m pip"
 alias venv "python -m venv"
 
-alias cat bat
 alias d docker
 alias dc docker-compose
+alias dcl "docker ps -a"
+alias dcp "docker container prune"
+alias di "docker image"
+alias dil "docker image ls"
+alias dv "docker volume"
+alias dvl "docker volume ls"
+alias dn "docker network"
+alias dnl "docker network ls"
+
+alias cat bat
 alias nvm fnm
 alias vim nvim
 alias vi nvim
