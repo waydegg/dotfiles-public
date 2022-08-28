@@ -13,7 +13,7 @@ nvim_web_devicons.set_icon({
 })
 
 nvim_web_devicons.set_icon({
-	Env = {
+	env = {
 		icon = "",
 		color = "gray",
 		name = "Env",

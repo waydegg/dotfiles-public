@@ -110,12 +110,22 @@ lspconfig.pyright.setup({
 	capabilities = capabilities,
 	filetypes = { "python" },
 	handlers = handlers,
+	-- settings = {
+	-- 	analysis = {
+	-- 		typeCheckingMode = "off",
+	-- 	},
+	-- },
 })
 
 typescript.setup({
 	server = {
 		capabilities = capabilities,
-		filetypes = { "typescript", "typescriptreact", "javascript" },
+		filetypes = {
+			"typescript",
+			"typescriptreact",
+			"javascript",
+			"javascriptreact",
+		},
 		on_attach = function(client)
 			client.server_capabilities.document_formatting = false
 		end,

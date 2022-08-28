@@ -31,7 +31,6 @@ Plug 'jose-elias-alvarez/typescript.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'jbyuki/one-small-step-for-vimkind'
 Plug 'mfussenegger/nvim-dap-python'
-Plug 'rmagatti/auto-session'
 Plug 'kevinhwang91/nvim-ufo', { 'commit': '1501a5c324bd6355de46de3200db4dc2ed120ffe'}
 Plug 'kevinhwang91/promise-async', {'commit': '3fac3a5a3e2c63d09a30ff7e983a1a5e867043c4'}
 Plug 'windwp/nvim-ts-autotag'
@@ -50,10 +49,9 @@ lua require("config.plugins.lspconfig")
 lua require("config.plugins.dap")
 lua require("config.plugins.autopairs")
 lua require("config.plugins.null-ls")
-lua require("config.plugins.trouble")
+" lua require("config.plugins.trouble")
 lua require("config.plugins.lspsaga")
 lua require("config.plugins.comment")
-lua require("config.plugins.auto-session")
 lua require("config.plugins.fidget")
 lua require("config.plugins.nvim-web-devicons")
 
@@ -111,16 +109,6 @@ inoremap <esc> <nop>
 " Select all
 nnoremap <c-a> ggVG
 
-" Better window navigation
-" nnoremap <c-h> <c-w>h
-" nnoremap <c-j> <c-w>j
-" nnoremap <c-k> <c-w>k
-" nnoremap <c-l> <c-w>l
-" nnoremap <c-w>h <nop>
-" nnoremap <c-w>j <nop>
-" nnoremap <c-w>k <nop>
-" nnoremap <c-w>l <nop>
-
 " Horizontal split
 nnoremap <c-w>b <c-w>s
 
@@ -132,8 +120,8 @@ vnoremap > >gv
 vnoremap p _dP
 
 " Navigate buffers
-nnoremap <s-h> <cmd>bprevious<cr>
-nnoremap <s-l> <cmd>bnext<cr>
+nnoremap gb <cmd>bnext<cr>
+nnoremap gB <cmd>bprevious<cr>
 
 " Close the current buffer
 nnoremap <leader>cb <cmd>bp<bar>sp<bar>bn<bar>bd<cr>
@@ -186,3 +174,7 @@ vnoremap gc <plug>(comment_toggle_linewise_visual)
 
 " Rename (LSP)
 nnoremap R <cmd>Lspsaga rename<cr>
+
+" Go to start/end of line
+nnoremap H ^
+nnoremap L g_

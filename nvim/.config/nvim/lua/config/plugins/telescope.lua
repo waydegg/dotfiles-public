@@ -17,6 +17,7 @@ telescope.setup({
 			"venv",
 			"__pycache__",
 			"__tests__",
+			".parcel-cache",
 		},
 		path_display = function(_, path)
 			local filename = require("telescope.utils").path_tail(path)
