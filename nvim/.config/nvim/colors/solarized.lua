@@ -118,24 +118,6 @@ set_hl(
 	"PmenuThumb",
 	{ fg = colors.base00, bg = colors.base3, reverse = true, bold = true }
 )
-set_hl(
-	0,
-	"TabLine",
-	{ fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true }
-)
-set_hl(
-	0,
-	"TabLineFill",
-	{ fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true }
-)
-set_hl(0, "TabLineSel", {
-	fg = colors.base1,
-	bg = colors.base02,
-	sp = colors.base00,
-	underline = true,
-	reverse = true,
-	bold = true,
-})
 set_hl(0, "CursorColumn", { bg = colors.base2 })
 set_hl(0, "CursorLine", { bg = colors.base2, sp = colors.base01 })
 set_hl(0, "CursorColumn", { bg = colors.base2 })
@@ -190,6 +172,15 @@ set_hl(
 -- Winbar
 set_hl(0, "WinBar", { fg = colors.base01, bg = colors.base2, bold = true })
 
--- LSP
--- set_hl(0, "LspFloatWinNormal", { bg = colors.base00 })
--- set_hl(0, "LspFloatWinBorder", { fg = colors.red })
+-- Tabline
+set_hl(
+	0,
+	"TabLine",
+	{ fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true }
+)
+set_hl(0, "TabLineSel", { fg = colors.base2, bg = colors.base02, sp = colors.base00 })
+set_hl(
+	0,
+	"TabLineFill",
+	{ fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true }
+)

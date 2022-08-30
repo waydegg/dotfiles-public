@@ -37,3 +37,12 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		vim.bo.filetype = "tmux"
 	end,
 })
+
+-- Reload tabline on tab change
+vim.api.nvim_create_augroup("Tabline", { clear = true })
+vim.api.nvim_create_autocmd({ "TabEnter" }, {
+	group = "Tabline",
+	callback = function()
+		require("config.ui.tabline").setup()
+	end,
+})

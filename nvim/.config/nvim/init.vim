@@ -7,10 +7,6 @@ Plug 'windwp/nvim-autopairs'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'folke/trouble.nvim'
-
-" Plug 'christoomey/vim-tmux-navigator'
-" Plug 'aserowy/tmux.nvim'
-
 Plug 'numToStr/Comment.nvim', { 'commit': 'fe9bbdbcd2f1b85cc8fccead68122873d94f8397' }
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -55,8 +51,6 @@ lua require("config.plugins.comment")
 lua require("config.plugins.fidget")
 lua require("config.plugins.nvim-web-devicons")
 
-" lua require("config.plugins.tmux")
-
 " Options
 set clipboard=unnamedplus
 set number
@@ -86,6 +80,7 @@ set foldenable
 set nowrap
 set background=light
 set laststatus=3
+set sessionoptions+=tabpages,globals
 
 " Colorscheme
 colorscheme solarized
@@ -178,3 +173,17 @@ nnoremap R <cmd>Lspsaga rename<cr>
 " Go to start/end of line
 nnoremap H ^
 nnoremap L g_
+
+" Jump to tabpage
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+
+" Rename tabpage
+nnoremap <leader>, <cmd>lua require("config.ui.tabline").rename_tabline_label()<cr>
