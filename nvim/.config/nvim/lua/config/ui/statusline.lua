@@ -1,6 +1,6 @@
 local M = {}
 
-M.statusline_filetype_exclude = { "", "NvimTree", "help", "Trouble" }
+M.statusline_filetype_exclude = { "", "NvimTree", "help", "Trouble", "fzf" }
 
 local function align(alignment)
 	if alignment == "right" then

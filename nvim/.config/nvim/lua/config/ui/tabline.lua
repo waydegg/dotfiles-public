@@ -40,6 +40,9 @@ end
 
 M.rename_tabline_label = function()
 	vim.ui.input({ prompt = "Tabline Label: " }, function(input)
+		if input == nil then
+			input = "[No Name]"
+		end
 		vim.api.nvim_tabpage_set_var(0, "tablabel_name", input)
 		reload_tabline()
 	end)

@@ -27,11 +27,15 @@ Plug 'jose-elias-alvarez/typescript.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'jbyuki/one-small-step-for-vimkind'
 Plug 'mfussenegger/nvim-dap-python'
-Plug 'kevinhwang91/nvim-ufo', { 'commit': '1501a5c324bd6355de46de3200db4dc2ed120ffe'}
+Plug 'kevinhwang91/nvim-ufo', {'commit': '1501a5c324bd6355de46de3200db4dc2ed120ffe'}
 Plug 'kevinhwang91/promise-async', {'commit': '3fac3a5a3e2c63d09a30ff7e983a1a5e867043c4'}
 Plug 'windwp/nvim-ts-autotag'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'j-hui/fidget.nvim'
+Plug 'junegunn/fzf', {'do': { -> fzf#install() }, 'commit': 'b9e6e7926cb8400ad56de60f66d6b4fc2b391c6e'}
+Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
+Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
+
 
 call plug#end()
 
@@ -50,6 +54,8 @@ lua require("config.plugins.lspsaga")
 lua require("config.plugins.comment")
 lua require("config.plugins.fidget")
 lua require("config.plugins.nvim-web-devicons")
+lua require("config.plugins.tmux")
+lua require("config.plugins.fzf")
 
 " Options
 set clipboard=unnamedplus
@@ -138,10 +144,11 @@ nnoremap F <cmd>HopLine<cr>
 vnoremap f <cmd>HopWord<cr>
 vnoremap F <cmd>HopLine<cr>
 
-" Telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" FZF
+nnoremap <leader>ff <cmd>FzfFiles<cr>
+" nnoremap <leader>fg <cmd>Rg<cr>
+" nnoremap <leader>fb <cmd>Buffers<cr>
+
 
 " Show LSP info
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
@@ -187,3 +194,9 @@ nnoremap <leader>9 9gt
 
 " Rename tabpage
 nnoremap <leader>, <cmd>lua require("config.ui.tabline").rename_tabline_label()<cr>
+
+" Move window to its own tab
+nnoremap T <c-w>T
+
+" Zoom window
+nnoremap <leader>m <plug>(zoom-toggle)
