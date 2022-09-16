@@ -6,7 +6,6 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'folke/trouble.nvim'
 Plug 'numToStr/Comment.nvim', { 'commit': 'fe9bbdbcd2f1b85cc8fccead68122873d94f8397' }
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -15,9 +14,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'dag/vim-fish'
 Plug 'neovim/nvim-lspconfig'
@@ -33,8 +30,10 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'j-hui/fidget.nvim'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }, 'commit': 'b9e6e7926cb8400ad56de60f66d6b4fc2b391c6e'}
+Plug 'junegunn/fzf.vim', {'commit': 'ecbf9cd98e65e9170ef743d229f35bf1306efde1'}
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
+Plug 'rmagatti/auto-session', {'commit': '9c302e01ebb474f9b19998488060d9f110ef75c5'}
 
 
 call plug#end()
@@ -43,7 +42,7 @@ lua require("config.plugins.nvim-tree")
 lua require("config.plugins.gitsigns")
 lua require("config.plugins.cmp")
 lua require("config.plugins.hop")
-lua require("config.plugins.telescope")
+" lua require("config.plugins.telescope")
 lua require("config.plugins.treesitter")
 lua require("config.plugins.lspconfig")
 lua require("config.plugins.dap")
@@ -117,8 +116,8 @@ nnoremap <c-w>b <c-w>s
 vnoremap < <gv
 vnoremap > >gv
 
-" Disable paste from overriding register/keyboard
-vnoremap p _dP
+" Replace selected text without replacing the clipboard
+vnoremap p "_dP
 
 " Navigate buffers
 nnoremap gb <cmd>bnext<cr>
@@ -146,14 +145,12 @@ vnoremap F <cmd>HopLine<cr>
 
 " FZF
 nnoremap <leader>ff <cmd>FzfFiles<cr>
-" nnoremap <leader>fg <cmd>Rg<cr>
-" nnoremap <leader>fb <cmd>Buffers<cr>
-
+nnoremap <leader>fg <cmd>FzfGrep<cr>
+nnoremap <leader>fb <cmd>FzfBuffers<cr>
 
 " Show LSP info
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
 nnoremap gh <cmd>lua vim.lsp.buf.hover()<cr>
-" nnoremap gh <cmd>Lspsaga hover_doc<cr>
 
 " Debugger
 nnoremap <leader>db <cmd>lua require("dap").toggle_breakpoint()<cr>
@@ -165,10 +162,10 @@ nnoremap <leader>dl <cmd>lua require("dap").list_breakpoints()<cr>
 " Slime
 nnoremap <leader>s <plug>SlimeSendCell
 
-" Toggle diagnostics window
-nnoremap <leader>tt <cmd>TroubleToggle<cr>
-nnoremap <leader>tb <cmd>TroubleToggle document_diagnostics<cr>
-nnoremap <leader>tr <cmd>TroubleReload<cr>
+" " Toggle diagnostics window
+" nnoremap <leader>tt <cmd>TroubleToggle<cr>
+" nnoremap <leader>tb <cmd>TroubleToggle document_diagnostics<cr>
+" nnoremap <leader>tr <cmd>TroubleReload<cr>
 
 " Toggle comment
 nnoremap gc <plug>(comment_toggle_current_linewise)
@@ -200,3 +197,6 @@ nnoremap T <c-w>T
 
 " Zoom window
 nnoremap <leader>m <plug>(zoom-toggle)
+
+" " Create new tab
+" nnoremap <leader>c <cmd>tabnew<cr>
