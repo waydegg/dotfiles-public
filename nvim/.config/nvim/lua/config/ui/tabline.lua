@@ -31,9 +31,9 @@ local function reload_tabline_label(tabpage_handle)
 end
 
 local function reload_tabline()
-	local tabline = ""
+	local tabline = " "
 	for _, tab_id in ipairs(vim.api.nvim_list_tabpages()) do
-		tabline = tabline .. reload_tabline_label(tab_id)
+		tabline = tabline .. reload_tabline_label(tab_id) .. " "
 	end
 	vim.o.tabline = tabline
 end

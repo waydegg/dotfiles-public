@@ -78,6 +78,45 @@ local function get_zoomed_status()
 	return ""
 end
 
+local function get_lsp_status()
+	local buf_clients = vim.lsp.buf_get_clients()
+	if next(buf_clients) == nil then
+		return ""
+	end
+
+	local buf_client_names = {}
+	for _, client in pairs(buf_clients) do
+		if client.name ~= "null-ls" then
+			table.insert(buf_client_names, client.name)
+		end
+	end
+
+	return "[" .. table.concat(buf_client_names, ", ") .. "]"
+end
+
+local function get_lsp_progress()
+	local messages = vim.lsp.util.get_progress_messages()
+	if #messages == 0 then
+		return ""
+	end
+
+	local status = {}
+	for _, msg in pairs(messages) do
+		local title = ""
+		if msg.title then
+			title = msg.title
+		end
+		table.insert(status, (msg.percentage or 0) .. "%% " .. title)
+	end
+
+	local spinners =
+		{ "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+	local ms = vim.loop.hrtime() / 1000000
+	local frame = math.floor(ms / 120) % #spinners
+
+	return table.concat(status, "  ") .. " " .. spinners[frame + 1]
+end
+
 Statusline = {}
 
 Statusline.setup = function()
@@ -91,6 +130,8 @@ Statusline.setup = function()
 		get_filename(),
 		align("right"),
 		get_zoomed_status(),
+		get_lsp_progress(),
+		get_lsp_status(),
 		get_line_info(),
 		get_filetype(),
 	})
