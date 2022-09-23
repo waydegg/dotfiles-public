@@ -1,14 +1,8 @@
 " Plugins
 call plug#begin()
 
+" Core
 Plug 'nvim-lua/plenary.nvim'
-
-Plug 'phaazon/hop.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'windwp/nvim-autopairs'
-Plug 'jpalardy/vim-slime'
-Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'numToStr/Comment.nvim', { 'commit': 'fe9bbdbcd2f1b85cc8fccead68122873d94f8397' }
 
 " Filetree
 Plug 'kyazdani42/nvim-tree.lua'
@@ -23,6 +17,11 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 " Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
+Plug 'jbyuki/one-small-step-for-vimkind'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -33,11 +32,15 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'jose-elias-alvarez/typescript.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
+" Misc
+Plug 'phaazon/hop.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'windwp/nvim-autopairs'
+Plug 'jpalardy/vim-slime'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'numToStr/Comment.nvim', { 'commit': 'fe9bbdbcd2f1b85cc8fccead68122873d94f8397' }
 Plug 'L3MON4D3/LuaSnip'
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'jbyuki/one-small-step-for-vimkind'
 Plug 'kevinhwang91/nvim-ufo', {'commit': '1501a5c324bd6355de46de3200db4dc2ed120ffe'}
 Plug 'kevinhwang91/promise-async', {'commit': '3fac3a5a3e2c63d09a30ff7e983a1a5e867043c4'}
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }, 'commit': 'b9e6e7926cb8400ad56de60f66d6b4fc2b391c6e'}
@@ -48,7 +51,6 @@ Plug 'rmagatti/auto-session', {'commit': '9c302e01ebb474f9b19998488060d9f110ef75
 
 call plug#end()
 
-" lua require("config.plugins.coq")
 lua require("config.plugins.nvim-tree")
 lua require("config.plugins.gitsigns")
 lua require("config.plugins.cmp")
@@ -58,10 +60,8 @@ lua require("config.plugins.lspconfig")
 lua require("config.plugins.dap")
 lua require("config.plugins.autopairs")
 lua require("config.plugins.null-ls")
-" lua require("config.plugins.trouble")
 lua require("config.plugins.lspsaga")
 lua require("config.plugins.comment")
-lua require("config.plugins.fidget")
 lua require("config.plugins.nvim-web-devicons")
 lua require("config.plugins.tmux")
 lua require("config.plugins.fzf")
@@ -172,11 +172,6 @@ nnoremap <leader>dl <cmd>lua require("dap").list_breakpoints()<cr>
 " Slime
 nnoremap <leader>s <plug>SlimeSendCell
 
-" " Toggle diagnostics window
-" nnoremap <leader>tt <cmd>TroubleToggle<cr>
-" nnoremap <leader>tb <cmd>TroubleToggle document_diagnostics<cr>
-" nnoremap <leader>tr <cmd>TroubleReload<cr>
-
 " Toggle comment
 nnoremap gc <plug>(comment_toggle_current_linewise)
 vnoremap gc <plug>(comment_toggle_linewise_visual)
@@ -208,5 +203,3 @@ nnoremap T <c-w>T
 " Zoom window
 nnoremap <leader>m <plug>(zoom-toggle)
 
-" " Create new tab
-" nnoremap <leader>c <cmd>tabnew<cr>

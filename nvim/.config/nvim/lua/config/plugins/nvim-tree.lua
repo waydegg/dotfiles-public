@@ -5,6 +5,9 @@ if not ok then
 end
 
 nvim_tree.setup({
+	update_focused_file = {
+		enable = true,
+	},
 	view = {
 		width = 40,
 		mappings = {

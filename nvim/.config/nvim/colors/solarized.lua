@@ -184,3 +184,8 @@ set_hl(
 	"TabLineFill",
 	{ fg = colors.base00, bg = colors.base2, sp = colors.base00, underline = true }
 )
+
+set_hl(0, "FloatNormal", { fg = colors.base00, bg = colors.base3 })
+set_hl(0, "NormalFloat", { fg = colors.base00, bg = colors.base3 })
+
+set_hl(0, "FloatBorder", { fg = colors.base00, bg = colors.base3 })

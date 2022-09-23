@@ -28,6 +28,7 @@ for _, sign in ipairs(signs) do
 end
 
 vim.diagnostic.config({
+	virtual_text = true,
 	signs = {
 		active = signs,
 	},
@@ -99,12 +100,12 @@ capabilities.textDocument.foldingRange = {
 }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local cmp_lsp_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_lsp_ok then
-	print("'cmp_nvim_lsp' not installed")
-	return
-end
-capabilities = cmp_lsp.update_capabilities(capabilities)
+-- local cmp_lsp_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+-- if not cmp_lsp_ok then
+-- 	print("'cmp_nvim_lsp' not installed")
+-- 	return
+-- end
+-- capabilities = cmp_lsp.update_capabilities(capabilities)
 
 lspconfig.pyright.setup({
 	capabilities = capabilities,
