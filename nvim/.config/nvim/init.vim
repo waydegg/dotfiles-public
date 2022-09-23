@@ -1,48 +1,58 @@
 " Plugins
 call plug#begin()
 
+Plug 'nvim-lua/plenary.nvim'
+
 Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'numToStr/Comment.nvim', { 'commit': 'fe9bbdbcd2f1b85cc8fccead68122873d94f8397' }
+
+" Filetree
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
+
+" Completions
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'nvim-lua/plenary.nvim'
+
+" Debugger
+Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap-python'
+
+" Treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
+
+" Language-specific plugins
 Plug 'dag/vim-fish'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'jose-elias-alvarez/typescript.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+
+Plug 'L3MON4D3/LuaSnip'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'jose-elias-alvarez/typescript.nvim'
-Plug 'mfussenegger/nvim-dap'
 Plug 'jbyuki/one-small-step-for-vimkind'
-Plug 'mfussenegger/nvim-dap-python'
 Plug 'kevinhwang91/nvim-ufo', {'commit': '1501a5c324bd6355de46de3200db4dc2ed120ffe'}
 Plug 'kevinhwang91/promise-async', {'commit': '3fac3a5a3e2c63d09a30ff7e983a1a5e867043c4'}
-Plug 'windwp/nvim-ts-autotag'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'j-hui/fidget.nvim'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }, 'commit': 'b9e6e7926cb8400ad56de60f66d6b4fc2b391c6e'}
 Plug 'junegunn/fzf.vim', {'commit': 'ecbf9cd98e65e9170ef743d229f35bf1306efde1'}
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
 Plug 'rmagatti/auto-session', {'commit': '9c302e01ebb474f9b19998488060d9f110ef75c5'}
 
-
 call plug#end()
 
+" lua require("config.plugins.coq")
 lua require("config.plugins.nvim-tree")
 lua require("config.plugins.gitsigns")
 lua require("config.plugins.cmp")
 lua require("config.plugins.hop")
-" lua require("config.plugins.telescope")
 lua require("config.plugins.treesitter")
 lua require("config.plugins.lspconfig")
 lua require("config.plugins.dap")
