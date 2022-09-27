@@ -1,16 +1,16 @@
-local exclude_patterns = {
-	".git",
-	"node_modules",
-	"dist",
-	"tmpdata",
-	"venv",
-	"__pycache__",
-	"__tests__",
-	".parcel-cache",
-	-- "'!*.egg-info'", <-- for RG
-}
-
 local function fzf_files()
+	local exclude_patterns = {
+		".git",
+		"node_modules",
+		"dist",
+		"tmpdata",
+		"venv",
+		"__pycache__",
+		"__tests__",
+		".parcel-cache",
+		"'*.egg-info'",
+	}
+
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do
 		local exclude_arg = "--exclude " .. pattern
@@ -36,6 +36,19 @@ local function fzf_buffers()
 end
 
 local function fzf_grep()
+	local exclude_patterns = {
+		".git",
+		"node_modules",
+		"dist",
+		"tmpdata",
+		"venv",
+		"__pycache__",
+		"__tests__",
+		".parcel-cache",
+		"'!*.egg-info'",
+		"package-lock.json",
+	}
+
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do
 		local exclude_arg = "--glob !" .. pattern
