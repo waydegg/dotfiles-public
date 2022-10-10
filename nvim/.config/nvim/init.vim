@@ -14,11 +14,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
 
-" Debugger
-Plug 'mfussenegger/nvim-dap'
-Plug 'mfussenegger/nvim-dap-python'
-Plug 'jbyuki/one-small-step-for-vimkind'
-
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
@@ -48,6 +43,7 @@ Plug 'junegunn/fzf.vim', {'commit': 'ecbf9cd98e65e9170ef743d229f35bf1306efde1'}
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
 Plug 'rmagatti/auto-session', {'commit': '9c302e01ebb474f9b19998488060d9f110ef75c5'}
+Plug 'simrat39/symbols-outline.nvim'
 
 call plug#end()
 
@@ -65,6 +61,7 @@ lua require("config.plugins.comment")
 lua require("config.plugins.nvim-web-devicons")
 lua require("config.plugins.tmux")
 lua require("config.plugins.fzf")
+lua require("config.plugins.symbols-outline")
 
 " Options
 set clipboard=unnamedplus
@@ -203,3 +200,4 @@ nnoremap T <c-w>T
 " Zoom window
 nnoremap <leader>m <plug>(zoom-toggle)
 
+nnoremap <leader>o <cmd>SymbolsOutline<cr>

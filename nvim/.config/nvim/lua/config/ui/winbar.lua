@@ -5,7 +5,7 @@ end
 
 local M = {}
 
-M.winbar_filetype_exclude = { "NvimTree", "help", "Trouble" }
+M.winbar_filetype_exclude = { "NvimTree", "help", "Trouble", "" }
 
 local function get_filename()
 	local fileicon = ""

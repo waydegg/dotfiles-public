@@ -13,7 +13,9 @@ nvim_tree.setup({
 		mappings = {
 			custom_only = true,
 			list = {
+				{ key = "l", action = "edit" },
 				{ key = "<cr>", action = "edit" },
+				{ key = "h", action = "close_node" },
 				{ key = "r", action = "rename" },
 				{ key = "d", action = "remove" },
 				{ key = "c", action = "cd" },
