@@ -27,6 +27,10 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'jose-elias-alvarez/typescript.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
+" Telescope
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+
 " Misc
 Plug 'phaazon/hop.nvim'
 Plug 'lewis6991/gitsigns.nvim'
@@ -38,14 +42,18 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'kevinhwang91/nvim-ufo', {'commit': '1501a5c324bd6355de46de3200db4dc2ed120ffe'}
 Plug 'kevinhwang91/promise-async', {'commit': '3fac3a5a3e2c63d09a30ff7e983a1a5e867043c4'}
-Plug 'junegunn/fzf', {'do': { -> fzf#install() }, 'commit': 'b9e6e7926cb8400ad56de60f66d6b4fc2b391c6e'}
-Plug 'junegunn/fzf.vim', {'commit': 'ecbf9cd98e65e9170ef743d229f35bf1306efde1'}
+
+" Plug 'junegunn/fzf', {'do': { -> fzf#install() }, 'commit': 'b9e6e7926cb8400ad56de60f66d6b4fc2b391c6e'}
+" Plug 'junegunn/fzf.vim', {'commit': 'ecbf9cd98e65e9170ef743d229f35bf1306efde1'}
+
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
-Plug 'rmagatti/auto-session', {'commit': '9c302e01ebb474f9b19998488060d9f110ef75c5'}
+Plug 'rmagatti/auto-session' 
 Plug 'simrat39/symbols-outline.nvim'
 
 call plug#end()
+
+set rtp+=/opt/homebrew/opt/fzf
 
 lua require("config.plugins.nvim-tree")
 lua require("config.plugins.gitsigns")
@@ -53,7 +61,6 @@ lua require("config.plugins.cmp")
 lua require("config.plugins.hop")
 lua require("config.plugins.treesitter")
 lua require("config.plugins.lspconfig")
-lua require("config.plugins.dap")
 lua require("config.plugins.autopairs")
 lua require("config.plugins.null-ls")
 lua require("config.plugins.lspsaga")
@@ -62,6 +69,7 @@ lua require("config.plugins.nvim-web-devicons")
 lua require("config.plugins.tmux")
 lua require("config.plugins.fzf")
 lua require("config.plugins.symbols-outline")
+lua require("config.plugins.telescope")
 
 " Options
 set clipboard=unnamedplus

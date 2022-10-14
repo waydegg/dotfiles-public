@@ -1,3 +1,5 @@
+vim.g.fzf_layout = { window = { width = 0.9, height = 0.9 } }
+
 local function fzf_files()
 	local exclude_patterns = {
 		".git",
@@ -10,29 +12,50 @@ local function fzf_files()
 		".parcel-cache",
 		"'*.egg-info'",
 	}
-
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do
 		local exclude_arg = "--exclude " .. pattern
 		table.insert(exclude_args, exclude_arg)
 	end
 	local exclude_args_str = table.concat(exclude_args, " ")
-
 	local command = "fd --type file --no-ignore --hidden " .. exclude_args_str
 
-	vim.fn["fzf#vim#files"](
-		".",
-		vim.fn["fzf#vim#with_preview"]({
-			options = "--cycle --tiebreak=end",
-			source = command,
-			sink = "e",
-			window = { width = 0.9, height = 0.6 },
-		})
-	)
+	local preview = "bat --color=always --style=plain {}"
+	local options = {
+		"--cycle",
+		"--tiebreak=end",
+		"--ansi",
+		"--bind=change:first",
+		"--bind=ctrl-d:preview-half-page-down",
+		"--bind=ctrl-u:preview-half-page-up",
+		"--preview=" .. preview,
+	}
+
+	vim.fn["fzf#run"](vim.fn["fzf#wrap"]({
+		source = command,
+		sink = "e",
+		options = options,
+	}))
 end
 
 local function fzf_buffers()
-	vim.fn["fzf#vim#buffers"](vim.fn["fzf#vim#with_preview"]())
+	local preview = "bat --color=always --style=plain {}"
+	local options = {
+		"--cycle",
+		"--tiebreak=end",
+		"--ansi",
+		"--bind=change:first",
+		"--bind=ctrl-d:preview-half-page-down",
+		"--bind=ctrl-u:preview-half-page-up",
+		"--preview=" .. preview,
+	}
+
+	-- vim.fn["fzf#vim#buffers"](vim.fn["fzf#vim#with_preview"]())
+	vim.fn["fzf#run"](vim.fn["fzf#wrap"]({
+		source = vim.cmd("buffers"),
+		sink = "e",
+		options = options,
+	}))
 end
 
 local function fzf_grep()
@@ -60,7 +83,22 @@ local function fzf_grep()
 		.. exclude_args_str
 		.. " ."
 
-	vim.fn["fzf#vim#grep"](command, 0, vim.fn["fzf#vim#with_preview"]())
+	-- local preview = "bat --color=always --style=plain {}"
+	local options = {
+		"--cycle",
+		"--tiebreak=end",
+		"--ansi",
+		"--bind=change:first",
+		"--bind=ctrl-d:preview-half-page-down",
+		"--bind=ctrl-u:preview-half-page-up",
+		-- "--preview=" .. preview,
+	}
+
+	vim.fn["fzf#run"](vim.fn["fzf#wrap"]({
+		source = command,
+		sink = "e",
+		options = options,
+	}))
 end
 
 vim.api.nvim_create_user_command("FzfFiles", fzf_files, {})
