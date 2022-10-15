@@ -1,12 +1,10 @@
-local ok, treesitter = pcall(require, "nvim-treesitter")
+local ok, treesitter = pcall(require, "nvim-treesitter.configs")
 if not ok then
 	print("'treesitter' not installed")
 	return
 end
 
-local treesitter_configs = require("nvim-treesitter.configs")
-
-treesitter_configs.setup({
+treesitter.setup({
 	ensure_installed = {
 		"vim",
 		"typescript",
@@ -33,6 +31,11 @@ treesitter_configs.setup({
 	},
 	context_commentstring = {
 		enable = true,
-		enable_autocmd = false,
+		-- enable_autocmd = false,
+		commentary_integration = {
+			Commentary = false,
+			CommentaryLine = false,
+			CommentaryUndo = false,
+		},
 	},
 })
