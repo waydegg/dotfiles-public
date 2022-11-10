@@ -86,6 +86,7 @@ alias vim nvim
 alias vi nvim
 alias c clear
 alias logout exit
+alias speedtest "networkQuality -v"
 
 # ===== Keybinds ==============================================================
 # Search through command history

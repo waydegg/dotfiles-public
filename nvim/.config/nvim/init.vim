@@ -41,7 +41,8 @@ Plug 'tpope/vim-commentary'
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
 Plug 'rmagatti/auto-session' 
-Plug 'preservim/tagbar'
+
+" Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
 
 call plug#end()
 
@@ -79,7 +80,7 @@ set tabstop=2
 set cursorline
 set signcolumn=yes
 set termguicolors
-set formatoptions=jtcroql
+" set formatoptions-=cro
 set guioptions-=m
 set gdefault
 set pumheight=10
@@ -156,13 +157,6 @@ nnoremap <leader>fg <cmd>FzfGrep<cr>
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
 nnoremap gh <cmd>lua vim.lsp.buf.hover()<cr>
 
-" Debugger
-nnoremap <leader>db <cmd>lua require("dap").toggle_breakpoint()<cr>
-nnoremap <leader>dc <cmd>lua require("dap").continue()<cr>
-nnoremap <leader>ds <cmd>lua require("dap").step_over()<cr>
-nnoremap <leader>dr <cmd>lua require("dap").repl.toggle()<cr>
-nnoremap <leader>dl <cmd>lua require("dap").list_breakpoints()<cr>
-
 " Slime
 nnoremap <leader>s <plug>SlimeSendCell
 
@@ -196,3 +190,6 @@ nnoremap <leader>m <plug>(zoom-toggle)
 " Toggle search hightlighting
 let hlstate=0
 nnoremap <silent> <leader>h :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
+
+" let g:python3_host_prog = $HOME . '/.config/nvim/venv/bin/python3'
+

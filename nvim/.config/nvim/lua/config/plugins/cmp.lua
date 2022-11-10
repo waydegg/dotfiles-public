@@ -38,7 +38,9 @@ local cmp_kinds = {
 	TypeParameter = "  ",
 }
 
-local function format_item(_, vim_item)
+local function format_item(cmp_entry, vim_item)
+	-- print(vim.inspect(cmp_entry))
+
 	vim_item.kind = cmp_kinds[vim_item.kind] or ""
 
 	-- local entries = entry.entries
