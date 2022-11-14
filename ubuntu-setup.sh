@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Update, upgrade, and reboot (as root user)
 apt update && apt upgrade -y
 reboot
@@ -127,6 +129,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # ----- Final steps -----------------------------------------------------------
+
+# Remove conflicting fish files (in preparation for Stow)
+rm ~/.config/fish/config.fish ~/.config/fish/functions/fish_mode_prompt.fish
 
 # Stow everything
 stow -d $HOME/ghq/github.com/waydegg/dotfiles-public -t $HOME \

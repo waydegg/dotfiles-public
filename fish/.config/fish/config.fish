@@ -9,6 +9,7 @@ switch (uname)
   case Linux
     set -x PATH /opt/nvim-linux64/bin $PATH
     set -x PATH $HOME/.local/bin $PATH
+    set -x PATH $HOME/.pyenv/bin $PATH
 end
 
 # Set default editor to Neovim
