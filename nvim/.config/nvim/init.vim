@@ -41,12 +41,11 @@ Plug 'tpope/vim-commentary'
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
 Plug 'rmagatti/auto-session' 
+Plug 'junegunn/fzf' 
 
 " Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
 
 call plug#end()
-
-set rtp+=/opt/homebrew/opt/fzf
 
 lua require("config.plugins.nvim-tree")
 lua require("config.plugins.gitsigns")
