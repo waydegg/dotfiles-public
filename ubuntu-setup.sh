@@ -2,7 +2,7 @@
 apt update && apt upgrade -y
 reboot
 
-# ----- Setup -----------------------------------------------------------------
+# ----- (Optional) Add remote user -----------------------------------------------------
 export REMOTE_USER=waydegg
 
 # Create a new user
@@ -15,6 +15,15 @@ usermod -aG sudo $REMOTE_USER
 mkdir /home/$REMOTE_USER/.ssh
 cp -Rfv /root/.ssh /home/$REMOTE_USER/
 chown -Rfv $REMOTE_USER:$REMOTE_USER /home/$REMOTE_USER/.ssh
+
+
+# ----- (Optional) Install and setup SSH server ---------------------------------------
+
+# Install SSH server
+sudo apt install -y openssh-server
+
+# Enable SSH on the firewall
+sudo ufw allow ssh
 
 
 # ----- Install and setup Docker ----------------------------------------------
@@ -43,29 +52,66 @@ sudo usermod -aG docker $USER
 # Reboot
 sudo reboot
 
+# ----- Install packages --------------------------------------------------------------
 
-# ----- Linuxbrew ------------------------------------------------------------
+# Install packages (available via apt)
+sudo apt install -y tmux speedtest-cli fd-find visidata bat direnv exa fish golang-go \
+  stow postgresql npm python3-pip python3-venv ripgrep tree fzf htop
 
-# Install
-sudo apt update
-yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Add packages to $PATH (where nessesary)
+mkdir ~/.local/bin
+ln -s $(which fdfind) ~/.local/bin/fd
+ln -s $(which batcat) ~/.local/bin/bat
+echo 'export PATH="${HOME}/.local/bin:${PATH}"' >> ~/.bashrc
 
-# Add to PATH
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Install fnm
+curl -fsSL https://fnm.vercel.app/install | bash
 
-# Install dependencies for Linuxbrew
-sudo apt install -y build-essential
+# Install pyenv
+curl https://pyenv.run | bash
+
+# Install ghq
+wget https://github.com/x-motemen/ghq/releases/download/v1.3.0/ghq_linux_amd64.zip -P ~/Downloads
+unzip ~/Downloads/ghq_linux_amd64.zip -d ~/Downloads
+sudo cp Downloads/ghq_linux_amd64/ghq /usr/local/bin
+
+# Install neovim
+wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz -P ~/Downloads
+sudo tar -xf ~/Downloads/nvim-linux64.tar.gz -C /opt
+
+# Install pipx
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+# Install pip(x) packages
+pipx install black \
+  && pipx install isort \
+  && pipx install invoke \
+  && pipx install git+https://github.com/waydegg/autoflake \
+  && pipx install linode-cli --pip-args="pip install boto" \
+  && pipx install pgcli \
+  && pipx install sqlfluff \
+  && pipx install hatch
+
+# Install (global) npm packages
+sudo npm install -g @taplo/cli prettier @johnnymorganz/stylua-bin yarn
+
+# Install fx
+wget https://github.com/antonmedv/fx/releases/download/24.0.0/fx_linux_amd64 -P ~/Downloads
+sudo cp Downloads/fx_linux_amd64 /usr/local/bin/fx
+sudo chmod +x /usr/local/bin/fx
+
+# Delete all files in /Downloads
+rm -r ~/Downloads/*
 
 
-# ----- Download dotfiles and install Brewfile --------------------------------
+# ----- Change default shell ----------------------------------------------------------
 
-# Clone public dotfiles repository
-git clone https://github.com/waydegg/dotfiles-public
+# Change default shell to fish
+chsh -s $(which fish)
 
-# Install brew dependencies
-brew bundle --verbose --file $HOME/dotfiles-public/Brewfile.remote
-
+# Reboot
+sudo reboot
 
 # ----- Setup Fish Shell ------------------------------------------------------
 
@@ -99,7 +145,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Stow Neovim files
-stow -d $HOME/dotfiles-public -t $HOME nvim
+stow -d $HOME/ghq/github.com/waydegg/dotfiles-public -t $HOME nvim
 
 
 # ----- Setup CLI tools -------------------------------------------------------
@@ -107,15 +153,6 @@ stow -d $HOME/dotfiles-public -t $HOME nvim
 # Stow everything else
 stow -d $HOME/dotfiles-public -t $HOME bat direnv git ipython pgcli pyenv stylua tmux
 
-# Install pip/pipx packages
-pipx install black
-pipx install isort
-pipx install invoke
-pipx install git+https://github.com/waydegg/autoflake
-pipx install linode-cli --pip-args="pip install boto"
-
-# Install global npm packages
-npm install -g @taplo/cli
 
 # ----- Final steps -----------------------------------------------------------
 

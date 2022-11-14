@@ -2,12 +2,12 @@
 # Disable Fish greeting
 set fish_greeting ""
 
-# Add Homebrew to PATH
+# Add programs to PATH
 switch (uname)
   case Darwin
     set -x PATH /opt/homebrew/bin $PATH
   case Linux
-    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    set -x PATH /opt/nvim-linux64/bin $PATH
 end
 
 # Set default editor to Neovim
@@ -86,7 +86,14 @@ alias vim nvim
 alias vi nvim
 alias c clear
 alias logout exit
-alias speedtest "networkQuality -v"
+
+switch (uname)
+  case Darwin
+    alias speedtest "networkQuality -v"
+  case Linux
+    alias speedtest "speedtest-cli"
+end
+
 
 # ===== Keybinds ==============================================================
 # Search through command history
