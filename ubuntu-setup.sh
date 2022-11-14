@@ -112,14 +112,13 @@ fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/
 # Install plugins
 fish -c "fisher install jethrokuan/z PatrickF1/fzf.fish IlanCosman/tide@v5.0.1"
 
-# Configure prompt
-fish -c "echo 1 1 1 1 1 1 1 1 1 y | tide configure >/dev/null"
+# Configure prompt (might have to enter manually if this command freezes)
+fish -c "echo 1 1 1 1 1 1 y | tide configure >/dev/null"
 
 # Add completions for Docker and FNM
 curl -o $HOME/.config/fish/completions/docker.fish \
   https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish
 fnm completions --shell=fish > ~/.config/fish/completions/fnm.fish
-
 
 # ----- Setup Neovim ----------------------------------------------
 
