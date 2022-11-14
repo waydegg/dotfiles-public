@@ -8,6 +8,7 @@ switch (uname)
     set -x PATH /opt/homebrew/bin $PATH
   case Linux
     set -x PATH /opt/nvim-linux64/bin $PATH
+    set -x PATH $HOME/.local/bin $PATH
 end
 
 # Set default editor to Neovim
@@ -25,9 +26,6 @@ set -g tide_right_prompt_items status cmd_duration context jobs virtual_env
 
 # Set IPython directory
 set -x IPYTHONDIR $HOME/.config/ipython
-
-# Lazygit config directory
-set -x CONFIG_DIR $HOME/.config/lazygit
 
 # Rustup and Cargo config directories, add Cargo to PATH
 set -x RUSTUP_HOME $HOME/.config/rustup
