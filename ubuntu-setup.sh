@@ -104,33 +104,16 @@ sudo chmod +x /usr/local/bin/fx
 # Delete all files in /Downloads
 rm -r ~/Downloads/*
 
-
-# ----- Change default shell ----------------------------------------------------------
-
-# Change default shell to fish
-chsh -s $(which fish)
-
-# Reboot
-sudo reboot
-
 # ----- Setup Fish Shell ------------------------------------------------------
 
 # Install Fisher (plugin manager)
 fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
 
 # Install plugins
-rm ~/.config/fish/fish_plugins \
-  && stow -d $HOME/dotfiles-public -t $HOME --ignore '\.fish' fish \
-  && fish -c "fisher update"
+fish -c "fisher install jethrokuan/z PatrickF1/fzf.fish IlanCosman/tide@v5.0.1"
 
 # Configure prompt
 fish -c "echo 1 1 1 1 1 1 1 1 1 y | tide configure >/dev/null"
-
-# Stow the rest of fish files
-stow -d $HOME/dotfiles-public -t $HOME fish
-
-# Enable vi mode
-fish -c "fish_vi_key_bindings"
 
 # Add completions for Docker and FNM
 curl -o $HOME/.config/fish/completions/docker.fish \
@@ -144,21 +127,17 @@ fnm completions --shell=fish > ~/.config/fish/completions/fnm.fish
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# Stow Neovim files
-stow -d $HOME/ghq/github.com/waydegg/dotfiles-public -t $HOME nvim
-
-
-# ----- Setup CLI tools -------------------------------------------------------
-
-# Stow everything else
-stow -d $HOME/dotfiles-public -t $HOME bat direnv git ipython pgcli pyenv stylua tmux
-
-
 # ----- Final steps -----------------------------------------------------------
 
-# Make Fish the default shell
-command -v fish | sudo tee -a /etc/shells 
-sudo chsh -s "$(command -v fish)" "${USER}"
+# Stow everything
+stow -d $HOME/ghq/github.com/waydegg/dotfiles-public -t $HOME \
+  bat direnv fish git ipython nvim pgcli pyenv stylua tmux
+
+# Enable vi mode for fish
+fish -c "fish_vi_key_bindings"
+#
+# Change default shell to fish
+chsh -s $(which fish)
 
 # Reboot
 sudo reboot
