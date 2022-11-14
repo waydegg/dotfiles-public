@@ -57,7 +57,7 @@ sudo reboot
 # ----- Install packages --------------------------------------------------------------
 
 # Install packages (available via apt)
-sudo apt install -y tmux speedtest-cli fd-find visidata bat direnv exa fish golang-go \
+sudo apt install -y tmux speedtest-cli fd-find visidata bat exa fish golang-go \
   stow postgresql npm python3-pip python3-venv ripgrep tree fzf htop
 
 # Add packages to $PATH (where nessesary)
@@ -110,6 +110,11 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 && sudo apt update \
 && sudo apt install gh -y
+
+# Install direnv
+wget https://github.com/direnv/direnv/releases/download/v2.32.1/direnv.linux-amd64 -O ~/Downloads/direnv
+sudo chmod +x ~/Downloads/direnv
+sudo mv ~/Downloads/direnv /usr/local/bin
 
 # Delete all files in /Downloads
 rm -r ~/Downloads/*
