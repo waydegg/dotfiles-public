@@ -42,6 +42,8 @@ Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
 Plug 'rmagatti/auto-session' 
 Plug 'junegunn/fzf' 
+Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
+
 
 " Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
 
@@ -94,7 +96,10 @@ set sessionoptions+=tabpages,globals
 " Colorscheme
 colorscheme solarized
 
+" Auto commands
 lua require("config.autocmd")
+
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
 
 " --- Keybinds ----------------------------------------------------------------
 let mapleader = ' '
