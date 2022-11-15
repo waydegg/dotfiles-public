@@ -1,7 +1,0 @@
-[user]
-	name = Wayde Gilliam
-	email = waydegilliam@gmail.com
-[init]
-	defaultBranch = master
-[alias]
-	root = rev-parse --show-toplevel
