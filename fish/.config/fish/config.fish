@@ -41,8 +41,9 @@ if type -q pipx
   set -x PATH $HOME/.local/bin $PATH
 end
 
-# Pyenv config directory
-set -x PYENV_ROOT $HOME/.config/pyenv
+# pip
+set -x PIP_DISABLE_PIP_VERSION_CHECK 1
+
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
@@ -111,14 +112,13 @@ function __check_venv --on-variable PWD --description 'Source venv (if exists) o
 end
 
 # ===== Tool setup ============================================================
-# FNM
+# fnm
 if type fnm -q && status is-interactive 
   fnm env --shell fish --use-on-cd | source
 end
 
-# Pyenv
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source
+# pyenv
+pyenv init - | source
 
-# Direnv
+# direnv
 direnv hook fish | source
