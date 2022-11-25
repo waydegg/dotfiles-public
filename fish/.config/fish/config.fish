@@ -33,7 +33,7 @@ set -x RUSTUP_HOME $HOME/.config/rustup
 set -x CARGO_HOME $HOME/.config/cargo
 set -x PATH $HOME/.config/cargo/bin $PATH
 
-# Direnv
+# direnv
 set -x DIRENV_LOG_FORMAT ""
 
 # Add $HOME/.local/bin to path (pipx puts executables here)
@@ -44,6 +44,8 @@ end
 # pip
 set -x PIP_DISABLE_PIP_VERSION_CHECK 1
 
+# use bat for manpage rendering 
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
@@ -109,6 +111,29 @@ function __check_venv --on-variable PWD --description 'Source venv (if exists) o
   if test -d venv
     source ./venv/bin/activate.fish
   end
+end
+
+function __update_tmux_window_name --on-variable PWD
+  # Do nothing if tmux is not active
+  if not set -q TMUX;
+    return
+  end
+
+  set window_name (tmux display-message -p '#W')
+  set new_window_name \
+    (fish -c 'git rev-parse --show-toplevel | sed "s/.*\///"' 2>/dev/null)
+  
+  # Do nothing if not in a git directory 
+  if not string length -q $new_window_name;
+    return
+  end
+  
+  # Do nothing if window name is already updated
+  if test $window_name = $new_window_name
+    return
+  end
+
+  tmux rename-window $new_window_name
 end
 
 # ===== Tool setup ============================================================
