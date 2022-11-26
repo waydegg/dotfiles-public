@@ -1,5 +1,3 @@
-# Disable default vi prompt
-
 function fish_mode_prompt -d "Change cursor shape depending on mode" 
   switch $fish_bind_mode
     case default

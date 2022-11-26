@@ -2,16 +2,6 @@
 # Disable Fish greeting
 set fish_greeting ""
 
-# Add programs to PATH
-switch (uname)
-  case Darwin
-    set -x PATH /opt/homebrew/bin $PATH
-  case Linux
-    set -x PATH /opt/nvim-linux64/bin $PATH
-    set -x PATH $HOME/.local/bin $PATH
-    set -x PATH $HOME/.pyenv/bin $PATH
-end
-
 # Set default editor to Neovim
 set -x EDITOR nvim
 
@@ -37,15 +27,30 @@ set -x PATH $HOME/.config/cargo/bin $PATH
 set -x DIRENV_LOG_FORMAT ""
 
 # Add $HOME/.local/bin to path (pipx puts executables here)
-if type -q pipx
-  set -x PATH $HOME/.local/bin $PATH
-end
+set -x PATH $HOME/.local/bin $PATH
 
 # pip
 set -x PIP_DISABLE_PIP_VERSION_CHECK 1
 
-# use bat for manpage rendering 
+# use bat for manpager 
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
+# brew
+if test (uname) = 'Darwin'
+    set -x PATH /opt/homebrew/bin $PATH
+    set -x HOMEBREW_NO_ENV_HINTS 1
+end
+
+# nvim
+if test (uname) = 'Linux'
+  set -x PATH /opt/nvim-linux64/bin $PATH
+end
+
+# pyenv
+if test (uname) = 'Linux'
+  set -x PATH $HOME/.pyenv/bin $PATH
+end
+
 
 # ===== Aliases ================================================================
 alias ls "ls -p -G"
@@ -57,9 +62,10 @@ alias tree "tree -l -C -a -I '.git' -I 'venv' -I '__pycache__' -I '*.egg-info' -
 alias g git
 alias gs "git status"
 alias ga "git add"
-alias gd "git diff --name-only --diff-filter=d | xargs bat --diff"
+alias gd "git diff"
 alias gc "git commit -m"
 alias gw "git worktree"
+alias gp "git push"
 
 alias t tmux
 alias ts "tmux ls"
@@ -110,6 +116,7 @@ function __check_venv --on-variable PWD --description 'Source venv (if exists) o
   status --is-command-substitution; and return
   if test -d venv
     source ./venv/bin/activate.fish
+  else if test -d
   end
 end
 
