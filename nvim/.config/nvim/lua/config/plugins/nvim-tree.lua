@@ -42,6 +42,12 @@ nvim_tree.setup({
 		enable = false,
 	},
 	filters = {
-		custom = { "__pycache__", "venv", "*.egg-info", ".parcel-cache" },
+		custom = {
+			"__pycache__",
+			"venv",
+			"*.egg-info",
+			".parcel-cache",
+			".pytest_cache",
+		},
 	},
 })
