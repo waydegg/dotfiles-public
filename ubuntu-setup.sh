@@ -18,7 +18,6 @@ mkdir /home/$REMOTE_USER/.ssh
 cp -Rfv /root/.ssh /home/$REMOTE_USER/
 chown -Rfv $REMOTE_USER:$REMOTE_USER /home/$REMOTE_USER/.ssh
 
-
 # ----- (Optional) Install and setup SSH server ---------------------------------------
 
 # Install SSH server
@@ -26,7 +25,6 @@ sudo apt install -y openssh-server
 
 # Enable SSH on the firewall
 sudo ufw allow ssh
-
 
 # ----- Install and setup Docker ----------------------------------------------
 
