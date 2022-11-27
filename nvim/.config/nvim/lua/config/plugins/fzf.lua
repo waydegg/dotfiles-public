@@ -11,6 +11,7 @@ local function fzf_files()
 		"__tests__",
 		".parcel-cache",
 		"'*.egg-info'",
+		".pytest_cache",
 	}
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do

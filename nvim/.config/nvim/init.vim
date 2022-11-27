@@ -37,18 +37,22 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'kevinhwang91/nvim-ufo'
 Plug 'kevinhwang91/promise-async'
-Plug 'tpope/vim-commentary'
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
 Plug 'rmagatti/auto-session' 
 Plug 'junegunn/fzf' 
 Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
-
+Plug 'numToStr/Comment.nvim'
 
 " Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
 
 call plug#end()
 
+" Load configs
+lua require("config.autocmd")
+lua require("config.clipboard")
+
+" Load plugin configs
 lua require("config.plugins.nvim-tree")
 lua require("config.plugins.gitsigns")
 lua require("config.plugins.cmp")
@@ -60,7 +64,7 @@ lua require("config.plugins.null-ls")
 lua require("config.plugins.lspsaga")
 lua require("config.plugins.nvim-web-devicons")
 lua require("config.plugins.fzf")
-" lua require("config.plugins.symbols-outline")
+lua require("config.plugins.comment")
 
 " Options
 set clipboard=unnamedplus
@@ -81,7 +85,6 @@ set tabstop=2
 set cursorline
 set signcolumn=yes
 set termguicolors
-" set formatoptions-=cro
 set guioptions-=m
 set gdefault
 set pumheight=10
@@ -95,14 +98,6 @@ set sessionoptions+=tabpages,globals
 
 " Colorscheme
 colorscheme solarized
-
-" Auto commands
-lua require("config.autocmd")
-
-" autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
-" let g:oscyank_term = 'default'
-
-lua require("config.clipboard")
 
 " --- Keybinds ----------------------------------------------------------------
 let mapleader = ' '
@@ -191,12 +186,16 @@ nnoremap <leader>, <cmd>lua require("config.ui.tabline").rename_tabline_label()<
 " Move window to its own tab
 nnoremap T <c-w>T
 
+" Create/delete tabpage
+nnoremap <leader>tn <cmd>tabnew<cr>
+nnoremap <leader>tc <cmd>tabclose<cr>
+
 " Zoom window
 nnoremap <leader>m <plug>(zoom-toggle)
 
-" Toggle search hightlighting
-let hlstate=0
-nnoremap <silent> <leader>h :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
+" Comment stuff
+nnoremap gc <Plug>(comment_toggle_linewise_current)
+vnoremap gc <Plug>(comment_toggle_linewise_visual)
 
-" let g:python3_host_prog = $HOME . '/.config/nvim/venv/bin/python3'
-
+" Toggle outline
+nnoremap <leader>o <cmd>LSoutlineToggle<cr>

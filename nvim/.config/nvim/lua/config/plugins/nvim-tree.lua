@@ -48,6 +48,9 @@ nvim_tree.setup({
 			"*.egg-info",
 			".parcel-cache",
 			".pytest_cache",
+			"node_modules",
+			".git",
+			"package-lock.json",
 		},
 	},
 })

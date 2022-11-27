@@ -31,11 +31,6 @@ treesitter.setup({
 	},
 	context_commentstring = {
 		enable = true,
-		-- enable_autocmd = false,
-		commentary_integration = {
-			Commentary = false,
-			CommentaryLine = false,
-			CommentaryUndo = false,
-		},
+		enable_autocmd = false,
 	},
 })
