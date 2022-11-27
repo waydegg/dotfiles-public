@@ -64,9 +64,10 @@ alias g git
 alias gs "git status"
 alias ga "git add"
 alias gd "git diff"
-alias gc "git commit -m"
+alias gds "git diff --staged"
+alias gc "git commit"
+alias gcm "git commit -m"
 alias gw "git worktree"
-alias gp "git push"
 
 alias t tmux
 alias ts "tmux ls"
