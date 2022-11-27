@@ -43,6 +43,7 @@ Plug 'rmagatti/auto-session'
 Plug 'junegunn/fzf' 
 Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
 Plug 'numToStr/Comment.nvim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
 
