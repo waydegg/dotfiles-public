@@ -1,5 +1,3 @@
-source 
-
 " Plugins
 call plug#begin()
 
@@ -199,6 +197,3 @@ nnoremap <leader>m <plug>(zoom-toggle)
 " Comment stuff
 nnoremap gc <Plug>(comment_toggle_linewise_current)
 vnoremap gc <Plug>(comment_toggle_linewise_visual)
-
-" Toggle outline
-nnoremap <leader>o <cmd>LSoutlineToggle<cr>
