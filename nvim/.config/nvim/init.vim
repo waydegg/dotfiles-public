@@ -96,6 +96,7 @@ set nowrap
 set background=light
 set laststatus=3
 set sessionoptions+=tabpages,globals
+set shell=/bin/bash\ -i
 
 " Colorscheme
 colorscheme solarized
