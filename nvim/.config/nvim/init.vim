@@ -1,3 +1,5 @@
+source 
+
 " Plugins
 call plug#begin()
 
@@ -35,16 +37,16 @@ Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'kevinhwang91/nvim-ufo'
-Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-ufo', {'commit': 'a346e88c776a7089291c883705c5cd8a6ce67558'}
+Plug 'kevinhwang91/promise-async', {'commit': '70b09063cdf029079b25c7925e4494e7416ee995'}
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
 Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e161bd4a9907'}
 Plug 'rmagatti/auto-session' 
 Plug 'junegunn/fzf' 
-Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
-Plug 'numToStr/Comment.nvim'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'numToStr/Comment.nvim', {'commit': '5f01c1a89adafc52bf34e3bf690f80d9d726715d'}
+Plug 'maxmellon/vim-jsx-pretty', {'commit': '6989f1663cc03d7da72b5ef1c03f87e6ddb70b41'}
 
+" Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
 " Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
 
 call plug#end()
