@@ -47,6 +47,7 @@ if test (uname) = 'Linux'
 end
 
 # pyenv
+set -x PYENV_VERSION "3.10.4"
 if test (uname) = 'Linux'
   set -x PATH $HOME/.pyenv/bin $PATH
 end
