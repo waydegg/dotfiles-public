@@ -1,5 +1,6 @@
 module.exports = {
   printWidth: 88,
-  importOrder: ["^expo-*", "^[./]"],
+  importOrder: ["^[./]"],
   importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
 };
