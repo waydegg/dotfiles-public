@@ -4,7 +4,7 @@
 
 # Install homebrew packages
 brew install bat direnv docker docker-compose exa fd fish fnm fx fzf ghq go hatch htop \
-  httpie iredis jq lua node pandoc pipx prettier pyenv redis ripgrep sqlfluff stow \
+  httpie iredis jq lua node pandoc pipx pyenv redis ripgrep sqlfluff stow \
   stylua tmux tree universal-ctags yarn saulpw/vd/visidata git-delta wget gh
 
 # Install homebrew casks
@@ -23,7 +23,8 @@ pipx install black \
   && pipx install pgcli
   
 # Install (global) npm packages
-sudo npm install -g @taplo/cli
+sudo npm install -g @taplo/cli@0.5.2 prettier@2.8.0 \
+  @trivago/prettier-plugin-sort-imports@4.0.0
 
 # ----- Setup Fish Shell ---------------------------------------------------------------
 

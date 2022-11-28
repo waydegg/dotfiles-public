@@ -26,9 +26,13 @@ local autoflake = {
 
 local prettier = formatting.prettier.with({
 	extra_filetypes = { "yml" },
-	-- disabled_filetypes = { "markdown" },
 	args = function(params)
-		local args = { "--stdin-filepath", "$FILENAME" }
+		local args = {
+			"--config",
+			vim.fn.getenv("HOME") .. "/.config/prettier/prettier.config.js",
+			"--stdin-filepath",
+			"$FILENAME",
+		}
 
 		if vim.o.ft == "markdown" then
 			args = {

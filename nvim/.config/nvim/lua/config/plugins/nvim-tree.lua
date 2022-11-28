@@ -51,6 +51,7 @@ nvim_tree.setup({
 			"node_modules",
 			".git",
 			"package-lock.json",
+			".expo/web",
 		},
 	},
 })
