@@ -6,7 +6,7 @@ end
 
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not mason_lspconfig_ok then
-	print("'mason-lspconfig.nvim' not instaled")
+	print("'mason-lspconfig.nvim' not installed")
 	return
 end
 

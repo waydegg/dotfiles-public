@@ -54,9 +54,10 @@ call plug#end()
 lua require("config.autocmd")
 lua require("config.clipboard")
 
-" Load plugin configs
+" Load plugin configs (preserve order)
 lua require("config.plugins.lsp-install")
 lua require("config.plugins.lsp-config")
+lua require("config.plugins.ufo")
 lua require("config.plugins.nvim-tree")
 lua require("config.plugins.gitsigns")
 lua require("config.plugins.cmp")
