@@ -1,9 +1,3 @@
-local lsp_installed_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not lsp_installed_ok then
-	print("'nvim-lsp-installer' not installed")
-	return
-end
-
 local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_ok then
 	print("'lspconfig' not installed")
@@ -17,6 +11,7 @@ if not typescript_ok then
 end
 
 -- Diagnostic signs
+
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -38,39 +33,9 @@ vim.diagnostic.config({
 	},
 })
 
--- UI
--- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
--- 	border = "rounded",
--- 	width = 60,
--- })
---
--- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
--- 	vim.lsp.handlers.signature_help,
--- 	{
--- 		border = "rounded",
--- 		width = 60,
--- 	}
--- )
+-- Hover doc & signature handlers
 
--- local border = {
--- 	{ "🭽", "FloatBorder" },
--- 	{ "▔", "FloatBorder" },
--- 	{ "🭾", "FloatBorder" },
--- 	{ "▕", "FloatBorder" },
--- 	{ "🭿", "FloatBorder" },
--- 	{ "▁", "FloatBorder" },
--- 	{ "🭼", "FloatBorder" },
--- 	{ "▏", "FloatBorder" },
--- }
 local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-
--- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
--- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
--- 	opts = opts or {}
--- 	opts.border = opts.border or border
--- 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
--- end
-
 local handlers = {
 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
 	["textDocument/signatureHelp"] = vim.lsp.with(
@@ -78,20 +43,8 @@ local handlers = {
 		{ border = border }
 	),
 }
--- LSP server setup
-local servers = {
-	"pyright",
-	"tsserver",
-	"vimls",
-	"sumneko_lua",
-	"rust_analyzer",
-	"sqls",
-	"html",
-	"cssls",
-}
-lsp_installer.setup({
-	ensure_installed = servers,
-})
+
+-- Capabilities
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
@@ -100,22 +53,12 @@ capabilities.textDocument.foldingRange = {
 }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
--- local cmp_lsp_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
--- if not cmp_lsp_ok then
--- 	print("'cmp_nvim_lsp' not installed")
--- 	return
--- end
--- capabilities = cmp_lsp.update_capabilities(capabilities)
+-- LSP config
 
 lspconfig.pyright.setup({
 	capabilities = capabilities,
 	filetypes = { "python" },
 	handlers = handlers,
-	-- settings = {
-	-- 	analysis = {
-	-- 		typeCheckingMode = "off",
-	-- 	},
-	-- },
 })
 
 typescript.setup({
@@ -186,12 +129,3 @@ lspconfig.cssls.setup({
 	capabilities = capabilities,
 	filetypes = { "css", "scss", "less" },
 })
-
--- Setup ufo (depends on lspconfig)
-local ufo_ok, ufo = pcall(require, "ufo")
-if not ufo_ok then
-	print("'ufo' not installed")
-	return
-end
-
-ufo.setup()

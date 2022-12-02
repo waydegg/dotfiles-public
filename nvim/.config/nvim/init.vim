@@ -16,7 +16,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
@@ -26,6 +27,7 @@ Plug 'dag/vim-fish'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'jose-elias-alvarez/typescript.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'maxmellon/vim-jsx-pretty', {'commit': '6989f1663cc03d7da72b5ef1c03f87e6ddb70b41'}
 
 " Misc
 Plug 'phaazon/hop.nvim'
@@ -42,7 +44,6 @@ Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e
 Plug 'rmagatti/auto-session' 
 Plug 'junegunn/fzf' 
 Plug 'numToStr/Comment.nvim', {'commit': '5f01c1a89adafc52bf34e3bf690f80d9d726715d'}
-Plug 'maxmellon/vim-jsx-pretty', {'commit': '6989f1663cc03d7da72b5ef1c03f87e6ddb70b41'}
 
 " Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
 " Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
@@ -54,12 +55,13 @@ lua require("config.autocmd")
 lua require("config.clipboard")
 
 " Load plugin configs
+lua require("config.plugins.lsp-install")
+lua require("config.plugins.lsp-config")
 lua require("config.plugins.nvim-tree")
 lua require("config.plugins.gitsigns")
 lua require("config.plugins.cmp")
 lua require("config.plugins.hop")
 lua require("config.plugins.treesitter")
-lua require("config.plugins.lspconfig")
 lua require("config.plugins.autopairs")
 lua require("config.plugins.null-ls")
 lua require("config.plugins.lspsaga")
