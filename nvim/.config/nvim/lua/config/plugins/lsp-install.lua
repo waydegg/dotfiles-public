@@ -22,5 +22,6 @@ mason_lspconfig.setup({
 		"sqls",
 		"html",
 		"cssls",
+		"vuels",
 	},
 })

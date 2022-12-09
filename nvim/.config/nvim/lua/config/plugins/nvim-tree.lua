@@ -53,5 +53,6 @@ nvim_tree.setup({
 			"package-lock.json",
 			".expo/web",
 		},
+		exclude = { ".gitignore" },
 	},
 })

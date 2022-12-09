@@ -18,6 +18,7 @@ treesitter.setup({
 		"yaml",
 		"javascript",
 		"css",
+		"vue",
 	},
 	sync_install = true,
 	highlight = {

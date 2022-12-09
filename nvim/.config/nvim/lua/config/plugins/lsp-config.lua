@@ -132,3 +132,8 @@ lspconfig.cssls.setup({
 	capabilities = capabilities,
 	filetypes = { "css", "scss", "less" },
 })
+
+lspconfig.vuels.setup({
+	capabilities = capabilities,
+	filetypes = { "vue" },
+})
