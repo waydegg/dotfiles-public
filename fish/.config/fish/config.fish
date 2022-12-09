@@ -96,6 +96,7 @@ alias vim nvim
 alias vi nvim
 alias c clear
 alias logout exit
+# alias expo "npx expo"
 
 switch (uname)
   case Darwin
@@ -122,28 +123,28 @@ function __check_venv --on-variable PWD --description 'Source venv (if exists) o
   end
 end
 
-function __update_tmux_window_name --on-variable PWD
-  # Do nothing if tmux is not active
-  if not set -q TMUX;
-    return
-  end
-
-  set window_name (tmux display-message -p '#W')
-  set new_window_name \
-    (fish -c 'git rev-parse --show-toplevel | sed "s/.*\///"' 2>/dev/null)
-  
-  # Do nothing if not in a git directory 
-  if not string length -q $new_window_name;
-    return
-  end
-  
-  # Do nothing if window name is already updated
-  if test $window_name = $new_window_name
-    return
-  end
-
-  tmux rename-window $new_window_name
-end
+# function __update_tmux_window_name --on-variable PWD
+#   # Do nothing if tmux is not active
+#   if not set -q TMUX;
+#     return
+#   end
+#
+#   set window_name (tmux display-message -p '#W')
+#   set new_window_name \
+#     (fish -c 'git rev-parse --show-toplevel | sed "s/.*\///"' 2>/dev/null)
+#   
+#   # Do nothing if not in a git directory 
+#   if not string length -q $new_window_name;
+#     return
+#   end
+#   
+#   # Do nothing if window name is already updated
+#   if test $window_name = $new_window_name
+#     return
+#   end
+#
+#   tmux rename-window $new_window_name
+# end
 
 # ===== Tool setup ============================================================
 # fnm
