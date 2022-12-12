@@ -4,34 +4,19 @@ My personal dotfiles.
 
 ## On a new machine
 
-```
-# Install all Brew dependencies
-brew bundle
+Step through the
+[MacOS](https://github.com/waydegg/dotfiles-public/blob/master/macos-setup.sh) or
+[Ubuntu](https://github.com/waydegg/dotfiles-public/blob/master/ubuntu-setup.sh) setup
+scripts line-by-line depending on what OS you're on.
 
-# Create symlinks for all dotfiles with Stow
-stow -t $HOME */
+I update these scripts to work on my local machines (M1 macs running some version of
+Ventura and linux boxes running Ubuntu 22.04) and virtual private servers (running
+Ubuntu 22.04), so depending on your OS version or hardware you may run accross issues
+running all of these commands successfully.
 
-# Make Fish the default shell
-chsh -s /opt/homebrew/bin/fish
+I use [Alacritty](https://alacritty.org/) for my terminal emulator. Any gui-related
+programs are configured to work best with Alacritty, so I'd recommend using it.
 
-# Install vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-
-Alacritty can now be built and installed from source.
-
-```
-# Install alacritty
-ghq get alacritty/alacritty
-cd $HOME/ghq/github.com/alacritty/alacritty
-
-# Build the app
-make app
-cp -r target/release/osx/Alacritty.app /Applications/
-
-# Run post build commands
-sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
-```
-
-Open up NeoVim and install plugins with `:PlugInstall`.
+Run `:PlugInstall` and `:LspInstall` when opening NeoVim for the first time. It will
+complain about missing plugins and language servers, so you will have to restart it a
+couple times after installing everything.
