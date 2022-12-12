@@ -54,12 +54,18 @@ sudo reboot
 
 # ----- Install packages --------------------------------------------------------------
 
+mkdir -p ~/Downloads
+
+# Install pre-requisite packages
+sudo apt install -y build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev \
+  libreadline-dev libsqlite3-dev liblzma-dev
+
 # Install packages (available via apt)
 sudo apt install -y tmux speedtest-cli fd-find visidata bat exa fish golang-go \
-  stow postgresql npm python3-pip python3-venv ripgrep tree fzf htop
+  stow postgresql npm python3-pip python3-venv ripgrep tree fzf htop unzip
 
 # Add packages to $PATH (where nessesary)
-mkdir ~/.local/bin
+mkdir -p ~/.local/bin
 ln -s $(which fdfind) ~/.local/bin/fd
 ln -s $(which batcat) ~/.local/bin/bat
 echo 'export PATH="${HOME}/.local/bin:${PATH}"' >> ~/.bashrc
@@ -131,7 +137,7 @@ fish -c "echo 1 1 1 1 1 1 y | tide configure >/dev/null"
 # Add completions for Docker and FNM
 curl -o $HOME/.config/fish/completions/docker.fish \
   https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish
-fnm completions --shell=fish > ~/.config/fish/completions/fnm.fish
+# fish -c "fnm completions --shell=fish > ~/.config/fish/completions/fnm.fish"
 
 # ----- Setup Neovim ----------------------------------------------
 
@@ -146,11 +152,11 @@ rm ~/.config/fish/config.fish ~/.config/fish/functions/fish_mode_prompt.fish
 
 # Stow everything
 stow -d $HOME/ghq/github.com/waydegg/dotfiles-public -t $HOME \
-  bat direnv fish git ipython nvim pgcli pyenv stylua tmux
+  bat direnv fish git ipython ngrok npm nvim pgcli prettier stylua tmux
 
 # Enable vi mode for fish
 fish -c "fish_vi_key_bindings"
-#
+
 # Change default shell to fish
 chsh -s $(which fish)
 
