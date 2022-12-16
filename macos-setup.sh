@@ -5,7 +5,7 @@
 # Install homebrew packages
 brew install bat direnv docker docker-compose exa fd fish fnm fx fzf ghq go hatch htop \
   httpie iredis jq lua node pandoc pipx pyenv redis ripgrep sqlfluff stow \
-  stylua tmux tree universal-ctags yarn saulpw/vd/visidata git-delta wget gh
+  stylua tmux tree universal-ctags yarn saulpw/vd/visidata git-delta wget gh groff \
 
 # Install homebrew casks
 brew install --casks ngrok alt-tab
