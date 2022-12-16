@@ -5,8 +5,8 @@ call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
 
 " Filetree
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " Completions
 Plug 'hrsh7th/nvim-cmp'
