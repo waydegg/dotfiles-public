@@ -119,7 +119,6 @@ function __check_venv --on-variable PWD --description 'Source venv (if exists) o
   status --is-command-substitution; and return
   if test -d venv
     source ./venv/bin/activate.fish
-  else if test -d
   end
 end
 
@@ -157,3 +156,8 @@ pyenv init - | source
 
 # direnv
 direnv hook fish | source
+
+# venv
+if test -d venv
+  source ./venv/bin/activate.fish
+end
