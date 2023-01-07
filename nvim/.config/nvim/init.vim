@@ -44,6 +44,7 @@ Plug 'christoomey/vim-tmux-navigator', {'commit': 'afb45a55b452b9238159047ce7c6e
 Plug 'rmagatti/auto-session' 
 Plug 'junegunn/fzf' 
 Plug 'numToStr/Comment.nvim', {'commit': '5f01c1a89adafc52bf34e3bf690f80d9d726715d'}
+Plug 'folke/zen-mode.nvim'
 
 " Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
 " Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
@@ -69,6 +70,7 @@ lua require("config.plugins.lspsaga")
 lua require("config.plugins.nvim-web-devicons")
 lua require("config.plugins.fzf")
 lua require("config.plugins.comment")
+lua require("config.plugins.zen-mode")
 
 " Options
 set clipboard=unnamedplus
@@ -201,3 +203,6 @@ nnoremap <leader>m <plug>(zoom-toggle)
 " Comment stuff
 nnoremap gc <Plug>(comment_toggle_linewise_current)
 vnoremap gc <Plug>(comment_toggle_linewise_visual)
+
+" Toggle Zen Mode
+nnoremap <leader>z <cmd>ZenMode<cr>
