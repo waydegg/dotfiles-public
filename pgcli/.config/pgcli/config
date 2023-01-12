@@ -2,10 +2,8 @@
 [main]
 multi_line = True
 keyword_casing = lower
-# pager = less -SRXF
 pager = vd -f csv
 show_bottom_toolbar = False
-# table_format = psql
 table_format = csv
 vi = True
 row_limit = 500
