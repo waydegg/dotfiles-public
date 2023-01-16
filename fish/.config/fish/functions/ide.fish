@@ -4,11 +4,11 @@ function ide --description "IDE-like window splits" --argument n_panes
     return 1
   end
   
-  if not string match --quiet --regex --invert '\D' $n_panes
+  if test -z $n_panes
+    set n_panes 3
+  else if not string match --quiet --regex --invert '\D' $n_panes
     echo "Number of panes must be an integer"
     return 1
-  else if test -z $n_panes
-    set n_panes 3
   else if test $n_panes -le 1 
     echo "Number of panes must be greater than 1"
     return 1
