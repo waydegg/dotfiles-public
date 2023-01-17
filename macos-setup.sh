@@ -26,6 +26,9 @@ pipx install black \
 sudo npm install -g @taplo/cli@0.5.2 prettier@2.8.0 \
   @trivago/prettier-plugin-sort-imports@4.0.0
 
+# Install bun
+curl -fsSL https://bun.sh/install | bash
+
 # ----- Setup Fish Shell ---------------------------------------------------------------
 
 # Install Fisher (plugin manager)

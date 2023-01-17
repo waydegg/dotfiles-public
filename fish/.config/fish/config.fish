@@ -32,25 +32,27 @@ set -x PATH $HOME/.local/bin $PATH
 # pip
 set -x PIP_DISABLE_PIP_VERSION_CHECK 1
 
-# use bat for manpager 
+# Use bat for manpager 
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-# brew
-if test (uname) = 'Darwin'
+switch (uname)
+  case Darwin
+    # brew
     set -x PATH /opt/homebrew/bin $PATH
     set -x HOMEBREW_NO_ENV_HINTS 1
+  case Linux
+    # Add nvim to $PATH
+    set -x PATH /opt/nvim-linux64/bin $PATH
+
+    # Add pyenv to $PATH
+    set -x PATH $HOME/.pyenv/bin $PATH
 end
 
-# nvim
-if test (uname) = 'Linux'
-  set -x PATH /opt/nvim-linux64/bin $PATH
-end
-
-# pyenv
+# Pin pyenv python version
 set -x PYENV_VERSION "3.10.4"
-if test (uname) = 'Linux'
-  set -x PATH $HOME/.pyenv/bin $PATH
-end
+
+# Add bun to PATH
+set -x PATH $HOME/.bun/bin $PATH
 
 
 # ===== Aliases ================================================================
@@ -123,29 +125,6 @@ function __check_venv --on-variable PWD --description 'Source venv (if exists) o
   end
 end
 
-# function __update_tmux_window_name --on-variable PWD
-#   # Do nothing if tmux is not active
-#   if not set -q TMUX;
-#     return
-#   end
-#
-#   set window_name (tmux display-message -p '#W')
-#   set new_window_name \
-#     (fish -c 'git rev-parse --show-toplevel | sed "s/.*\///"' 2>/dev/null)
-#   
-#   # Do nothing if not in a git directory 
-#   if not string length -q $new_window_name;
-#     return
-#   end
-#   
-#   # Do nothing if window name is already updated
-#   if test $window_name = $new_window_name
-#     return
-#   end
-#
-#   tmux rename-window $new_window_name
-# end
-
 # ===== Tool setup ============================================================
 # fnm
 if type fnm -q && status is-interactive 
@@ -162,3 +141,7 @@ direnv hook fish | source
 if test -d venv
   source ./venv/bin/activate.fish
 end
+
+# # bun
+# set --export BUN_INSTALL "$HOME/.bun"
+# set --export PATH $BUN_INSTALL/bin $PATH

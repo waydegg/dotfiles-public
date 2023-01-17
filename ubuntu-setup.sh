@@ -120,6 +120,9 @@ wget https://github.com/direnv/direnv/releases/download/v2.32.1/direnv.linux-amd
 sudo chmod +x ~/Downloads/direnv
 sudo mv ~/Downloads/direnv /usr/local/bin
 
+# Install bun
+curl -fsSL https://bun.sh/install | bash
+
 # Delete all files in /Downloads
 rm -r ~/Downloads/*
 
