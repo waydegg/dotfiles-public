@@ -79,7 +79,6 @@ alias tks "tmux kill-server"
 alias p python
 alias python python3
 alias pip "python -m pip"
-alias venv "python -m venv"
 alias wp "which python"
 alias ip ipython
 
