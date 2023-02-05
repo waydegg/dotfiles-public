@@ -5,8 +5,8 @@ call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
 
 " Filetree
-Plug 'nvim-tree/nvim-tree.lua'
-Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua', {'commit': '7eb33d2a6d5d574a43159da90e0eac2445367393'}
+Plug 'nvim-tree/nvim-web-devicons', {'commit': '2b96193abe4372e18e4f4533895a42a466d53c17'}
 
 " Completions
 Plug 'hrsh7th/nvim-cmp'
@@ -45,6 +45,7 @@ Plug 'rmagatti/auto-session'
 Plug 'junegunn/fzf' 
 Plug 'numToStr/Comment.nvim', {'commit': '5f01c1a89adafc52bf34e3bf690f80d9d726715d'}
 Plug 'folke/zen-mode.nvim'
+Plug 'rktjmp/fwatch.nvim'
 
 " Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
 " Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
@@ -169,8 +170,8 @@ nnoremap gh <cmd>lua vim.lsp.buf.hover()<cr>
 " Slime
 nnoremap <leader>s <plug>SlimeSendCell
 
-" Rename (LSP)
-nnoremap R <cmd>Lspsaga rename<cr>
+" " Rename (LSP)
+" nnoremap R <cmd>Lspsaga rename<cr>
 
 " Go to start/end of line
 nnoremap H ^

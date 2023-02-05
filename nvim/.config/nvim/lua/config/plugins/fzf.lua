@@ -13,6 +13,7 @@ local function fzf_files()
 		"'*.egg-info'",
 		".pytest_cache",
 		".expo/web",
+		".next",
 	}
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do

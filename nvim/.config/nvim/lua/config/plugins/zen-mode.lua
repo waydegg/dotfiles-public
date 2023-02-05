@@ -13,7 +13,4 @@ zen_mode.setup({
 			number = false,
 		},
 	},
-	-- plugins = {
-	-- 	tmux = { enabled = true },
-	-- },
 })

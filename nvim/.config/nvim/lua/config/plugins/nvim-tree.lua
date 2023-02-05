@@ -44,15 +44,15 @@ nvim_tree.setup({
 	filters = {
 		custom = {
 			"__pycache__",
-			"venv",
+			"^venv$",
 			"*.egg-info",
 			".parcel-cache",
 			".pytest_cache",
 			"node_modules",
-			".git",
+			"^.git$",
 			"package-lock.json",
 			".expo/web",
+			".next",
 		},
-		-- exclude = { ".gitignore", ".github" },
 	},
 })

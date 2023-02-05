@@ -4,12 +4,12 @@ if not ok then
 	return
 end
 
-lspsaga.init_lsp_saga({
-	code_action_lightbulb = {
-		enable = false,
-	},
-	show_outline = {
-		jump_key = "l",
-		auto_refresh = true,
-	},
-})
+-- lspsaga.setup({
+-- 	code_action_lightbulb = {
+-- 		enable = false,
+-- 	},
+-- 	show_outline = {
+-- 		jump_key = "l",
+-- 		auto_refresh = true,
+-- 	},
+-- })
