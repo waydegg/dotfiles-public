@@ -10,12 +10,6 @@ if not typescript_ok then
 	return
 end
 
-local fwatch_ok, fwatch = pcall(require, "fwatch")
-if not fwatch_ok then
-	print("'fwatch' not installed")
-	return
-end
-
 -- Diagnostic signs
 
 local signs = {
