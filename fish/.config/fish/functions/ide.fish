@@ -15,8 +15,7 @@ function ide --description "IDE-like window splits" --argument n_panes
   end
   
   tmux split-window -v -p 30
-
-  for i in (seq $n_panes 2)
+  for i in (seq $n_panes -1 2)
     set split_p (math floor 100 - 100 / $i)
     tmux split-window -h -p $split_p
   end
