@@ -14,3 +14,11 @@
 [delta]
   side-by-side = true
   syntax-theme = "Solarized (light)"
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
