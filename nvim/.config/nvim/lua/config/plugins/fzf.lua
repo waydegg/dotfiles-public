@@ -14,6 +14,7 @@ local function fzf_files()
 		".pytest_cache",
 		".expo/web",
 		".next",
+		"data",
 	}
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do
@@ -54,6 +55,7 @@ local function fzf_grep()
 		"'!*.egg-info'",
 		"package-lock.json",
 		".expo/web",
+		"data",
 	}
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do
