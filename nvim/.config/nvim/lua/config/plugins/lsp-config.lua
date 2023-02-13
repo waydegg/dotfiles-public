@@ -84,7 +84,7 @@ lspconfig.vimls.setup({
 	filetypes = { "vim" },
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	filetypes = { "lua" },
 	settings = {

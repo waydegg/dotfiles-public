@@ -20,7 +20,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 
 " Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'e00952111e94f95800a32eeedb057e7ad365960c', 'do': 'TSUpdate'}
 
 " Language-specific plugins
 Plug 'dag/vim-fish'

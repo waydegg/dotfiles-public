@@ -17,11 +17,11 @@ mason_lspconfig.setup({
 		"pyright",
 		"tsserver",
 		"vimls",
-		"sumneko_lua",
 		"rust_analyzer",
 		"sqls",
 		"html",
 		"cssls",
 		"vuels",
+		"lua_ls",
 	},
 })
