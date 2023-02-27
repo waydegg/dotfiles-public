@@ -63,24 +63,34 @@ local function fzf_grep()
 		table.insert(exclude_args, exclude_arg)
 	end
 	local exclude_args_str = table.concat(exclude_args, " ")
+
 	local command = "rg --column --line-number --no-heading --color=always --smart-case "
 		.. exclude_args_str
 		.. " ."
 
-	-- local preview = "bat --color=always --style=plain {}"
+	local preview = "bat --style=plain --color=always {1} --highlight-line {2}"
+
 	local options = {
 		"--cycle",
 		"--tiebreak=end",
 		"--ansi",
+		"--delimiter=:",
 		"--bind=change:first",
 		"--bind=ctrl-d:preview-half-page-down",
 		"--bind=ctrl-u:preview-half-page-up",
-		-- "--preview=" .. preview,
+		"--preview=" .. preview,
+		"--preview-window=+{2}-10",
 	}
+
+	local function open_file_at_line(rg_query)
+		local rg_parts = vim.split(rg_query, ":")
+		vim.cmd("edit " .. rg_parts[1])
+		vim.cmd(rg_parts[2])
+	end
 
 	vim.fn["fzf#run"](vim.fn["fzf#wrap"]({
 		source = command,
-		sink = "e",
+		sink = open_file_at_line,
 		options = options,
 	}))
 end
