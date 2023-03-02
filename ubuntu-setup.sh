@@ -124,6 +124,10 @@ sudo mv ~/Downloads/direnv /usr/local/bin
 # Install bun
 curl -fsSL https://bun.sh/install | bash
 
+# Install pandoc
+wget https://github.com/jgm/pandoc/releases/download/3.1/pandoc-3.1-1-amd64.deb -P ~/Downloads
+sudo dpkg -i ~/Downloads/pandoc-3.1-1-amd64.deb
+
 # Delete all files in /Downloads
 rm -r ~/Downloads/*
 
