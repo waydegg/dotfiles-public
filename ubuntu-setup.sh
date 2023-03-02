@@ -88,6 +88,7 @@ sudo tar -xf ~/Downloads/nvim-linux64.tar.gz -C /opt
 # Install pipx
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
+bash
 
 # Install pip(x) packages
 pipx install black \
@@ -137,10 +138,9 @@ fish -c "fisher install jethrokuan/z PatrickF1/fzf.fish IlanCosman/tide@v5.0.1"
 # Configure prompt (might have to enter manually if this command freezes)
 fish -c "echo 1 1 1 1 1 1 y | tide configure >/dev/null"
 
-# Add completions for Docker and FNM
+# Add completions for Docker
 curl -o $HOME/.config/fish/completions/docker.fish \
   https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish
-# fish -c "fnm completions --shell=fish > ~/.config/fish/completions/fnm.fish"
 
 # ----- Setup Neovim ----------------------------------------------
 
@@ -154,8 +154,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 rm ~/.config/fish/config.fish ~/.config/fish/functions/fish_mode_prompt.fish
 
 # Stow everything
-stow -d $HOME/ghq/github.com/waydegg/dotfiles-public -t $HOME \
-  bat direnv fish git ipython ngrok npm nvim pgcli prettier stylua tmux
+stow -d ./dotfiles-public -t $HOME \
+  bat direnv fish git ipython npm nvim pgcli prettier stylua tmux
 
 # Enable vi mode for fish
 fish -c "fish_vi_key_bindings"
