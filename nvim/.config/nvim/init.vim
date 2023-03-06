@@ -16,8 +16,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'e00952111e94f95800a32eeedb057e7ad365960c', 'do': 'TSUpdate'}
@@ -57,7 +55,7 @@ lua require("config.autocmd")
 lua require("config.clipboard")
 
 " Load plugin configs (preserve order)
-lua require("config.plugins.lsp-install")
+" lua require("config.plugins.lsp-install")
 lua require("config.plugins.lsp-config")
 lua require("config.plugins.ufo")
 lua require("config.plugins.nvim-tree")

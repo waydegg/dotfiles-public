@@ -101,7 +101,12 @@ pipx install black \
   && pipx install hatch
 
 # Install (global) npm packages
-sudo npm install -g @taplo/cli prettier @johnnymorganz/stylua-bin yarn
+sudo npm install -g \
+  @taplo/cli \
+  prettier \
+  @johnnymorganz/stylua-bin \ 
+  yarn \
+  @trivago/prettier-plugin-sort-imports@4.0.0
 
 # Install fx
 wget https://github.com/antonmedv/fx/releases/download/24.0.0/fx_linux_amd64 -P ~/Downloads
@@ -151,6 +156,15 @@ curl -o $HOME/.config/fish/completions/docker.fish \
 # Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Install language servers
+npm install -g \
+  pyright \
+  typescript-language-server \
+  vim-language-server \
+  vscode-langservers-extracted \
+  vls
+# TODO: install lua lsp and rust analyzer
 
 # ----- Final steps -----------------------------------------------------------
 
