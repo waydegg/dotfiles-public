@@ -46,3 +46,13 @@ vim.api.nvim_create_autocmd({ "TabEnter" }, {
 		require("config.ui.tabline").setup()
 	end,
 })
+
+-- Set sh filetype for all .env files
+vim.api.nvim_create_augroup("EnvFiletype", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	group = "EnvFiletype",
+	pattern = { "*.env", ".env.*" },
+	callback = function()
+		vim.bo.filetype = "sh"
+	end,
+})
