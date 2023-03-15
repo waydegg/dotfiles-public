@@ -56,6 +56,8 @@ local sqlfluff = formatting.sqlfluff.with({
 	extra_args = { "--dialect", "postgres" },
 })
 
+local xmllint = formatting.xmllint
+
 null_ls.setup({
 	sources = {
 		-- autoflake,
@@ -66,6 +68,7 @@ null_ls.setup({
 		sqlfluff,
 		formatting.taplo,
 		diagnostics.fish,
+		xmllint,
 	},
 	on_attach = function(client, bufnr)
 		-- Format on save
