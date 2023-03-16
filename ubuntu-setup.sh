@@ -106,7 +106,8 @@ sudo npm install -g \
   prettier \
   @johnnymorganz/stylua-bin \ 
   yarn \
-  @trivago/prettier-plugin-sort-imports@4.0.0
+  @trivago/prettier-plugin-sort-imports@4.0.0 \
+  sql-formatter
 
 # Install fx
 wget https://github.com/antonmedv/fx/releases/download/24.0.0/fx_linux_amd64 -P ~/Downloads

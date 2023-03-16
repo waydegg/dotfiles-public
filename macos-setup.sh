@@ -26,7 +26,8 @@ pipx install black \
 sudo npm install -g \ 
   @taplo/cli@0.5.2 \
   prettier@2.8.0 \
-  @trivago/prettier-plugin-sort-imports@4.0.0
+  @trivago/prettier-plugin-sort-imports@4.0.0 \
+  sql-formatter
 
 # Install bun
 curl -fsSL https://bun.sh/install | bash
