@@ -88,6 +88,7 @@ sudo tar -xf ~/Downloads/nvim-linux64.tar.gz -C /opt
 # Install pipx
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
+bash
 
 # Install pip(x) packages
 pipx install black \
@@ -100,7 +101,13 @@ pipx install black \
   && pipx install hatch
 
 # Install (global) npm packages
-sudo npm install -g @taplo/cli prettier @johnnymorganz/stylua-bin yarn
+sudo npm install -g \
+  @taplo/cli \
+  prettier \
+  @johnnymorganz/stylua-bin \ 
+  yarn \
+  @trivago/prettier-plugin-sort-imports@4.0.0 \
+  sql-formatter
 
 # Install fx
 wget https://github.com/antonmedv/fx/releases/download/24.0.0/fx_linux_amd64 -P ~/Downloads
@@ -123,6 +130,10 @@ sudo mv ~/Downloads/direnv /usr/local/bin
 # Install bun
 curl -fsSL https://bun.sh/install | bash
 
+# Install pandoc
+wget https://github.com/jgm/pandoc/releases/download/3.1/pandoc-3.1-1-amd64.deb -P ~/Downloads
+sudo dpkg -i ~/Downloads/pandoc-3.1-1-amd64.deb
+
 # Delete all files in /Downloads
 rm -r ~/Downloads/*
 
@@ -137,10 +148,9 @@ fish -c "fisher install jethrokuan/z PatrickF1/fzf.fish IlanCosman/tide@v5.0.1"
 # Configure prompt (might have to enter manually if this command freezes)
 fish -c "echo 1 1 1 1 1 1 y | tide configure >/dev/null"
 
-# Add completions for Docker and FNM
+# Add completions for Docker
 curl -o $HOME/.config/fish/completions/docker.fish \
   https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish
-# fish -c "fnm completions --shell=fish > ~/.config/fish/completions/fnm.fish"
 
 # ----- Setup Neovim ----------------------------------------------
 
@@ -148,14 +158,23 @@ curl -o $HOME/.config/fish/completions/docker.fish \
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+# Install language servers
+npm install -g \
+  pyright \
+  typescript-language-server \
+  vim-language-server \
+  vscode-langservers-extracted \
+  vls
+# TODO: install lua lsp and rust analyzer
+
 # ----- Final steps -----------------------------------------------------------
 
 # Remove conflicting fish files (in preparation for Stow)
 rm ~/.config/fish/config.fish ~/.config/fish/functions/fish_mode_prompt.fish
 
 # Stow everything
-stow -d $HOME/ghq/github.com/waydegg/dotfiles-public -t $HOME \
-  bat direnv fish git ipython ngrok npm nvim pgcli prettier stylua tmux
+stow -d ./dotfiles-public -t $HOME \
+  bat direnv fish git ipython npm nvim pgcli prettier stylua tmux
 
 # Enable vi mode for fish
 fish -c "fish_vi_key_bindings"

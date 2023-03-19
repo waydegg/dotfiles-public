@@ -48,14 +48,6 @@ local prettier = formatting.prettier.with({
 	end,
 })
 
--- TODO: add trailing semicolon to queries, show some kind of error
--- message for failed queries this is a pgcli thing maybe),
--- disable column name formatting from
--- camel to snake case (mabe when wrapped w/ quotation marks)
-local sqlfluff = formatting.sqlfluff.with({
-	extra_args = { "--dialect", "postgres" },
-})
-
 null_ls.setup({
 	sources = {
 		-- autoflake,
@@ -63,9 +55,10 @@ null_ls.setup({
 		formatting.isort,
 		prettier,
 		formatting.stylua,
-		sqlfluff,
 		formatting.taplo,
 		diagnostics.fish,
+		formatting.xmllint,
+		formatting.sql_formatter,
 	},
 	on_attach = function(client, bufnr)
 		-- Format on save

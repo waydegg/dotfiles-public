@@ -19,3 +19,27 @@ nvim_web_devicons.set_icon({
 		name = "Env",
 	},
 })
+
+nvim_web_devicons.set_icon({
+	[".env.local"] = {
+		icon = "",
+		color = "gray",
+		name = "EnvLocal",
+	},
+})
+
+nvim_web_devicons.set_icon({
+	[".env.development"] = {
+		icon = "",
+		color = "gray",
+		name = "EnvDevelopment",
+	},
+})
+
+nvim_web_devicons.set_icon({
+	[".env.production"] = {
+		icon = "",
+		color = "gray",
+		name = "EnvProduction",
+	},
+})

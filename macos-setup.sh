@@ -23,8 +23,11 @@ pipx install black \
   && pipx install pgcli
   
 # Install (global) npm packages
-sudo npm install -g @taplo/cli@0.5.2 prettier@2.8.0 \
-  @trivago/prettier-plugin-sort-imports@4.0.0
+sudo npm install -g \ 
+  @taplo/cli@0.5.2 \
+  prettier@2.8.0 \
+  @trivago/prettier-plugin-sort-imports@4.0.0 \
+  sql-formatter
 
 # Install bun
 curl -fsSL https://bun.sh/install | bash
@@ -45,3 +48,21 @@ stow -d $HOME/ghq/github.com/waydegg/dotfiles-public -t $HOME fish
 
 # Enable vi mode for fish
 fish -c "fish_vi_key_bindings"
+
+# ----- Setup Neovim ----------------------------------------------------------
+
+# Install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Install language servers
+npm install -g \
+  pyright \
+  typescript-language-server \
+  vim-language-server \
+  vscode-langservers-extracted \
+  vls
+brew install lua-language-server rust-analyzer
+
+
+
