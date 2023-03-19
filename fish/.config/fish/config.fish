@@ -46,6 +46,10 @@ switch (uname)
 
     # Add pyenv to $PATH
     set -x PATH $HOME/.pyenv/bin $PATH
+
+    # Cuda stuff
+    set -x PATH /usr/local/cuda-11.3/bin $PATH
+    set -x LD_LIBRARY_PATH /usr/local/cuda-11.3/lib64 $LD_LIBRARY_PATH
 end
 
 # Pin pyenv python version
