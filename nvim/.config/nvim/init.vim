@@ -44,9 +44,7 @@ Plug 'junegunn/fzf'
 Plug 'numToStr/Comment.nvim', {'commit': '5f01c1a89adafc52bf34e3bf690f80d9d726715d'}
 Plug 'folke/zen-mode.nvim'
 Plug 'ruanyl/vim-gh-line'
-
-" Plug 'ojroques/vim-oscyank', {'commit': '849c67adf24a86935b8be62860ad9acb00cf4572'}
-" Plug '/Users/waydegg/ghq/github.com/waydegg/nvim-autosession'
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 
 call plug#end()
 
@@ -205,3 +203,7 @@ vnoremap gc <Plug>(comment_toggle_linewise_visual)
 
 " Toggle Zen Mode
 nnoremap <leader>z <cmd>ZenMode<cr>
+
+" osc52 yank
+nmap yy <Plug>OSCYankOperator_
+vmap y <Plug>OSCYankVisual
