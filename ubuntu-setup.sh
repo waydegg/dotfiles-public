@@ -134,6 +134,14 @@ curl -fsSL https://bun.sh/install | bash
 wget https://github.com/jgm/pandoc/releases/download/3.1/pandoc-3.1-1-amd64.deb -P ~/Downloads
 sudo dpkg -i ~/Downloads/pandoc-3.1-1-amd64.deb
 
+# Install Lua LS
+wget -O ~/Downloads/lua-ls.tar.gz \
+  https://github.com/LuaLS/lua-language-server/releases/download/3.6.17/lua-language-server-3.6.17-linux-x64.tar.gz
+mkdir ~/Downloads/lua-ls
+sudo tar -xf ~/Downloads/lua-ls.tar.gz -C ~/Downloads/lua-ls
+sudo chmod +x ~/Downloads/lua-ls/bin/lua-language-server
+sudo mv ~/Downloads/lua-ls/bin/lua-language-server /usr/local/bin
+
 # Delete all files in /Downloads
 rm -r ~/Downloads/*
 
