@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+window_id=$(tmux display-message -p "#I")
+window_name="$@"
+tmux set-environment "tmux_win_${window_id}" ${window_name}
+tmux rename-window $window_name

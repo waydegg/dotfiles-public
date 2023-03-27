@@ -125,6 +125,23 @@ function __check_venv --on-variable PWD --description 'Source venv (if exists) o
   end
 end
 
+function __rename_tmux_window --on-variable PWD --description 'Change the tmux window to the current git directory name'
+  git rev-parse --is-inside-work-tree &>/dev/null
+  if test $status -eq 0 && test -n "$TMUX"
+
+    # Don't change window name if a custom name was set
+    set tmux_win_id (tmux display-message -p "#I") 
+    set tmux_custom_win_name (tmux show-environment | grep "^tmux_win_$tmux_win_id")
+    if test $status -eq 0 
+      return
+    end
+
+    set repo_path (git rev-parse --show-toplevel)
+    set repo_name (basename $repo_path)
+    tmux rename-window $repo_name
+  end
+end
+
 # ===== Tool setup ============================================================
 # fnm
 if type fnm -q && status is-interactive 
