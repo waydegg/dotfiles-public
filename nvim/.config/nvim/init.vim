@@ -46,6 +46,8 @@ Plug 'folke/zen-mode.nvim'
 Plug 'ruanyl/vim-gh-line'
 Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 
+" Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+
 call plug#end()
 
 " Load configs
@@ -53,7 +55,6 @@ lua require("config.autocmd")
 lua require("config.clipboard")
 
 " Load plugin configs (preserve order)
-" lua require("config.plugins.lsp-install")
 lua require("config.plugins.lsp-config")
 lua require("config.plugins.ufo")
 lua require("config.plugins.nvim-tree")
@@ -134,15 +135,6 @@ vnoremap p "_dP
 nnoremap gb <cmd>bnext<cr>
 nnoremap gB <cmd>bprevious<cr>
 
-" Close the current buffer
-nnoremap <leader>cb <cmd>bp<bar>sp<bar>bn<bar>bd<cr>
-
-" Vim Plug
-nnoremap <leader>pi <cmd>PlugInstall<cr>
-nnoremap <leader>ps <cmd>PlugStatus<cr>
-nnoremap <leader>pc <cmd>PlugClean<cr>
-nnoremap <leader>pu <cmd>PlugUpdate<cr>
-
 " Nvim Tree
 nnoremap <leader>e <cmd>NvimTreeToggle<cr>
 
@@ -190,10 +182,6 @@ nnoremap <leader>, <cmd>lua require("config.ui.tabline").rename_tabline_label()<
 " Move window to its own tab
 nnoremap T <c-w>T
 
-" Create/delete tabpage
-nnoremap <leader>tn <cmd>tabnew<cr>
-nnoremap <leader>tc <cmd>tabclose<cr>
-
 " Zoom window
 nnoremap <leader>m <plug>(zoom-toggle)
 
@@ -204,6 +192,12 @@ vnoremap gc <Plug>(comment_toggle_linewise_visual)
 " Toggle Zen Mode
 nnoremap <leader>z <cmd>ZenMode<cr>
 
-" osc52 yank
-nmap yy <Plug>OSCYankOperator_
-vmap y <Plug>OSCYankVisual
+" Tab page controls
+nnoremap <leader>n <cmd>tabnext<cr>
+nnoremap <leader>p <cmd>tabprevious<cr>
+nnoremap <leader>c <cmd>tabnew<cr>
+nnoremap <leader>x <cmd>tabclose<cr>
+
+" " osc52 yank
+" nmap yy <Plug>OSCYankOperator_
+" vmap y <Plug>OSCYankVisual

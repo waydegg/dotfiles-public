@@ -43,3 +43,27 @@ nvim_web_devicons.set_icon({
 		name = "EnvProduction",
 	},
 })
+
+nvim_web_devicons.set_icon({
+	["docker-compose.yml"] = {
+		icon = "",
+		color = "#d825db",
+		name = "DockerCompose",
+	},
+})
+
+nvim_web_devicons.set_icon({
+	["Dockerfile"] = {
+		icon = "",
+		color = "#086dd7",
+		name = "Dockerfile",
+	},
+})
+
+nvim_web_devicons.set_icon({
+	["Makefile"] = {
+		icon = "",
+		color = "orange",
+		name = "Makefile",
+	},
+})

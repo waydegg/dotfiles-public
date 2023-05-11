@@ -137,3 +137,11 @@ lspconfig.vuels.setup({
 	capabilities = capabilities,
 	filetypes = { "vue" },
 })
+
+-- local coq = require("coq")
+--
+-- lspconfig.pyright.setup(coq.lsp_ensure_capabilities({
+-- 	capabilities = capabilities,
+-- 	filetypes = { "python" },
+-- 	handlers = handlers,
+-- }))

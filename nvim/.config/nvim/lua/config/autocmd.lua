@@ -56,3 +56,22 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		vim.bo.filetype = "sh"
 	end,
 })
+
+-- Set json filetype for all .geojson files
+vim.api.nvim_create_augroup("GeojsonFiletype", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	group = "GeojsonFiletype",
+	pattern = { "*.geojson" },
+	callback = function()
+		vim.bo.filetype = "json"
+	end,
+})
+
+-- vim.api.nvim_create_augroup("DockerComposeFiletype", {clear = true})
+-- vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+--   group = "DockerComposeFiletype",
+--   pattern = {"docker-compose.yml", "docker-compose.*.yml"},
+--   callback = function()
+--     vim.bo.filetype = "dockercompose"
+--   end
+-- })
