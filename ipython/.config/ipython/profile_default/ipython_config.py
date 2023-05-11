@@ -7,7 +7,7 @@ c.InteractiveShellApp.exec_lines = [
     "%autoreload 2",
     """
     try:
-        from pyopp import pretty_print as pp
+        from pyopp import opp
     except:
         pass
     """,
