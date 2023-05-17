@@ -70,6 +70,10 @@ ln -s $(which fdfind) ~/.local/bin/fd
 ln -s $(which batcat) ~/.local/bin/bat
 echo 'export PATH="${HOME}/.local/bin:${PATH}"' >> ~/.bashrc
 
+# install fzf
+wget https://github.com/junegunn/fzf/releases/download/0.40.0/fzf-0.40.0-linux_amd64.tar.gz -P ~/Downloads
+sudo tar -xf ~/Downloads/fzf-0.40.0-linux_amd64.tar.gz -C /usr/local/bin
+
 # Install fnm
 curl -fsSL https://fnm.vercel.app/install | bash
 
@@ -95,7 +99,6 @@ pipx install black \
   && pipx install isort \
   && pipx install invoke \
   && pipx install git+https://github.com/waydegg/autoflake \
-  && pipx install linode-cli --pip-args="pip install boto" \
   && pipx install pgcli \
   && pipx install sqlfluff \
   && pipx install hatch
@@ -104,7 +107,7 @@ pipx install black \
 sudo npm install -g \
   @taplo/cli \
   prettier \
-  @johnnymorganz/stylua-bin \ 
+  @johnnymorganz/stylua-bin \
   yarn \
   @trivago/prettier-plugin-sort-imports@4.0.0 \
   sql-formatter
@@ -173,7 +176,7 @@ npm install -g \
   vim-language-server \
   vscode-langservers-extracted \
   vls
-# TODO: install lua lsp and rust analyzer
+# TODO: install rust analyzer
 
 # ----- Final steps -----------------------------------------------------------
 
@@ -181,7 +184,7 @@ npm install -g \
 rm ~/.config/fish/config.fish ~/.config/fish/functions/fish_mode_prompt.fish
 
 # Stow everything
-stow -d ./dotfiles-public -t $HOME \
+stow -d ghq/github.com/waydegg/dotfiles-public -t $HOME \
   bat direnv fish git ipython npm nvim pgcli prettier stylua tmux
 
 # Enable vi mode for fish
