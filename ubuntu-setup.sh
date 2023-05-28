@@ -58,7 +58,9 @@ mkdir -p ~/Downloads
 
 # Install pre-requisite packages
 sudo apt install -y build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev \
-  libreadline-dev libsqlite3-dev liblzma-dev
+  libreadline-dev libsqlite3-dev liblzma-dev bzip2 libncurses5-dev libncursesw5-dev \
+  libsqlite3-dev liblzma-dev aptitude
+sudo aptitude install -y libreadline-dev
 
 # Install packages (available via apt)
 sudo apt install -y tmux speedtest-cli fd-find visidata bat exa fish golang-go \
