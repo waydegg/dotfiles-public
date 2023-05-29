@@ -61,7 +61,7 @@ sudo apt install -y build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev 
   libreadline-dev libsqlite3-dev liblzma-dev
 
 # Install packages (available via apt)
-sudo apt install -y tmux speedtest-cli fd-find visidata bat exa fish golang-go \
+sudo apt install -y tmux speedtest-cli fd-find visidata bat exa golang-go \
   stow postgresql npm python3-pip python3-venv ripgrep tree fzf htop unzip
 
 # Add packages to $PATH (where nessesary)
@@ -88,6 +88,11 @@ sudo cp Downloads/ghq_linux_amd64/ghq /usr/local/bin
 # Install neovim
 wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz -P ~/Downloads
 sudo tar -xf ~/Downloads/nvim-linux64.tar.gz -C /opt
+
+# Install fish
+wget https://github.com/fish-shell/fish-shell/releases/download/3.6.1/fish-3.6.1.tar.xz -P ~/Downloads
+tar -xf ~/Downloads/fish-3.6.1.tar.xz -C ~/Downloads
+(cd ~/Downloads/fish-3.6.1 && cmake .; make; sudo make install)
 
 # Install pipx
 python3 -m pip install --user pipx
