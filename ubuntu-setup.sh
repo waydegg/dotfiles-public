@@ -59,7 +59,7 @@ mkdir -p ~/Downloads
 # Install pre-requisite packages
 sudo apt install -y build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev \
   libreadline-dev libsqlite3-dev liblzma-dev bzip2 libncurses5-dev libncursesw5-dev \
-  libsqlite3-dev liblzma-dev aptitude
+  libsqlite3-dev liblzma-dev aptitude cmake
 sudo aptitude install -y libreadline-dev
 
 # Install packages (available via apt)
@@ -91,7 +91,7 @@ sudo cp Downloads/ghq_linux_amd64/ghq /usr/local/bin
 wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz -P ~/Downloads
 sudo tar -xf ~/Downloads/nvim-linux64.tar.gz -C /opt
 
-# Install fish
+# Install and build fish from source
 wget https://github.com/fish-shell/fish-shell/releases/download/3.6.1/fish-3.6.1.tar.xz -P ~/Downloads
 tar -xf ~/Downloads/fish-3.6.1.tar.xz -C ~/Downloads
 (cd ~/Downloads/fish-3.6.1 && cmake .; make; sudo make install)
@@ -183,7 +183,6 @@ npm install -g \
   vim-language-server \
   vscode-langservers-extracted \
   vls
-# TODO: install rust analyzer
 
 # ----- Final steps -----------------------------------------------------------
 
