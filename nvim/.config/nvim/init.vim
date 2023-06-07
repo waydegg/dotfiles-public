@@ -46,8 +46,6 @@ Plug 'folke/zen-mode.nvim'
 Plug 'ruanyl/vim-gh-line'
 Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 
-" Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-
 call plug#end()
 
 " Load configs
@@ -198,6 +196,9 @@ nnoremap <leader>p <cmd>tabprevious<cr>
 nnoremap <leader>c <cmd>tabnew<cr>
 nnoremap <leader>x <cmd>tabclose<cr>
 
-" " osc52 yank
-" nmap yy <Plug>OSCYankOperator_
-" vmap y <Plug>OSCYankVisual
+if $SSH_CLIENT != ''
+  " osc52 yank
+  nmap yy <Plug>OSCYankOperator_
+  vmap y <Plug>OSCYankVisual
+  vmap Y $o0<Plug>OSCYankVisual
+endif
