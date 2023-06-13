@@ -64,7 +64,8 @@ sudo aptitude install -y libreadline-dev
 
 # Install packages (available via apt)
 sudo apt install -y tmux speedtest-cli fd-find visidata bat exa golang-go \
-  stow postgresql npm python3-pip python3-venv ripgrep tree fzf htop unzip
+  stow postgresql npm python3-pip python3-venv ripgrep tree fzf htop unzip \
+  apache2-utils
 
 # Add packages to $PATH (where nessesary)
 mkdir -p ~/.local/bin
