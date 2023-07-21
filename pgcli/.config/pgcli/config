@@ -8,5 +8,5 @@ table_format = csv
 vi = True
 row_limit = 500
 less_chatty = True
-prompt = '\u@\H:\p> '
+prompt = '\u@\H:\p/\d> '
 destructive_warning = False
