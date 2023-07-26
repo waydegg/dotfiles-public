@@ -15,6 +15,7 @@ local function fzf_files()
 		".expo/web",
 		".next",
 		"data",
+		"build",
 	}
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do
@@ -56,6 +57,7 @@ local function fzf_grep()
 		"package-lock.json",
 		".expo/web",
 		"data",
+		"build",
 	}
 	local exclude_args = {}
 	for _, pattern in ipairs(exclude_patterns) do

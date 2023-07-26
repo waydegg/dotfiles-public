@@ -52,7 +52,7 @@ nvim_tree.setup({
 			"^.git$",
 			"package-lock.json",
 			".expo/web",
-			".next",
+			"^\\.next",
 		},
 	},
 })
