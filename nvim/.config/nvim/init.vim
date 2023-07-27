@@ -102,6 +102,9 @@ set shell=/bin/bash\ -i
 " Colorscheme
 colorscheme solarized
 
+" Python venv
+let g:python3_host_prog = stdpath('config') . '/venv/bin/python'
+
 " --- Keybinds ----------------------------------------------------------------
 let mapleader = ' '
 let maplocalleader = ' '

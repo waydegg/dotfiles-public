@@ -7,6 +7,13 @@ brew install bat direnv docker docker-compose exa fd fish fnm fx fzf ghq go hatc
   httpie iredis jq lua node pandoc pipx pyenv redis ripgrep sqlfluff stow \
   stylua tmux tree universal-ctags yarn saulpw/vd/visidata git-delta wget gh groff \
 
+# Install Python 3.10
+pyenv install 3.10.4
+
+# Install Node v18
+fnm install v18.16.0
+fnm default v18.16.0
+
 # Install homebrew casks
 brew install --casks ngrok alt-tab
 
@@ -77,4 +84,26 @@ npm install -g \
 brew install lua-language-server rust-analyzer
 
 
+# ----- Final steps -----------------------------------------------------------
+
+# Remove conflicting fish files (in preparation for Stow)
+rm ~/.config/fish/config.fish ~/.config/fish/functions/fish_mode_prompt.fish
+
+# Stow everything
+stow -d ghq/github.com/waydegg/dotfiles-public -t $HOME \
+  bat direnv fish git ipython npm nvim pgcli prettier stylua tmux
+
+# Enable vi mode for fish
+fish -c "fish_vi_key_bindings"
+
+# Change default shell to fish
+## TODO: Add fish path to /etc/shells
+chsh -s $(which fish)
+
+# Setup neovim venv (TODO: test that this works)
+~/.pyenv/versions/3.10.4/bin/python -m venv ~/.config/nvim/venv
+~/.config/nvim/venv/bin/pip install -r ~/.config/nvim/requirements.txt
+
+# Reboot
+sudo reboot
 

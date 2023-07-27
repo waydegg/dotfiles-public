@@ -174,7 +174,6 @@ git config --global alias.root "rev-parse --show-toplevel"
 git config --global core.pager delta
 git config --global delta.side-by-side true
 git config --global delta.syntax-theme "Solarized (light)"
-
 git config --global credential.https://github.com.helper ""
 git config --global credential.https://github.com.helper '!/usr/bin/gh auth git-credential'
 git config --global credential.https://gist.github.com.helper ""
@@ -225,6 +224,10 @@ fish -c "fish_vi_key_bindings"
 # Change default shell to fish
 ## TODO: Add fish path to /etc/shells
 chsh -s $(which fish)
+
+# Setup neovim venv (TODO: test that this works)
+~/.pyenv/versions/3.10.4/bin/python -m venv ~/.config/nvim/venv
+~/.config/nvim/venv/bin/pip install -r ~/.config/nvim/requirements.txt
 
 # Reboot
 sudo reboot
