@@ -111,6 +111,10 @@ pipx install black \
   && pipx install sqlfluff \
   && pipx install hatch
 
+# Install Node v18
+fnm install v18.16.0
+fnm default v18.16.0
+
 # Install (global) npm packages
 sudo npm install -g \
   @taplo/cli \
@@ -154,7 +158,7 @@ sudo chmod +x ~/Downloads/lua-ls/bin/lua-language-server
 sudo mv ~/Downloads/lua-ls/bin/lua-language-server /usr/local/bin
 
 # Delete all files in /Downloads
-rm -r ~/Downloads/*
+sudo rm -r ~/Downloads/*
 
 # ----- Setup Fish Shell ------------------------------------------------------
 
@@ -198,6 +202,7 @@ stow -d ghq/github.com/waydegg/dotfiles-public -t $HOME \
 fish -c "fish_vi_key_bindings"
 
 # Change default shell to fish
+## TODO: Add fish path to /etc/shells
 chsh -s $(which fish)
 
 # Reboot
