@@ -157,6 +157,10 @@ sudo tar -xf ~/Downloads/lua-ls.tar.gz -C ~/Downloads/lua-ls
 sudo chmod +x ~/Downloads/lua-ls/bin/lua-language-server
 sudo mv ~/Downloads/lua-ls/bin/lua-language-server /usr/local/bin
 
+# Install delta
+wget https://github.com/dandavison/delta/releases/download/0.14.0/git-delta_0.14.0_amd64.deb -P ~/Downloads
+sudo dpkg -i git-delta_0.14.0_amd64.deb
+
 # Delete all files in /Downloads
 sudo rm -r ~/Downloads/*
 
