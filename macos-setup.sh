@@ -32,6 +32,18 @@ sudo npm install -g \
 # Install bun
 curl -fsSL https://bun.sh/install | bash
 
+
+# ----- Setup git -------------------------------------------------------------
+
+git config --global user.name "Wayde Gilliam"
+git config --global user.email "waydegilliam@gmail.com"
+git config --global init.defaultBranch master
+git config --global alias.root "rev-parse --show-toplevel"
+git config --global core.pager delta
+git config --global delta.side-by-side true
+git config --global delta.syntax-theme "Solarized (light)"
+
+
 # ----- Setup Fish Shell ---------------------------------------------------------------
 
 # Install Fisher (plugin manager)

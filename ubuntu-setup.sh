@@ -160,6 +160,23 @@ sudo mv ~/Downloads/lua-ls/bin/lua-language-server /usr/local/bin
 # Delete all files in /Downloads
 sudo rm -r ~/Downloads/*
 
+
+# ----- Setup git -------------------------------------------------------------
+
+git config --global user.name "Wayde Gilliam"
+git config --global user.email "waydegilliam@gmail.com"
+git config --global init.defaultBranch master
+git config --global alias.root "rev-parse --show-toplevel"
+git config --global core.pager delta
+git config --global delta.side-by-side true
+git config --global delta.syntax-theme "Solarized (light)"
+
+git config --global credential.https://github.com.helper ""
+git config --global credential.https://github.com.helper '!/usr/bin/gh auth git-credential'
+git config --global credential.https://gist.github.com.helper ""
+git config --global credential.https://gist.github.com.helper '!/usr/bin/gh auth git-credential'
+
+
 # ----- Setup Fish Shell ------------------------------------------------------
 
 # Install Fisher (plugin manager)
