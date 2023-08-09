@@ -52,9 +52,6 @@ switch (uname)
     set -x LD_LIBRARY_PATH /usr/local/cuda-11.3/lib64 $LD_LIBRARY_PATH
 end
 
-# Pin pyenv python version
-set -x PYENV_VERSION "3.10.4"
-
 # Add bun to PATH
 set -x PATH $HOME/.bun/bin $PATH
 
