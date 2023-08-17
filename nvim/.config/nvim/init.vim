@@ -33,7 +33,6 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'L3MON4D3/LuaSnip'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'kevinhwang91/nvim-ufo', {'commit': 'a346e88c776a7089291c883705c5cd8a6ce67558'}
 Plug 'kevinhwang91/promise-async', {'commit': '70b09063cdf029079b25c7925e4494e7416ee995'}

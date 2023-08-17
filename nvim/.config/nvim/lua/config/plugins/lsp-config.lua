@@ -137,3 +137,7 @@ lspconfig.vuels.setup({
 	capabilities = capabilities,
 	filetypes = { "vue" },
 })
+
+lspconfig.tailwindcss.setup({
+	capabilities = capabilities,
+})
