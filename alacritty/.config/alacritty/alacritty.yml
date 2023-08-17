@@ -2,7 +2,7 @@ env:
   TERM: alacritty
 
 font:
-  size: 14.0
+  size: 16.0
   use_thin_strokes: true
   normal:
     family: Menlo Nerd Font
