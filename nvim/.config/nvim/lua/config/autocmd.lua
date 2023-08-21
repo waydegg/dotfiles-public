@@ -67,6 +67,18 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
+-- Yank all text to system clipboard if on SSH client
+local SSH_CLIENT = os.getenv("SSH_CLIENT")
+if SSH_CLIENT and SSH_CLIENT ~= "" then
+	vim.api.nvim_create_augroup("OSCYankEverything", { clear = true })
+	vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+		group = "OSCYankEverything",
+		callback = function()
+			vim.cmd('OSCYankRegister "')
+		end,
+	})
+end
+
 -- vim.api.nvim_create_augroup("DockerComposeFiletype", {clear = true})
 -- vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 --   group = "DockerComposeFiletype",
