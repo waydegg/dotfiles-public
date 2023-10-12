@@ -40,6 +40,9 @@ switch (uname)
     # brew
     set -x PATH /opt/homebrew/bin $PATH
     set -x HOMEBREW_NO_ENV_HINTS 1
+
+    # lazygit needs this explicitly specified
+    set -x XDG_CONFIG_HOME $HOME/.config
   case Linux
     # Add nvim to $PATH
     set -x PATH /opt/nvim-linux64/bin $PATH
@@ -102,6 +105,7 @@ alias vi nvim
 alias c clear
 alias logout exit
 alias watch-gpu "watch -n0.1 nvidia-smi"
+alias lg lazygit
 
 switch (uname)
   case Darwin
