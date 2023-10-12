@@ -13,6 +13,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -44,6 +45,8 @@ Plug 'numToStr/Comment.nvim', {'commit': '5f01c1a89adafc52bf34e3bf690f80d9d72671
 Plug 'folke/zen-mode.nvim'
 Plug 'ruanyl/vim-gh-line'
 Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+
+Plug 'evanleck/vim-svelte'
 
 call plug#end()
 

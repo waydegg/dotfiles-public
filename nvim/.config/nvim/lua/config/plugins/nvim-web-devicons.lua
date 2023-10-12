@@ -37,6 +37,14 @@ nvim_web_devicons.set_icon({
 })
 
 nvim_web_devicons.set_icon({
+	[".env.preview"] = {
+		icon = "",
+		color = "gray",
+		name = "EnvPreview",
+	},
+})
+
+nvim_web_devicons.set_icon({
 	[".env.production"] = {
 		icon = "",
 		color = "gray",

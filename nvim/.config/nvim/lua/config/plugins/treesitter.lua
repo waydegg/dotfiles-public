@@ -19,6 +19,7 @@ treesitter.setup({
 		"javascript",
 		"css",
 		"vue",
+		"svelte",
 	},
 	sync_install = true,
 	highlight = {

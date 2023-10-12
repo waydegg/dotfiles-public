@@ -141,3 +141,7 @@ lspconfig.vuels.setup({
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
 })
+
+lspconfig.svelte.setup({
+	capabilities = capabilities,
+})

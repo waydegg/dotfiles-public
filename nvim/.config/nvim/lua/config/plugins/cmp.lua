@@ -4,6 +4,12 @@ if not cmp_ok then
 	return
 end
 
+local luasnip_ok, luasnip = pcall(require, "luasnip")
+if not luasnip_ok then
+	print("'luasnip' not installed")
+	return
+end
+
 local cmp_kinds = {
 	Text = "  ",
 	Method = "  ",
@@ -57,10 +63,17 @@ local has_words_before = function()
 end
 
 cmp.setup({
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+	},
 	mapping = {
 		["<tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
 			elseif has_words_before() then
 				cmp.complete()
 			else
@@ -70,6 +83,8 @@ cmp.setup({
 		["<s-tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -84,6 +99,7 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
 	},
