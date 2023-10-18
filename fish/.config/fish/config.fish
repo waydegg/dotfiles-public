@@ -43,6 +43,9 @@ switch (uname)
 
     # lazygit needs this explicitly specified
     set -x XDG_CONFIG_HOME $HOME/.config
+
+    # nvim
+    set -x PATH /opt/nvim-macos/bin $PATH
   case Linux
     # Add nvim to $PATH
     set -x PATH /opt/nvim-linux64/bin $PATH

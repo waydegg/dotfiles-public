@@ -19,7 +19,8 @@ brew install --casks ngrok alt-tab
 
 # Install neovim
 wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-macos.tar.gz -P ~/Downloads
-sudo tar -xf ~/Downloads/nvim-macosx.tar.gz -C /opt
+xattr -c ~/Downloads/nvim-macos.tar.gz
+sudo tar xzvf ~/Downloads/nvim-macosx.tar.gz -C /opt
 
 # Install pip(x) packages
 pipx install black \
