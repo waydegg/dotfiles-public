@@ -14,8 +14,9 @@ Ventura and linux boxes running Ubuntu 22.04) and virtual private servers (runni
 Ubuntu 22.04), so depending on your OS version or hardware you may run accross issues
 running all of these commands successfully.
 
-I use [Alacritty](https://alacritty.org/) for my terminal emulator. Any gui-related
-programs are configured to work best with Alacritty, so I'd recommend using it.
+I use [Alacritty](https://alacritty.org/) v0.12.3 for my terminal emulator. Any
+gui-related programs are configured to work best with Alacritty, so I'd recommend using
+it.
 
 Run `:PlugInstall` and `:LspInstall` when opening NeoVim for the first time. It will
 complain about missing plugins and language servers, so you will have to restart it a
