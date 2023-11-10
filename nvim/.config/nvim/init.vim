@@ -34,7 +34,6 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'jpalardy/vim-slime'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'kevinhwang91/nvim-ufo', {'commit': 'a346e88c776a7089291c883705c5cd8a6ce67558'}
 Plug 'kevinhwang91/promise-async', {'commit': '70b09063cdf029079b25c7925e4494e7416ee995'}
 Plug 'dhruvasagar/vim-zoom', {'commit': '9f281ac7766c3931cb87698602eeb33a62660ae2'}
@@ -63,7 +62,6 @@ lua require("config.plugins.hop")
 lua require("config.plugins.treesitter")
 lua require("config.plugins.autopairs")
 lua require("config.plugins.null-ls")
-lua require("config.plugins.lspsaga")
 lua require("config.plugins.nvim-web-devicons")
 lua require("config.plugins.fzf")
 lua require("config.plugins.comment")
