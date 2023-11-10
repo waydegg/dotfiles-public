@@ -9,11 +9,11 @@ Plug 'nvim-tree/nvim-tree.lua', {'commit': 'a2aaf8b430c11af36b869cf1c0ad2f7c8cee
 Plug 'nvim-tree/nvim-web-devicons', {'commit': '47103b80c38c59f7a1b5408c232b92bf5d018651'}
 
 " Completions
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/nvim-cmp', {'commit': '0b751f6beef40fd47375eaf53d3057e0bfa317e4'}
+Plug 'hrsh7th/cmp-buffer', {'commit': '3022dbc9166796b644a841a02de8dd1cc1d311fa'}
+Plug 'hrsh7th/cmp-path', {'commit': '91ff86cd9c29299a64f968ebb45846c485725f23'}
+Plug 'hrsh7th/cmp-nvim-lsp', {'commit': '44b16d11215dce86f253ce0c30949813c0a90765'}
+Plug 'L3MON4D3/LuaSnip', {'commit': 'a4de64570b9620875c8ea04175cd07ed8e32ac99'}
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
