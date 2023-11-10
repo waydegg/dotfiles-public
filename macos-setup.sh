@@ -18,9 +18,9 @@ fnm default v18.16.0
 brew install --casks ngrok alt-tab
 
 # Install neovim
-wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-macos.tar.gz -P ~/Downloads
+wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-macos.tar.gz -P ~/Downloads
 xattr -c ~/Downloads/nvim-macos.tar.gz
-sudo tar xzvf ~/Downloads/nvim-macosx.tar.gz -C /opt
+sudo tar xzvf ~/Downloads/nvim-macos.tar.gz -C /opt
 
 # Install pip(x) packages
 pipx install black \
