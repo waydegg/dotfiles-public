@@ -5,8 +5,8 @@ call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
 
 " Filetree
-Plug 'nvim-tree/nvim-tree.lua', {'commit': '7eb33d2a6d5d574a43159da90e0eac2445367393'}
-Plug 'nvim-tree/nvim-web-devicons', {'commit': '2b96193abe4372e18e4f4533895a42a466d53c17'}
+Plug 'nvim-tree/nvim-tree.lua', {'commit': 'a2aaf8b430c11af36b869cf1c0ad2f7c8ceeaf2c'} 
+Plug 'nvim-tree/nvim-web-devicons', {'commit': '47103b80c38c59f7a1b5408c232b92bf5d018651'}
 
 " Completions
 Plug 'hrsh7th/nvim-cmp'
