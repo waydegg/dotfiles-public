@@ -16,16 +16,16 @@ Plug 'hrsh7th/cmp-nvim-lsp', {'commit': '44b16d11215dce86f253ce0c30949813c0a9076
 Plug 'L3MON4D3/LuaSnip', {'commit': 'a4de64570b9620875c8ea04175cd07ed8e32ac99'}
 
 " LSP
-Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig', {'commit': 'b0852218bc5fa6514a71a9da6d5cfa63a263c83d'}
 
 " Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'e00952111e94f95800a32eeedb057e7ad365960c', 'do': 'TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'commit': '8996612bfbebe1657e1bb55a95201c96cab945c6', 'do': 'TSUpdate'}
 
 " Language-specific plugins
-Plug 'dag/vim-fish'
-Plug 'windwp/nvim-ts-autotag'
-Plug 'jose-elias-alvarez/typescript.nvim'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'dag/vim-fish', {'commit': '50b95cbbcd09c046121367d49039710e9dc9c15f'}
+Plug 'windwp/nvim-ts-autotag', {'commit': '6be1192965df35f94b8ea6d323354f7dc7a557e4'}
+Plug 'jose-elias-alvarez/typescript.nvim', {'commit': '4de85ef699d7e6010528dcfbddc2ed4c2c421467'}
+Plug 'JoosepAlviste/nvim-ts-context-commentstring', {'commit': '92e688f013c69f90c9bbd596019ec10235bc51de'}
 Plug 'maxmellon/vim-jsx-pretty', {'commit': '6989f1663cc03d7da72b5ef1c03f87e6ddb70b41'}
 
 " Misc
