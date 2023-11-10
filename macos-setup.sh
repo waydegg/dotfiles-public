@@ -105,6 +105,9 @@ chsh -s $(which fish)
 ~/.pyenv/versions/3.10.4/bin/python -m venv ~/.config/nvim/venv
 ~/.config/nvim/venv/bin/pip install -r ~/.config/nvim/requirements.txt
 
+# Silence login message
+touch ~/.hushlogin
+
 # Reboot
 sudo reboot
 
