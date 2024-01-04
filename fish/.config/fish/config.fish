@@ -46,6 +46,9 @@ switch (uname)
 
     # nvim
     set -x PATH /opt/nvim-macos/bin $PATH
+
+    # vscode
+    set -x PATH /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin $PATH
   case Linux
     # Add nvim to $PATH
     set -x PATH /opt/nvim-linux64/bin $PATH
@@ -117,6 +120,7 @@ switch (uname)
     alias speedtest "speedtest-cli"
 end
 
+alias kamal='docker run -it --rm -v "$PWD:/workdir" -v "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock" -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/basecamp/kamal:latest'
 
 # ===== Keybinds ==============================================================
 # Search through command history
