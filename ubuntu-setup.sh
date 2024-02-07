@@ -211,7 +211,7 @@ rm ~/.config/fish/config.fish ~/.config/fish/functions/fish_mode_prompt.fish
 
 # Stow everything
 stow -d ghq/github.com/waydegg/dotfiles-public -t $HOME \
-  bat direnv fish git ipython npm nvim pgcli prettier stylua tmux
+  bat direnv fish ipython npm nvim pgcli prettier stylua tmux
 
 # Enable vi mode for fish
 fish -c "fish_vi_key_bindings"
@@ -221,6 +221,7 @@ fish -c "fish_vi_key_bindings"
 chsh -s $(which fish)
 
 # Setup neovim venv (TODO: test that this works)
+pyenv install 3.10.4
 ~/.pyenv/versions/3.10.4/bin/python -m venv ~/.config/nvim/venv
 ~/.config/nvim/venv/bin/pip install -r ~/.config/nvim/requirements.txt
 
